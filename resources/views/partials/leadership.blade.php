@@ -15,12 +15,12 @@
                     [
                         'name' => 'Abu Al Ghifari',
                         'position' => 'Presiden Mahasiswa BEM REMA UPI 2025',
-                        'image' => 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80',
+                        'image' => asset('build/assets/image/Presiden_Rema.jpg'),
                     ],
                     [
                         'name' => 'Najril Fauzan',
                         'position' => 'Wakil Presiden BEM REMA UPI 2025',
-                        'image' => 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80',
+                        'image' => asset('build/assets/image/Wapres_Rema.jpg'),
                     ],
                 ];
             @endphp
