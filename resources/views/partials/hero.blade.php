@@ -1,113 +1,101 @@
 {{-- Hero Section --}}
-<div class="relative w-full overflow-hidden flex items-center justify-center pt-20 pb-20"
-     style="height: 100vh; background-image: url('{{ asset('build/assets/image/Isola.png') }}'); background-size: cover; background-position: center; background-attachment: fixed;">
-    
-    {{-- Dark overlay with gradient --}}
-    <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(10, 37, 64, 0.85) 0%, rgba(10, 37, 64, 0.65) 50%, rgba(10, 37, 64, 0.75) 100%); z-index: 1;"></div>
-
-    {{-- Animated floating particles --}}
-    <div class="particles-container" style="position: absolute; inset: 0; z-index: 2; pointer-events: none;">
-        <div class="particle" style="position: absolute; top: 20%; left: 10%; width: 4px; height: 4px; background: rgba(255, 255, 255, 0.5); border-radius: 50%; animation: float-particle 15s infinite ease-in-out;"></div>
-        <div class="particle" style="position: absolute; top: 50%; right: 15%; width: 6px; height: 6px; background: rgba(252, 211, 77, 0.6); border-radius: 50%; animation: float-particle 12s infinite ease-in-out 2s;"></div>
-        <div class="particle" style="position: absolute; bottom: 30%; left: 20%; width: 5px; height: 5px; background: rgba(255, 255, 255, 0.4); border-radius: 50%; animation: float-particle 18s infinite ease-in-out 4s;"></div>
-        <div class="particle" style="position: absolute; top: 70%; right: 25%; width: 3px; height: 3px; background: rgba(252, 211, 77, 0.5); border-radius: 50%; animation: float-particle 20s infinite ease-in-out 6s;"></div>
+<section class="hero-section relative w-full min-h-screen flex items-center justify-center overflow-hidden">
+    {{-- Background Image with Overlay --}}
+    <div class="absolute inset-0">
+        <img src="{{ asset('build/assets/image/Isola.png') }}" alt="Isola UPI" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-blue-900/70 to-slate-900/80"></div>
     </div>
-
-    {{-- Animated blob backgrounds --}}
-    <div style="position: absolute; top: -100px; right: 10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(252, 211, 77, 0.15) 0%, transparent 70%); border-radius: 9999px; filter: blur(80px); opacity: 0.8; animation: float-blob 8s ease-in-out infinite; z-index: 2;"></div>
-    <div style="position: absolute; bottom: -150px; left: -100px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%); border-radius: 9999px; filter: blur(100px); opacity: 0.6; animation: glow-blob 10s ease-in-out infinite; z-index: 2;"></div>
-
-    {{-- Main content --}}
-    <div class="relative z-10 w-full max-w-7xl px-6 md:px-12 lg:px-16">
-        <div class="max-w-4xl">
-            {{-- Badge with animation --}}
-            <div class="inline-block mb-8 badge-slide-right" style="animation-delay: 0s;">
-                <div style="display: inline-block; padding: 12px 32px; background-color: #FACC15; border-radius: 50px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);">
-                    <span style="color: #000000; font-size: 15px; font-weight: 700; font-family: 'Poppins', sans-serif; display: block; text-align: center; letter-spacing: 0.05em; text-transform: uppercase;">KABINET SUAR SANGGA 2025</span>
+    
+    {{-- Animated Background Elements --}}
+    <div class="absolute inset-0 opacity-20">
+        <div class="absolute top-20 right-20 w-96 h-96 bg-yellow-400/20 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-20 left-20 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+    </div>
+    
+    {{-- Grid Pattern --}}
+    <div class="absolute inset-0 opacity-5" style="background-image: linear-gradient(rgba(250, 204, 21, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(250, 204, 21, 0.5) 1px, transparent 1px); background-size: 40px 40px;"></div>
+    
+    {{-- Content Container --}}
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 py-20">
+        <div class="text-center">
+            {{-- Badge --}}
+            <div class="inline-block mb-8 animate-fade-in">
+                <div class="inline-flex items-center gap-2 px-6 py-3 bg-yellow-400/20 backdrop-blur-md border border-yellow-400/30 rounded-full">
+                    <span class="text-2xl">🔥</span>
+                    <span class="text-sm font-bold text-yellow-300 uppercase tracking-wider">Kabinet Suar Sangga 2025</span>
                 </div>
             </div>
-
-            {{-- Main heading with staggered animation --}}
-            <div class="mb-8">
-                <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-4" style="font-family: 'Poppins', sans-serif;">
-                    <span class="block hero-text-reveal" style="animation-delay: 0.2s;">BADAN EKSEKUTIF</span>
-                    <span class="block bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-200 bg-clip-text text-transparent hero-text-reveal" style="animation-delay: 0.4s;">
-                        MAHASISWA
-                    </span>
-                    <span class="block hero-text-reveal" style="animation-delay: 0.6s;">REPUBLIK</span>
-                    <span class="block hero-text-reveal" style="animation-delay: 0.8s;">MAHASISWA UPI</span>
-                </h1>
-                
-                {{-- Tagline with fade-in animation --}}
-                <p class="text-lg md:text-xl text-white font-light leading-relaxed max-w-2xl hero-text-reveal" style="animation-delay: 1s; font-family: 'Poppins', sans-serif;">
-                    'Bergerak Berdampak, Melangkah Terarah' 
-                </p>
+            
+            {{-- Main Heading --}}
+            <h1 class="font-black text-white mb-8 animate-fade-in-up" style="animation-delay: 0.2s;">
+                <span class="block text-4xl md:text-5xl lg:text-6xl mb-2">BADAN EKSEKUTIF MAHASISWA</span>
+                <span class="block text-5xl md:text-6xl lg:text-7xl bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 bg-clip-text text-transparent mb-2">REPUBLIK MAHASISWA</span>
+                <span class="block text-4xl md:text-5xl lg:text-6xl">UNIVERSITAS PENDIDIKAN INDONESIA</span>
+            </h1>
+            
+            {{-- Tagline --}}
+            <div class="inline-block mb-12 animate-fade-in-up" style="animation-delay: 0.4s;">
+                <div class="px-8 py-4 bg-black/20 backdrop-blur-md border border-yellow-400/20 rounded-2xl">
+                    <p class="text-xl md:text-2xl font-bold text-yellow-300">
+                        Bergerak Berdampak, Melangkah Terarah
+                    </p>
+                </div>
             </div>
-
-           {{-- CTA Buttons with hover effects --}}
-            <div class="flex flex-wrap gap-4">
-                <a href="#about" class="cta-btn group hero-text-reveal" style="text-decoration: none; animation-delay: 1.2s;">
-                    <div class="cta-btn-inner" style="position: relative; display: inline-block; padding: 14px 40px; background: transparent; border: 3px solid #FACC15; border-radius: 12px; cursor: pointer; overflow: hidden; transition: all 0.3s ease;">
-                        <span class="cta-text" style="position: relative; z-index: 10; color: #FACC15; font-size: 16px; font-weight: 900; font-family: 'Poppins', sans-serif; display: block; text-align: center;">Tentang Kami</span>
-                        <div class="cta-bg" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(250, 204, 21, 0.07); opacity: 0; transition: opacity 0.3s ease; z-index: 1; border-radius: 12px;"></div>
-                    </div>
+            
+            {{-- CTA Buttons --}}
+            <div class="flex flex-wrap gap-4 justify-center animate-fade-in-up" style="animation-delay: 0.6s;">
+                <a href="#about" class="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-400/50 hover:-translate-y-1">
+                    <span>Tentang Kami</span>
+                    <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
                 </a>
-                <a href="#news" class="cta-btn group hero-text-reveal" style="text-decoration: none; animation-delay: 1.4s;">
-                    <div class="cta-btn-inner" style="position: relative; display: inline-block; padding: 14px 40px; background: transparent; border: 3px solid #FACC15; border-radius: 12px; cursor: pointer; overflow: hidden; transition: all 0.3s ease;">
-                        <span class="cta-text" style="position: relative; z-index: 10; color: #FACC15; font-size: 16px; font-weight: 900; font-family: 'Poppins', sans-serif; display: block; text-align: center;">Berita Terbaru</span>
-                        <div class="cta-bg" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(250, 204, 21, 0.07); opacity: 0; transition: opacity 0.3s ease; z-index: 1; border-radius: 12px;"></div>
-                    </div>
+                <a href="#news" class="group inline-flex items-center gap-3 px-8 py-4 bg-transparent border-2 border-yellow-400 hover:bg-yellow-400 text-yellow-400 hover:text-black font-bold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-400/50 hover:-translate-y-1">
+                    <span>Berita Terbaru</span>
+                    <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+                    </svg>
                 </a>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-{{-- Modern Animations --}}
+{{-- Custom Animations --}}
 <style>
-/* Badge slide from left animation */
-.badge-slide-right {
-    opacity: 0;
-    transform: translateX(-50px);
-    animation: slideRight 0.8s ease-out forwards;
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-@keyframes slideRight {
-    0% {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Hero text reveal animation */
-.hero-text-reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: textReveal 0.8s ease-out forwards;
-}
-
-@keyframes textReveal {
-    0% {
+@keyframes fade-in-up {
+    from {
         opacity: 0;
         transform: translateY(30px);
     }
-    100% {
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* Button hover animations */
-.cta-btn:hover .cta-bg {
-    opacity: 1 !important;
+.animate-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
 }
 
-.cta-btn:hover .cta-text {
-    color: #FACC15 !important;
+.animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+}
+
+/* Smooth gradient animation */
+@keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.hero-section h1 .bg-gradient-to-r {
+    background-size: 200% auto;
+    animation: gradient-shift 3s ease infinite;
 }
 </style>
 

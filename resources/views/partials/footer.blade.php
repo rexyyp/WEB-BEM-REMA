@@ -46,13 +46,13 @@
                     @foreach($socials as $social)
                         <a
                             href="#"
-                            class="w-12 h-12 rounded-lg bg-white/10 hover:text-primary flex items-center justify-center transition-all duration-300 transform hover:scale-110"
+                            class="social-icon w-12 h-12 rounded-lg bg-white/10 hover:text-primary flex items-center justify-center transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 hover-glow"
                             style="transition: background-color 0.3s;"
                             onmouseover="this.style.backgroundColor='#FACC15'"
                             onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.1)'"
                             title="{{ $social['label'] }}"
                         >
-                            <img src="{{ asset('build/assets/icon/' . $social['icon']) }}" alt="{{ $social['label'] }}" class="w-6 h-6 object-contain">
+                            <img src="{{ asset('build/assets/icon/' . $social['icon']) }}" alt="{{ $social['label'] }}" class="w-6 h-6 object-contain transition-transform duration-300 hover:rotate-12">
                         </a>
                     @endforeach
                 </div>
@@ -61,7 +61,22 @@
 
         {{-- Bottom Footer --}}
         <div class="flex flex-col items-center justify-center gap-4 text-sm text-gray-400 font-light text-center">
-            <p>© 2025 BEM REMA UPI - All rights reserved.</p>
+            <p class="hover:text-yellow-400 transition-colors duration-300">© 2025 BEM REMA UPI - All rights reserved.</p>
         </div>
     </div>
 </footer>
+
+<style>
+.social-icon:hover img {
+    filter: brightness(0) saturate(100%);
+}
+
+@keyframes float-icon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.social-icon:hover {
+    animation: float-icon 0.6s ease-in-out;
+}
+</style>
