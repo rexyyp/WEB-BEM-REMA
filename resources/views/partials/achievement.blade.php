@@ -1,4 +1,4 @@
-<section id="achievement" class="py-32 px-4 md:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+{{-- <section id="achievement" class="py-32 px-4 md:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-50">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
             <h2 class="animate-on-scroll text-5xl md:text-6xl font-black text-primary mb-6 opacity-0 transition-all duration-1000" style="transform: translateY(40px);">
@@ -10,7 +10,7 @@
         </div>
 
         {{-- Stats Grid --}}
-        <div class="grid md:grid-cols-4 gap-8">
+        {{-- <div class="grid md:grid-cols-4 gap-8">
             @php
                 $achievements = [
                     ['stat' => '15+', 'label' => 'Penghargaan Nasional', 'icon' => '🏆'],
@@ -28,4 +28,4 @@
             @endforeach
         </div>
     </div>
-</section>
+</section> --}} 

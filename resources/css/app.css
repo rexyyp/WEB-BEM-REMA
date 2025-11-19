@@ -1,30 +1,73 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
-  --color-primary: #0A2540;
-  --color-primary-light: #2563EB;
-  --color-primary-accent: #1E40AF;
-  --color-accent: #F59E0B;
-  --color-accent-light: #FCD34D;
+    --color-primary: #0a2540;
+    --color-primary-light: #2563eb;
+    --color-primary-accent: #1e40af;
+    --color-accent: #f59e0b;
+    --color-accent-light: #fcd34d;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
+body {
+    overflow-x: hidden;
+}
+
+/* Hover Effects */
 .hover-lift {
-  transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .hover-lift:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .hover-scale {
-  transition: transform 0.5s ease;
+    transition: transform 0.5s ease;
 }
 
 .hover-scale:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+/* Text gradient animation */
+@keyframes gradient-shift {
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.gradient-animate {
+    background-size: 200% auto;
+    animation: gradient-shift 3s ease infinite;
+}
+
+/* Smooth fade-in on page load */
+@keyframes fade-in-page {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Performance optimization */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
