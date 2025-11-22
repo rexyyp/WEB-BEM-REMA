@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Admin Panel BEM REMA UPI - Kabinet Suar Sangga 2025">
-    <title>Login Admin - BEM REMA UPI</title>
+    <title>Admin Login - BEM REMA UPI</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <style>
         * {
@@ -12,83 +12,267 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             min-height: 100vh;
+            background: #f8fafc;
+            overflow-x: hidden;
+        }
+        
+        /* Split Layout Container */
+        .split-container {
+            display: flex;
+            min-height: 100vh;
+            width: 100%;
+        }
+        
+        /* Left Side - Login Card (40-45%) */
+        .left-panel {
+            flex: 0 0 42%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            background: #ffffff;
+        }
+        
+        /* Right Side - Abstract Illustration (55-60%) */
+        .right-panel {
+            flex: 1;
             position: relative;
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 25%, #3b82f6 50%, #fbbf24 75%, #FACC15 100%);
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+        
+        /* Abstract Shapes */
+        .abstract-shape {
+            position: absolute;
+            border-radius: 200px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+        }
+        
+        .shape-1 {
+            width: 400px;
+            height: 600px;
+            top: -100px;
+            right: -50px;
+            transform: rotate(-15deg);
+            animation: float-slow 20s ease-in-out infinite;
+        }
+        
+        .shape-2 {
+            width: 350px;
+            height: 500px;
+            bottom: -80px;
+            left: 10%;
+            transform: rotate(25deg);
+            animation: float-slow 18s ease-in-out infinite reverse;
+        }
+        
+        .shape-3 {
+            width: 250px;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            animation: float-slow 22s ease-in-out infinite;
+        }
+        
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0) rotate(-15deg); }
+            50% { transform: translateY(-30px) rotate(-20deg); }
+        }
+        
+        /* Login Card */
         .login-card {
-            background: rgba(255, 255, 255, 0.98) !important;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            width: 100%;
+            max-width: 480px;
+            background: #ffffff;
+            border-radius: 40px;
+            padding: 50px 45px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
         }
+        
+        /* Typography */
+        .login-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        
+        .login-subtitle {
+            font-size: 14px;
+            color: #94a3b8;
+            margin-bottom: 40px;
+        }
+        
+        /* Input Fields - Underline Style */
+        .input-group {
+            margin-bottom: 32px;
+        }
+        
+        .input-label-static {
+            display: block;
+            font-size: 14px;
+            color: #64748b;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .input-underline {
+            width: 100%;
+            padding: 12px 0;
+            font-size: 15px;
+            color: #1e293b;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #e2e8f0;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .input-underline:focus {
+            border-bottom-color: #2563eb;
+        }
+        
+        .input-underline::placeholder {
+            color: #cbd5e1;
+        }
+        
+        /* Checkbox Remember Me */
+        .remember-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+        
+        .remember-checkbox input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #2563eb;
+        }
+        
+        .remember-checkbox label {
+            font-size: 14px;
+            color: #64748b;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        /* Button - Blue Pill */
         .login-button {
             width: 100%;
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
-            color: white !important;
-            font-weight: 600;
-            padding: 16px 24px;
-            border-radius: 12px;
+            background: #2563eb;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 16px 32px;
             border: none;
+            border-radius: 50px;
             cursor: pointer;
-            font-size: 17px;
             transition: all 0.3s ease;
-            display: block !important;
-            margin-top: 8px;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+            letter-spacing: 0.5px;
         }
+        
         .login-button:hover {
-            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%) !important;
+            background: #1d4ed8;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4);
         }
+        
         .login-button:active {
             transform: translateY(0);
         }
-        .input-field {
-            transition: all 0.3s ease;
+        
+        /* Logo Section */
+        .logo-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
         }
-        .input-field:focus {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+        
+        .logo-img {
+            height: 60px;
+            width: auto;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+        
+        .logo-divider {
+            width: 2px;
+            height: 50px;
+            background: linear-gradient(to bottom, transparent, #cbd5e1, transparent);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .split-container {
+                flex-direction: column;
+            }
+            
+            .left-panel {
+                flex: none;
+                min-height: 100vh;
+            }
+            
+            .right-panel {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .login-card {
+                padding: 40px 30px;
+                border-radius: 30px;
+            }
+            
+            .login-title {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
-<body class="min-h-screen relative overflow-hidden">
-    
-    {{-- Background Image --}}
-    <div class="absolute inset-0 z-0">
-        <img src="{{ asset('build/assets/image/Isola.png') }}" alt="Background" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-white/60"></div>
-    </div>
-
-    {{-- Logo Section - Top Right --}}
-    <div style="position: fixed; top: 24px; right: 24px; z-index: 50; display: flex; gap: 12px;">
-        <img src="{{ asset('build/assets/image/Logo Suar Sangga.png') }}" alt="Logo BEM REMA" style="height: 56px; width: auto;">
-        <img src="{{ asset('build/assets/image/Logo Upi.png') }}" alt="Logo UPI" style="height: 56px; width: auto;">
-    </div>
-
-    {{-- Main Container --}}
-    <div class="relative min-h-screen flex items-center justify-center p-4 z-10">
-        <div class="w-full max-w-md px-6">
-            {{-- Login Card --}}
-            <div class="login-card rounded-3xl shadow-2xl p-14">
+<body>
+    {{-- Split Screen Layout --}}
+    <div class="split-container">
+        
+        {{-- Left Panel - Login Card --}}
+        <div class="left-panel">
+            <div class="login-card">
+                
+                {{-- Logo Section --}}
+                <div class="logo-section">
+                    <img src="{{ asset('build/assets/image/Logo Suar Sangga.png') }}" alt="Logo Suar Sangga" class="logo-img">
+                    <div class="logo-divider"></div>
+                    <img src="{{ asset('build/assets/image/Logo Upi.png') }}" alt="Logo UPI" class="logo-img">
+                </div>
+                
                 {{-- Header --}}
-                <div class="text-center mb-10">
-                    <h1 class="text-3xl font-bold text-gray-900 mb-3">Login Admin</h1>
-                    <p class="text-base text-gray-600">BEM REMA UPI - Kabinet Suar Sangga 2025</p>
+                <div class="mb-8">
+                    <h1 class="login-title">Login to Admin</h1>
+                    <p class="login-subtitle">Please enter your login information</p>
                 </div>
 
                 {{-- Alert Messages --}}
                 @if(session('success'))
-                <div class="mb-4 p-3 bg-green-100 border border-green-300 text-green-800 rounded text-sm">
+                <div class="mb-4 p-3 bg-green-50 border-l-4 border-green-400 text-green-700 rounded text-sm">
                     {{ session('success') }}
                 </div>
                 @endif
 
                 @if($errors->any())
-                <div class="mb-4 p-3 bg-red-100 border border-red-300 text-red-800 rounded text-sm">
+                <div class="mb-4 p-3 bg-red-50 border-l-4 border-red-400 text-red-700 rounded text-sm">
                     {{ $errors->first() }}
                 </div>
                 @endif
@@ -98,67 +282,54 @@
                     @csrf
 
                     {{-- Username Field --}}
-                    <div style="margin-bottom: 10px;">
-                        <label for="email" class="block text-sm font-semibold text-gray-800 mb-3">
-                            Username
-                        </label>
+                    <div class="input-group">
+                        <label for="email" class="input-label-static">Username</label>
                         <input type="email" 
                                id="email" 
                                name="email" 
                                value="{{ old('email') }}"
                                required 
                                autofocus
-                               class="input-field w-full px-5 py-4 text-gray-900 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all @error('email') border-red-400 @enderror"
-                               placeholder="Masukkan username Anda">
+                               class="input-underline"
+                               placeholder="Enter your email">
                     </div>
 
                     {{-- Password Field --}}
-                    <div style="margin-bottom: 10px;">
-                        <label for="password" class="block text-sm font-semibold text-gray-800 mb-3">
-                            Password
-                        </label>
-                        <div class="relative">
-                            <input type="password" 
-                                   id="password" 
-                                   name="password" 
-                                   required
-                                   class="input-field w-full px-5 py-4 text-gray-900 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all @error('password') border-red-400 @enderror"
-                                   placeholder="Masukkan password Anda">
-                            <button type="button" 
-                                    onclick="togglePassword()"
-                                    class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-blue-600 transition-colors">
-                                <svg id="eye-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path>
-                                </svg>
-                            </button>
-                        </div>
+                    <div class="input-group">
+                        <label for="password" class="input-label-static">Password</label>
+                        <input type="password" 
+                               id="password" 
+                               name="password" 
+                               required
+                               class="input-underline"
+                               placeholder="Enter your password">
+                    </div>
+
+                    {{-- Remember Me Checkbox --}}
+                    <div class="remember-checkbox">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Remember me</label>
                     </div>
 
                     {{-- Submit Button --}}
-                    <div style="margin-top: 48px;">
-                        <button type="submit" class="login-button">
-                            Login
-                        </button>
-                    </div>
+                    <button type="submit" class="login-button">
+                        Log In
+                    </button>
                 </form>
+                
             </div>
         </div>
+        
+        {{-- Right Panel - Abstract Illustration --}}
+        <div class="right-panel">
+            <div class="abstract-shape shape-1"></div>
+            <div class="abstract-shape shape-2"></div>
+            <div class="abstract-shape shape-3"></div>
+        </div>
+        
     </div>
 
-<script>
-        function togglePassword() {
-            const passwordInput = document.getElementById('password');
-            const eyeIcon = document.getElementById('eye-icon');
-            
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                eyeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>';
-            } else {
-                passwordInput.type = 'password';
-                eyeIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"></path>';
-            }
-        }
-    </script>
+
 
 </body>
 </html>

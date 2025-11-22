@@ -17,13 +17,32 @@ Route::get('/berita', function () {
 
 // Admin Routes
 Route::prefix('admin')->name('admin.')->group(function () {
-    // Login Page (untuk testing frontend dulu)
+    // Login Page
     Route::get('/login', function () {
         return view('admin.auth.login');
     })->name('login');
     
-    // Route untuk handle login POST (dummy dulu)
+    // Login POST - langsung redirect ke dashboard tanpa validasi
     Route::post('/login', function () {
-        return redirect()->route('admin.login')->with('success', 'Login berhasil!');
+        return redirect()->route('admin.dashboard');
     })->name('login.post');
+    
+    // Dashboard Page
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard.index');
+    })->name('dashboard');
+    
+    // Data Anggota Page
+    Route::get('/anggota', function () {
+        return view('admin.anggota.index');
+    })->name('anggota');
+    
+    // Berita Routes
+    Route::get('/berita', function () {
+        return view('admin.berita.index');
+    })->name('berita');
+    
+    Route::get('/berita/create', function () {
+        return view('admin.berita.create');
+    })->name('berita.create');
 });

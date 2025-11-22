@@ -1,11 +1,16 @@
 <section id="news" class="py-32 px-4 md:px-8 bg-gray-50">
     <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="animate-on-scroll text-5xl md:text-6xl font-black text-black mb-6 opacity-0 transition-all duration-1000" style="transform: translateY(40px);">
+        <div class="text-center mb-20 relative">
+            {{-- Decorative Elements --}}
+            <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-72 h-72 opacity-15 liquid-shape" style="background: radial-gradient(circle, rgba(250, 204, 21, 0.4) 0%, transparent 70%); filter: blur(60px); z-index: -1;"></div>
+            
+            <h2 class="animate-on-scroll text-5xl md:text-6xl font-black mb-6 opacity-0 transition-all duration-1000" style="transform: translateY(40px); color: #37537A;">
                 Berita & Publikasi
             </h2>
-            <div class="flex justify-center mt-4">
-                <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="width: 160px; height: 4px; background-color: #37537A; border-radius: 9999px; transform: translateY(40px); transition-delay: 200ms;"></div>
+            <div class="flex justify-center mt-6 gap-3">
+                <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="width: 80px; height: 4px; background: linear-gradient(90deg, #FACC15, #93C5FD); border-radius: 9999px; transform: translateY(40px); transition-delay: 200ms;"></div>
+                <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="width: 6px; height: 6px; background-color: #FACC15; border-radius: 50%; transform: translateY(40px); transition-delay: 250ms;"></div>
+                <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="width: 80px; height: 4px; background: linear-gradient(90deg, #93C5FD, #F59E0B); border-radius: 9999px; transform: translateY(40px); transition-delay: 300ms;"></div>
             </div>
         </div>
 
@@ -35,20 +40,40 @@
                     ],
                 ];
             @endphp
+            
+            {{-- Decorative Background Elements --}}
+            <div class="absolute top-1/4 left-0 w-96 h-96 morph-blob opacity-5" style="background: linear-gradient(135deg, #FACC15, #93C5FD); filter: blur(100px); z-index: -1;"></div>
+            <div class="absolute bottom-1/4 right-0 w-80 h-80 liquid-shape opacity-5" style="background: linear-gradient(135deg, #37537A, #F59E0B); filter: blur(100px); z-index: -1;"></div>
+            
             @foreach($newsItems as $index => $item)
-                <div class="animate-on-scroll group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-2 opacity-0" style="transform: translateY(30px); transition-delay: {{ $index * 100 }}ms; display: grid; grid-template-rows: auto 1fr; height: 480px;">
+                <div class="animate-on-scroll group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-3 opacity-0 card-3d" style="transform: translateY(30px); transition-delay: {{ $index * 100 }}ms; display: grid; grid-template-rows: auto 1fr; height: 480px;">
                     {{-- Image --}}
                     <div class="relative overflow-hidden aspect-video">
                         <img
                             src="{{ $item['image'] }}"
                             alt="{{ $item['title'] }}"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700"
+                            class="w-full h-full object-cover transform group-hover:scale-110 group-hover:rotate-2 transition-all duration-700"
                         />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute top-4 left-4">
-                            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold text-black" style="background-color: #F59E0B;">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        {{-- Shimmer Effect --}}
+                        <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 pointer-events-none"></div>
+                        
+                        {{-- Category Badge with Pulse --}}
+                        <div class="absolute top-4 left-4 transform group-hover:scale-110 transition-transform duration-300">
+                            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold text-black" style="background-color: #FACC15;">
                                 {{ $item['category'] }}
                             </span>
+                        </div>
+                        
+                        {{-- Read More Button (muncul saat hover) --}}
+                        <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0">
+                            <div class="flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md" style="background-color: rgba(250, 204, 21, 0.9);">
+                                <span class="text-xs font-bold text-black">Baca Selengkapnya</span>
+                                <svg class="w-4 h-4 text-black transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </div>
                         </div>
                     </div>
 
