@@ -172,6 +172,23 @@
                                 <input type="text" name="judul" placeholder="Masukkan judul berita..." required>
                             </div>
 
+                            {{-- Kategori --}}
+                            <div style="margin-bottom: 24px;">
+                                <label style="display: block; font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 8px;">
+                                    Kategori
+                                </label>
+                                <select name="kategori" required style="width: 100%; padding: 12px 16px; border: 1px solid #e5e7eb; border-radius: 8px; font-size: 14px; font-family: inherit; transition: all 0.2s ease; box-sizing: border-box; background: white; cursor: pointer;">
+                                    <option value="">Pilih Kategori</option>
+                                    <option value="Organisasi">Organisasi</option>
+                                    <option value="Teknologi">Teknologi</option>
+                                    <option value="Prestasi">Prestasi</option>
+                                    <option value="Pendidikan">Pendidikan</option>
+                                    <option value="Kemahasiswaan">Kemahasiswaan</option>
+                                    <option value="Pengumuman">Pengumuman</option>
+                                    <option value="Kegiatan">Kegiatan</option>
+                                </select>
+                            </div>
+
                             {{-- Tanggal Publikasi --}}
                             <div style="margin-bottom: 24px;">
                                 <label style="display: block; font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 8px;">

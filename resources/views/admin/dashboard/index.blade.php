@@ -72,7 +72,7 @@
             {{-- Welcome Section --}}
             <div style="margin-bottom: 32px;">
                 <h2 style="font-size: 28px; font-weight: 700; color: #111827; margin-bottom: 8px;">Selamat Datang, Admin!</h2>
-                <p style="font-size: 15px; color: #6b7280;">Kelola konten dan pantau performa website Kabinet Indonesia</p>
+                <p style="font-size: 15px; color: #6b7280;">Kelola konten dan pantau performa website BEM REMA UPI</p>
             </div>
 
             {{-- Action Buttons ROW --}}
@@ -91,13 +91,13 @@
                     Kelola Anggota Kabinet
                 </a>
                 
-                <button style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; background: white; color: #374151; border: 2px solid #374151; border-radius: 10px; font-weight: 600; font-size: 14px; cursor: pointer;">
+                <a href="{{ url('/') }}" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; background: white; color: #374151; border: 2px solid #374151; border-radius: 10px; font-weight: 600; font-size: 14px; cursor: pointer; text-decoration: none;">
                     <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
                     </svg>
                     Lihat Tampilan Publik
-                </button>
+                </a>
             </div>
 
             {{-- Stats Cards ROW --}}
@@ -179,9 +179,9 @@
                         <h3 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 4px;">Berita Terbaru Diterbitkan</h3>
                         <p style="font-size: 14px; color: #6b7280;">10 artikel terakhir yang telah dipublikasikan</p>
                     </div>
-                    <button style="padding: 10px 20px; background: white; border: 2px solid #dc2626; color: #dc2626; font-size: 13px; font-weight: 600; border-radius: 8px; cursor: pointer;">
+                    <a href="{{ route('admin.berita') }}" style="padding: 10px 20px; background: white; border: 2px solid #dc2626; color: #dc2626; font-size: 13px; font-weight: 600; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block;">
                         Lihat Semua Berita
-                    </button>
+                    </a>
                 </div>
                 
                 <div style="overflow-x: auto;">

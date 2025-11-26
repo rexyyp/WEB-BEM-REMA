@@ -8,9 +8,9 @@
                 Berita & Publikasi
             </h2>
             <div class="flex justify-center mt-6 gap-3">
-                <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="width: 80px; height: 4px; background: linear-gradient(90deg, #FACC15, #93C5FD); border-radius: 9999px; transform: translateY(40px); transition-delay: 200ms;"></div>
-                <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="width: 6px; height: 6px; background-color: #FACC15; border-radius: 50%; transform: translateY(40px); transition-delay: 250ms;"></div>
-                <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="width: 80px; height: 4px; background: linear-gradient(90deg, #93C5FD, #F59E0B); border-radius: 9999px; transform: translateY(40px); transition-delay: 300ms;"></div>
+                <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="width: 80px; height: 4px; background: linear-gradient(90deg, #37537A, #93C5FD); border-radius: 9999px; transform: translateY(40px); transition-delay: 200ms;"></div>
+                <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="width: 6px; height: 6px; background-color: #37537A; border-radius: 50%; transform: translateY(40px); transition-delay: 250ms;"></div>
+                <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="width: 80px; height: 4px; background: linear-gradient(90deg, #93C5FD, #FACC15); border-radius: 9999px; transform: translateY(40px); transition-delay: 300ms;"></div>
             </div>
         </div>
 
@@ -64,16 +64,6 @@
                             <span class="inline-block px-3 py-1 rounded-full text-xs font-bold text-black" style="background-color: #FACC15;">
                                 {{ $item['category'] }}
                             </span>
-                        </div>
-                        
-                        {{-- Read More Button (muncul saat hover) --}}
-                        <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 group-hover:translate-x-0">
-                            <div class="flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md" style="background-color: rgba(250, 204, 21, 0.9);">
-                                <span class="text-xs font-bold text-black">Baca Selengkapnya</span>
-                                <svg class="w-4 h-4 text-black transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
                         </div>
                     </div>
 

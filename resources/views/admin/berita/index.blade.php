@@ -131,6 +131,7 @@
                             <tr style="border-bottom: 2px solid #e5e7eb;">
                                 <th style="text-align: left; padding: 12px 16px; font-size: 13px; font-weight: 600; color: #6b7280; width: 100px;">Foto</th>
                                 <th style="text-align: left; padding: 12px 16px; font-size: 13px; font-weight: 600; color: #6b7280; width: 200px;">Judul Berita</th>
+                                <th style="text-align: left; padding: 12px 16px; font-size: 13px; font-weight: 600; color: #6b7280; width: 130px;">Kategori</th>
                                 <th style="text-align: left; padding: 12px 16px; font-size: 13px; font-weight: 600; color: #6b7280;">Deskripsi</th>
                                 <th style="text-align: left; padding: 12px 16px; font-size: 13px; font-weight: 600; color: #6b7280; width: 150px;">Tanggal Terbit</th>
                                 <th style="text-align: center; padding: 12px 16px; font-size: 13px; font-weight: 600; color: #6b7280; width: 100px;">Aksi</th>
@@ -144,6 +145,9 @@
                                 </td>
                                 <td style="padding: 16px;">
                                     <span style="font-size: 14px; font-weight: 600; color: #111827;">Pelantikan Kabinet di ...</span>
+                                </td>
+                                <td style="padding: 16px;">
+                                    <span style="display: inline-block; padding: 4px 12px; background: #dbeafe; color: #1e40af; border-radius: 12px; font-size: 12px; font-weight: 500;">Organisasi</span>
                                 </td>
                                 <td style="padding: 16px;">
                                     <p style="font-size: 14px; color: #6b7280; margin: 0; line-height: 1.5;">Perusahaan kami dengan bangga mengumumkan pembukaan kantor baru di Jakarta yang akan melayani...</p>
@@ -174,6 +178,9 @@
                                     <span style="font-size: 14px; font-weight: 600; color: #111827;">Konferensi Teknologi 2025</span>
                                 </td>
                                 <td style="padding: 16px;">
+                                    <span style="display: inline-block; padding: 4px 12px; background: #e9d5ff; color: #6b21a8; border-radius: 12px; font-size: 12px; font-weight: 500;">Teknologi</span>
+                                </td>
+                                <td style="padding: 16px;">
                                     <p style="font-size: 14px; color: #6b7280; margin: 0; line-height: 1.5;">Acara konferensi teknologi terbesar tahun ini akan diselenggarakan pada bulan Desember...</p>
                                 </td>
                                 <td style="padding: 16px; font-size: 14px; color: #6b7280;">12 November 2025</td>
@@ -200,6 +207,9 @@
                                 </td>
                                 <td style="padding: 16px;">
                                     <span style="font-size: 14px; font-weight: 600; color: #111827;">Penghargaan Best Company 2025</span>
+                                </td>
+                                <td style="padding: 16px;">
+                                    <span style="display: inline-block; padding: 4px 12px; background: #fef3c7; color: #92400e; border-radius: 12px; font-size: 12px; font-weight: 500;">Prestasi</span>
                                 </td>
                                 <td style="padding: 16px;">
                                     <p style="font-size: 14px; color: #6b7280; margin: 0; line-height: 1.5;">Tim kami berhasil meraih penghargaan sebagai perusahaan terbaik dalam kategori inovasi...</p>

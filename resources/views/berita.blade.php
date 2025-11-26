@@ -63,7 +63,7 @@
                         <img src="{{ asset('build/assets/image/' . $news['image']) }}" alt="{{ $news['title'] }}" class="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                         <div class="absolute top-4 left-4">
-                            <span class="inline-block px-4 py-2 rounded-full text-xs font-bold text-black" style="background-color: #F59E0B;">
+                            <span class="inline-block px-4 py-2 rounded-full text-xs font-bold text-black" style="background-color: #FACC15;">
                                 {{ $news['category'] }}
                             </span>
                         </div>
@@ -115,21 +115,15 @@
                 </div>
 
                 {{-- Category Filter --}}
-                <div class="animate-on-scroll flex flex-wrap gap-3 opacity-0 transition-all duration-1000 justify-start md:justify-end" style="transform: translateY(40px); transition-delay: 200ms;">
+                <div class="animate-on-scroll flex flex-wrap gap-3 opacity-0 transition-all duration-1000 justify-start" style="transform: translateY(40px); transition-delay: 200ms;">
                     <button class="px-5 py-2 rounded-full text-sm font-bold text-black transition-all duration-300 hover:scale-105 whitespace-nowrap" style="background-color: #FACC15;">
                         Semua
                     </button>
                     <button class="px-5 py-2 rounded-full text-sm font-semibold text-gray-600 bg-white border-2 border-gray-200 hover:border-yellow-400 transition-all duration-300 whitespace-nowrap">
-                        Workshop
+                        Program Kerja
                     </button>
                     <button class="px-5 py-2 rounded-full text-sm font-semibold text-gray-600 bg-white border-2 border-gray-200 hover:border-yellow-400 transition-all duration-300 whitespace-nowrap">
-                        Kegiatan
-                    </button>
-                    <button class="px-5 py-2 rounded-full text-sm font-semibold text-gray-600 bg-white border-2 border-gray-200 hover:border-yellow-400 transition-all duration-300 whitespace-nowrap">
-                        Prestasi
-                    </button>
-                    <button class="px-5 py-2 rounded-full text-sm font-semibold text-gray-600 bg-white border-2 border-gray-200 hover:border-yellow-400 transition-all duration-300 whitespace-nowrap">
-                        Pengumuman
+                        Rema PERS
                     </button>
                 </div>
             </div>
@@ -200,7 +194,7 @@
                         <img src="{{ asset('build/assets/image/' . $news['image']) }}" alt="{{ $news['title'] }}" class="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="absolute top-4 left-4">
-                            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold text-black" style="background-color: #F59E0B;">
+                            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold text-black" style="background-color: #FACC15;">
                                 {{ $news['category'] }}
                             </span>
                         </div>

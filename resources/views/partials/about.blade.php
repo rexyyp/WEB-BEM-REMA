@@ -69,13 +69,39 @@
 
             {{-- Right Image --}}
             <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="transform: translateX(40px);">
-                <div class="relative">
-                    <img
-                        src="{{ asset('build/assets/image/Team Rema.jpg') }}"
-                        alt="BEM REMA UPI Team"
-                        class="w-full rounded-2xl shadow-2xl object-cover aspect-square"
-                        style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
-                    />
+                <div class="relative group">
+                    {{-- Animated Border Gradient --}}
+                    <div class="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-blue-500 to-yellow-400 rounded-2xl blur-2xl opacity-30 group-hover:opacity-60 transition-all duration-700 animate-gradient-rotate"></div>
+                    
+                    {{-- Floating Glow Effect --}}
+                    <div class="absolute -inset-4 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-700" style="background: radial-gradient(circle at center, rgba(250, 204, 21, 0.15), transparent 70%); filter: blur(20px);"></div>
+                    
+                    {{-- Image Container with Tilt Effect --}}
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl transition-all duration-500 group-hover:shadow-[0_25px_60px_-12px_rgba(250,204,21,0.4)] image-tilt-container">
+                        <img
+                            src="{{ asset('build/assets/image/Team Rema.jpg') }}"
+                            alt="BEM REMA UPI Team"
+                            class="w-full object-cover aspect-square transition-all duration-700 group-hover:scale-110"
+                            style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+                        />
+                        
+                        {{-- Overlay Gradient on Hover --}}
+                        <div class="absolute inset-0 bg-gradient-to-tr from-yellow-400/20 via-transparent to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        
+                        {{-- Shine Effect --}}
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                            <div class="absolute inset-0 shine-effect"></div>
+                        </div>
+                        
+                        {{-- Corner Accents --}}
+                        <div class="absolute top-0 left-0 w-20 h-20 border-t-4 border-l-4 rounded-tl-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 transform -translate-x-2 -translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0" style="border-color: #FACC15;"></div>
+                        <div class="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 rounded-br-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0" style="border-color: #37537A;"></div>
+                    </div>
+                    
+                    {{-- Floating Particles Around Image --}}
+                    <div class="absolute top-10 -left-4 w-4 h-4 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700" style="background: #FACC15; animation: float-particle-side 3s ease-in-out infinite;"></div>
+                    <div class="absolute top-1/3 -right-4 w-3 h-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700" style="background: #37537A; animation: float-particle-side 3s ease-in-out infinite; animation-delay: 1s;"></div>
+                    <div class="absolute bottom-20 -left-6 w-5 h-5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700" style="background: rgba(147, 197, 253, 0.8); animation: float-particle-side 3s ease-in-out infinite; animation-delay: 2s;"></div>
                 </div>
             </div>
         </div>
@@ -86,5 +112,95 @@
 .is-visible {
     opacity: 1 !important;
     transform: translate(0, 0) !important;
+}
+
+/* Image 3D Tilt Effect */
+.image-tilt-container {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.image-tilt-container:hover {
+    transform: rotateY(-5deg) rotateX(5deg) scale(1.02);
+}
+
+/* Animated Gradient Rotation */
+@keyframes gradient-rotate {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animate-gradient-rotate {
+    background-size: 200% 200%;
+    animation: gradient-rotate 4s ease infinite;
+}
+
+/* Shine Effect Sweep */
+.shine-effect {
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 40%,
+        rgba(255, 255, 255, 0.8) 50%,
+        transparent 60%,
+        transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shine-sweep 3s ease-in-out infinite;
+}
+
+@keyframes shine-sweep {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Floating Particles Around Image */
+@keyframes float-particle-side {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translate(10px, -10px) scale(1.2);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-5px, -20px) scale(0.9);
+        opacity: 0.8;
+    }
+    75% {
+        transform: translate(15px, -15px) scale(1.1);
+        opacity: 0.9;
+    }
+}
+
+/* Pulse Effect for Image Container */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(250, 204, 21, 0.6);
+    }
+}
+
+.group:hover .image-tilt-container {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Smooth Transitions */
+* {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 </style>

@@ -59,147 +59,102 @@
         </div>
     </section>
 
-    {{-- Visi & Misi Section --}}
-    <section class="py-32 px-4 md:px-8 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20">
-                <h2 class="animate-on-scroll text-5xl md:text-6xl font-black mb-6 opacity-0 transition-all duration-1000" style="color: #37537A; transform: translateY(40px);">
-                    Visi & Misi
-                </h2>
-                <div class="flex justify-center mt-4">
-                    <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="width: 160px; height: 4px; background-color: #37537A; border-radius: 9999px; transform: translateY(40px); transition-delay: 200ms;"></div>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-12">
-                {{-- Vision Card --}}
-                <div class="animate-on-scroll group p-12 rounded-2xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer relative overflow-hidden opacity-0"
-                     style="background-color: #37537A; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3); transform: scale(0.95); transition-delay: 200ms;">
-                    <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="relative z-10">
-                        <div class="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mb-8 transition-all duration-300 backdrop-blur-sm group-hover:scale-110 group-hover:rotate-6 group-hover:bg-white/30">
-                            <svg class="w-8 h-8 text-white transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                            </svg>
-                        </div>
-
-                        <h3 class="text-3xl font-black text-white mb-4 transition-all duration-200 group-hover:text-yellow-300">Visi</h3>
-                        <p class="text-white leading-relaxed text-lg font-medium mb-8 transition-all duration-200 group-hover:translate-x-1">
-                            Crafting The Ultimate Inclisive Ecosystem
-                        </p>
-                        <p class="text-white leading-relaxed text-base font-light transition-all duration-200 group-hover:translate-x-1">
-                            "Visi ini berarti menciptakan sistem atau lingkungan yang sepenuhnya merangkul dan memberdayakan setiap individu."
-                        </p>
-                    </div>
-                </div>
-
-                {{-- Mission Card --}}
-                <div class="animate-on-scroll group p-12 rounded-2xl border-2 border-gray-200 bg-gray-50 shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:border-yellow-300 cursor-pointer relative overflow-hidden opacity-0" style="transform: scale(0.95); transition-delay: 400ms;">
-                    <div class="absolute inset-0 bg-gradient-to-br from-yellow-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div class="relative z-10">
-                        <div class="w-16 h-16 rounded-2xl bg-yellow-100 flex items-center justify-center mb-8 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-yellow-200">
-                            <svg class="w-8 h-8 transition-transform duration-300 group-hover:scale-110" viewBox="0 0 24 24" fill="none">
-                                <circle cx="12" cy="12" r="10" fill="#EF4444"/>
-                                <circle cx="12" cy="12" r="6" fill="white"/>
-                                <circle cx="12" cy="12" r="3" fill="#EF4444"/>
-                            </svg>
-                        </div>
-
-                        <h3 class="text-3xl font-black mb-8 transition-all duration-200 group-hover:text-red-600" style="color: #37537A;">Misi</h3>
-
-                        <ul class="space-y-4">
-                            @php
-                                $missions = [
-                                    'Membangun sistem informasi yang transparan dan responsif',
-                                    'Memperkuat peran kolaboratif dan jaringan strategis',
-                                    'Meningkatkan dukungan akademik dan sumber daya',
-                                    'Mengembangkan kapasitas organisasi yang terstruktur',
-                                    'Mempromosikan keberagaman menuju aktualisasi diri',
-                                ];
-                            @endphp
-                            @foreach($missions as $mission)
-                                <li class="flex gap-4 items-start text-gray-700 font-light">
-                                    <span class="font-black text-xl flex-shrink-0" style="color: #FAD74B;">✓</span>
-                                    <span class="pt-1">{{ $mission }}</span>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- Struktur Organisasi Section --}}
-    <section class="py-20 px-4 md:px-8 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="animate-on-scroll text-4xl md:text-5xl font-black mb-6 opacity-0 transition-all duration-1000" style="transform: translateY(40px);">
-                    <span class="text-black">Struktur</span>
-                    <span style="color: #37537A;">Organisasi</span>
-                </h2>
-                <div class="flex justify-center mb-6">
-                    <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="width: 160px; height: 4px; background-color: #37537A; border-radius: 9999px; transform: scaleX(0); transition-delay: 200ms;"></div>
-                </div>
-                <p class="animate-on-scroll text-lg text-gray-600 max-w-3xl mx-auto opacity-0 transition-all duration-1000" style="transform: translateY(20px); transition-delay: 300ms;">
-                    BEM REMA UPI memiliki struktur organisasi yang solid untuk menjalankan program kerja secara efektif dan efisien.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                @php
-                    $departments = [
-                        ['name' => 'Kementerian Internal', 'icon' => 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'],
-                        ['name' => 'Kementerian Eksternal', 'icon' => 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z'],
-                        ['name' => 'Kementerian Keilmuan', 'icon' => 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253'],
-                        ['name' => 'Kementerian Minat & Bakat', 'icon' => 'M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3'],
-                        ['name' => 'Kementerian PSDM', 'icon' => 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z'],
-                        ['name' => 'Kementerian Kominfo', 'icon' => 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'],
-                    ];
-                @endphp
-                @foreach($departments as $index => $dept)
-                    <div class="animate-on-scroll bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 border border-gray-200 hover:border-yellow-400 hover:shadow-xl transition-all duration-500 group cursor-pointer opacity-0" style="transform: translateY(30px); transition-delay: {{ $index * 100 }}ms;">
-                        <div class="flex flex-col items-center text-center">
-                            <div class="w-16 h-16 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300" style="background-color: #FACC15;">
-                                <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $dept['icon'] }}"/>
-                                </svg>
-                            </div>
-                            <h3 class="text-lg font-bold text-gray-800 group-hover:text-blue-900 transition-colors duration-300">
-                                {{ $dept['name'] }}
-                            </h3>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-
     {{-- Stats Section --}}
-    <section class="py-20 px-4 md:px-8 bg-gradient-to-br from-gray-50 to-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-4 gap-8">
+    <section class="py-24 px-4 md:px-8 bg-white relative overflow-hidden">
+        {{-- Decorative Background Elements --}}
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-20 left-10 w-64 h-64 rounded-full" style="background: radial-gradient(circle, rgba(250, 204, 21, 0.08), transparent); filter: blur(40px);"></div>
+            <div class="absolute bottom-20 right-10 w-80 h-80 rounded-full" style="background: radial-gradient(circle, rgba(55, 83, 122, 0.08), transparent); filter: blur(40px);"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full" style="background: radial-gradient(circle, rgba(250, 204, 21, 0.05), transparent); filter: blur(60px); animation: pulse-bg 8s ease-in-out infinite;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            {{-- Section Header --}}
+            <div class="text-center mb-16 animate-on-scroll opacity-0" style="transform: translateY(30px);">
+                <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-4" style="background: linear-gradient(135deg, rgba(250, 204, 21, 0.1), rgba(55, 83, 122, 0.1)); border: 2px solid rgba(250, 204, 21, 0.3);">
+                    <div class="w-2 h-2 rounded-full" style="background-color: #FACC15; animation: pulse-dot 2s ease-in-out infinite;"></div>
+                    <span class="text-xs font-bold uppercase tracking-wider" style="color: #37537A;">Statistik Kami</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-4" style="color: #37537A;">
+                    Pencapaian <span style="color: #FACC15;">BEM REMA</span>
+                </h2>
+                <div class="h-1 w-24 mx-auto rounded-full" style="background: linear-gradient(90deg, #37537A, #FACC15, #37537A);"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 @php
                     $stats = [
-                        ['number' => '15+', 'label' => 'Kementerian Aktif', 'icon' => 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4'],
-                        ['number' => '50+', 'label' => 'Pengurus Aktif', 'icon' => 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'],
-                        ['number' => '100+', 'label' => 'Program Tahunan', 'icon' => 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01'],
-                        ['number' => '1000+', 'label' => 'Mahasiswa Terlayani', 'icon' => 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z'],
+                        ['number' => '15', 'suffix' => '+', 'label' => 'Kementerian', 'sublabel' => 'Aktif', 'icon' => 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4'],
+                        ['number' => '50', 'suffix' => '+', 'label' => 'Pengurus', 'sublabel' => 'Aktif', 'icon' => 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'],
+                        ['number' => '100', 'suffix' => '+', 'label' => 'Program', 'sublabel' => 'Tahunan', 'icon' => 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01'],
+                        ['number' => '1000', 'suffix' => '+', 'label' => 'Mahasiswa', 'sublabel' => 'Terlayani', 'icon' => 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z'],
                     ];
                 @endphp
                 @foreach($stats as $index => $stat)
-                    <div class="animate-on-scroll text-center group cursor-pointer opacity-0 transition-all duration-700" style="transform: scale(0.8); transition-delay: {{ $index * 150 }}ms;">
-                        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:-translate-y-2">
-                            <div class="flex justify-center mb-4">
-                                <div class="w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style="background-color: #FACC15;">
-                                    <svg class="w-8 h-8 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $stat['icon'] }}"/>
-                                    </svg>
+                    <div class="animate-on-scroll opacity-0 transition-all duration-700 stat-card-wrapper" 
+                         style="transform: scale(0.85) translateY(30px); transition-delay: {{ $index * 100 }}ms;"
+                         data-number="{{ $stat['number'] }}"
+                         data-suffix="{{ $stat['suffix'] }}">
+                        <div class="stat-card-3d group cursor-pointer h-full">
+                            <div class="stat-card-inner relative overflow-hidden rounded-3xl p-8 h-full transition-all duration-700">
+                                {{-- Animated Border Gradient --}}
+                                <div class="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(135deg, #FACC15, #37537A, #FACC15); padding: 3px;">
+                                    <div class="w-full h-full rounded-3xl" style="background-color: white;"></div>
+                                </div>
+                                
+                                {{-- Static Border --}}
+                                <div class="absolute inset-0 rounded-3xl border-2 group-hover:opacity-0 transition-opacity duration-500" style="border-color: rgba(55, 83, 122, 0.15);"></div>
+                                
+                                {{-- Content --}}
+                                <div class="relative z-10">
+                                    {{-- Icon Container --}}
+                                    <div class="flex justify-center mb-6">
+                                        <div class="relative">
+                                            {{-- Glow Effect --}}
+                                            <div class="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-60 transition-all duration-500" 
+                                                 style="background: linear-gradient(135deg, {{ $index % 2 === 0 ? '#FACC15' : '#37537A' }}, {{ $index % 2 === 0 ? '#37537A' : '#FACC15' }});"></div>
+                                            
+                                            {{-- Icon Background --}}
+                                            <div class="relative w-20 h-20 rounded-2xl flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg" 
+                                                 style="background: linear-gradient(135deg, {{ $index % 2 === 0 ? '#FACC15' : '#37537A' }}, {{ $index % 2 === 0 ? '#F59E0B' : '#2E4A6B' }});">
+                                                <svg class="w-10 h-10 {{ $index % 2 === 0 ? 'text-black' : 'text-white' }} transform group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $stat['icon'] }}"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    {{-- Number Counter --}}
+                                    <div class="text-center mb-4">
+                                        <div class="text-5xl md:text-6xl font-black" style="color: #37537A; font-variant-numeric: tabular-nums;">
+                                            <span class="counter inline-block transform group-hover:scale-110 transition-transform duration-300">0</span><span class="suffix">{{ $stat['suffix'] }}</span>
+                                        </div>
+                                    </div>
+                                    
+                                    {{-- Label --}}
+                                    <div class="text-center">
+                                        <p class="text-lg font-bold" style="color: #37537A;">{{ $stat['label'] }}</p>
+                                        <p class="text-sm font-semibold" style="color: #FACC15;">{{ $stat['sublabel'] }}</p>
+                                    </div>
+                                    
+                                    {{-- Animated Progress Circle --}}
+                                    <div class="mt-6 flex justify-center">
+                                        <svg class="w-16 h-16 transform -rotate-90" viewBox="0 0 60 60">
+                                            <circle cx="30" cy="30" r="25" fill="none" stroke="rgba(55, 83, 122, 0.1)" stroke-width="4"/>
+                                            <circle cx="30" cy="30" r="25" fill="none" stroke="#FACC15" stroke-width="4" 
+                                                    class="progress-circle" 
+                                                    stroke-dasharray="157" 
+                                                    stroke-dashoffset="157"
+                                                    stroke-linecap="round"
+                                                    style="transition: stroke-dashoffset 2s ease-out;"/>
+                                        </svg>
+                                    </div>
+                                    
+                                    {{-- Floating Particles --}}
+                                    <div class="absolute top-4 right-4 w-3 h-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700" style="background-color: #FACC15; animation: float-particle-1 3s ease-in-out infinite;"></div>
+                                    <div class="absolute bottom-4 left-4 w-2 h-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700" style="background-color: #37537A; animation: float-particle-2 3s ease-in-out infinite; animation-delay: 0.5s;"></div>
                                 </div>
                             </div>
-                            <div class="text-4xl font-black mb-2" style="color: #37537A;">{{ $stat['number'] }}</div>
-                            <p class="text-sm font-semibold text-gray-600">{{ $stat['label'] }}</p>
                         </div>
                     </div>
                 @endforeach
@@ -207,6 +162,10 @@
         </div>
     </section>
 </div>
+
+    {{-- Visi & Misi Section --}}
+    @include('partials.vision-mission')
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -228,6 +187,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (entry.target.style.transform.includes('scaleX(0)')) {
                     entry.target.style.transform = 'scaleX(1)';
                 }
+                
+                // Trigger counter animation for stat cards
+                if (entry.target.classList.contains('stat-card-wrapper')) {
+                    const counter = entry.target.querySelector('.counter');
+                    const progressCircle = entry.target.querySelector('.progress-circle');
+                    const target = parseInt(entry.target.dataset.number);
+                    
+                    // Animate counter
+                    animateCounter(counter, 0, target, 2000);
+                    
+                    // Animate progress circle
+                    if (progressCircle) {
+                        setTimeout(() => {
+                            progressCircle.style.strokeDashoffset = '0';
+                        }, 300);
+                    }
+                }
             }
         });
     }, observerOptions);
@@ -236,6 +212,31 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.animate-on-scroll').forEach(el => {
         observer.observe(el);
     });
+    
+    // Counter Animation Function
+    function animateCounter(element, start, end, duration) {
+        if (!element) return;
+        
+        let startTime = null;
+        const step = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            
+            // Easing function for smooth animation
+            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            const current = Math.floor(easeOutQuart * (end - start) + start);
+            
+            element.textContent = current;
+            
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                element.textContent = end;
+            }
+        };
+        
+        requestAnimationFrame(step);
+    }
 
     // Add parallax effect on mouse move for hero section
     const hero = document.querySelector('.relative.py-20');
@@ -253,6 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+    
 });
 </script>
 
@@ -284,6 +286,241 @@ document.addEventListener('DOMContentLoaded', function() {
 /* Parallax smooth transition */
 .absolute.opacity-5 > div {
     transition: transform 0.3s ease-out;
+}
+
+/* Pulse Background Animation */
+@keyframes pulse-bg {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.3;
+    }
+}
+
+/* Pulse Dot Animation */
+@keyframes pulse-dot {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.6;
+    }
+}
+
+/* Stat Card with Shine Effect */
+.stat-card-3d {
+    transition: transform 0.5s ease;
+}
+
+.stat-card-3d:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+.stat-card-inner {
+    background: white;
+    box-shadow: 0 10px 40px rgba(55, 83, 122, 0.1);
+    transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card-inner::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(250, 204, 21, 0.15) 50%,
+        rgba(55, 83, 122, 0.15) 55%,
+        rgba(250, 204, 21, 0.15) 60%,
+        transparent 70%
+    );
+    transform: translateX(-100%) translateY(-100%);
+    transition: transform 0.6s ease;
+}
+
+.stat-card-3d:hover .stat-card-inner::after {
+    transform: translateX(100%) translateY(100%);
+}
+
+.stat-card-3d:hover .stat-card-inner {
+    box-shadow: 
+        0 20px 60px rgba(55, 83, 122, 0.2),
+        0 0 0 1px rgba(250, 204, 21, 0.1) inset,
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Floating Particle Animations */
+@keyframes float-particle-1 {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(5px, -5px);
+    }
+    50% {
+        transform: translate(-3px, -10px);
+    }
+    75% {
+        transform: translate(3px, -5px);
+    }
+}
+
+@keyframes float-particle-2 {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(-5px, 5px) scale(1.2);
+    }
+    50% {
+        transform: translate(5px, 10px) scale(0.8);
+    }
+    75% {
+        transform: translate(-3px, 5px) scale(1.1);
+    }
+}
+
+/* Counter Number Styling */
+.counter {
+    display: inline-block;
+    font-variant-numeric: tabular-nums;
+    min-width: 1ch;
+}
+
+/* Progress Circle Animation */
+.progress-circle {
+    transition: stroke-dashoffset 2s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Gradient Border Animation */
+@keyframes gradient-rotate {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.stat-card-3d:hover .stat-card-inner > div:first-child {
+    animation: gradient-rotate 3s ease infinite;
+    background-size: 200% 200%;
+}
+
+/* Metallic Shine Effect */
+@keyframes metallic-shine {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.stat-card-3d:hover .stat-card-inner {
+    background: 
+        linear-gradient(
+            110deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0) 40%,
+            rgba(250, 204, 21, 0.1) 50%,
+            rgba(255, 255, 255, 0) 60%,
+            rgba(255, 255, 255, 0) 100%
+        ),
+        linear-gradient(135deg, #fff 0%, #fffbf0 50%, #fff 100%);
+    background-size: 200% 100%, 100% 100%;
+    animation: metallic-shine 2s infinite;
+}
+
+/* Stat Card Wrapper Visibility */
+.stat-card-wrapper.is-visible {
+    opacity: 1 !important;
+    transform: scale(1) translateY(0) !important;
+}
+
+/* Glossy Background Effect */
+.stat-card-inner {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(250, 250, 250, 1) 50%,
+        rgba(255, 255, 255, 1) 100%
+    );
+}
+
+.stat-card-3d:hover .stat-card-inner {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 252, 240, 1) 50%,
+        rgba(255, 255, 255, 1) 100%
+    );
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .stat-card-inner {
+        padding: 1.5rem;
+    }
+    
+    .counter {
+        font-size: 3rem;
+    }
+}
+
+/* Smooth Color Transitions */
+.stat-card-inner * {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Icon Rotation on Hover */
+.stat-card-3d:hover svg {
+    filter: drop-shadow(0 4px 8px rgba(250, 204, 21, 0.3));
+}
+
+/* Enhanced Shadow Layers with Shimmer */
+.stat-card-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 1.5rem;
+    background: linear-gradient(
+        110deg,
+        transparent 25%,
+        rgba(250, 204, 21, 0.05) 45%,
+        rgba(55, 83, 122, 0.05) 55%,
+        transparent 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.stat-card-3d:hover .stat-card-inner::before {
+    opacity: 1;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
 }
 </style>
 @endsection
