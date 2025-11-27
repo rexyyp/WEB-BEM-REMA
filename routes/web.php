@@ -15,6 +15,10 @@ Route::get('/berita', function () {
     return view('berita');
 })->name('berita');
 
+Route::get('/berita-detail', function () {
+    return view('berita-detail');
+})->name('berita.detail');
+
 // Admin Routes
 Route::prefix('admin')->name('admin.')->group(function () {
     // Login Page
