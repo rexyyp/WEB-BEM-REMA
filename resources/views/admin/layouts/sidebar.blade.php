@@ -33,7 +33,7 @@
             <span>Data Anggota</span>
         </a>
 
-        <a href="{{ route('admin.berita') }}" class="nav-item {{ request()->routeIs('admin.berita*') ? 'active' : '' }}" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; margin: 4px 12px; border-radius: 10px; color: {{ request()->routeIs('admin.berita*') ? '#60a5fa' : '#94a3b8' }}; font-size: 14px; font-weight: 500; text-decoration: none; background: {{ request()->routeIs('admin.berita*') ? 'rgba(96, 165, 250, 0.15)' : 'transparent' }};">
+        <a href="{{ route('admin.berita.index') }}" class="nav-item {{ request()->routeIs('admin.berita*') ? 'active' : '' }}" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; margin: 4px 12px; border-radius: 10px; color: {{ request()->routeIs('admin.berita*') ? '#60a5fa' : '#94a3b8' }}; font-size: 14px; font-weight: 500; text-decoration: none; background: {{ request()->routeIs('admin.berita*') ? 'rgba(96, 165, 250, 0.15)' : 'transparent' }};">
             <div class="nav-icon" style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: {{ request()->routeIs('admin.berita*') ? 'rgba(96, 165, 250, 0.2)' : 'rgba(255, 255, 255, 0.1)' }}; border-radius: 8px;">
                 <svg style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
@@ -45,12 +45,15 @@
 
     {{-- Logout Button --}}
     <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-        <a href="{{ route('admin.login') }}" style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; background: rgba(220, 38, 38, 0.1); border: 1px solid rgba(220, 38, 38, 0.3); border-radius: 10px; color: #f87171; font-size: 14px; font-weight: 600; text-decoration: none;">
-            <svg style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
-            </svg>
-            <span>Logout</span>
-        </a>
+        <form action="{{ route('admin.logout') }}" method="POST">
+            @csrf
+            <button type="submit" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; background: rgba(220, 38, 38, 0.1); border: 1px solid rgba(220, 38, 38, 0.3); border-radius: 10px; color: #f87171; font-size: 14px; font-weight: 600; cursor: pointer;">
+                <svg style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                </svg>
+                <span>Logout</span>
+            </button>
+        </form>
     </div>
 </aside>
 

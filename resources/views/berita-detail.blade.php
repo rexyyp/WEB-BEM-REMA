@@ -13,13 +13,13 @@
             {{-- Category Badge --}}
             <div class="animate-on-scroll mb-6 opacity-0 transition-all duration-700" style="transform: translateY(20px); transition-delay: 100ms;">
                 <span class="inline-block px-5 py-2 rounded-full text-sm font-bold text-black" style="background-color: #FACC15;">
-                    Workshop
+                    {{ $berita->kategori }}
                 </span>
             </div>
 
             {{-- Title --}}
             <h1 class="animate-on-scroll text-4xl md:text-5xl font-black mb-6 leading-tight text-black opacity-0 transition-all duration-1000" style="transform: translateY(30px); transition-delay: 200ms;">
-                BEM REMA UPI Gelar Workshop Pengembangan Soft Skills Mahasiswa
+                {{ $berita->judul }}
             </h1>
 
             {{-- Meta Information --}}
@@ -28,27 +28,27 @@
                     <svg class="w-5 h-5 flex-shrink-0" style="color: #37537A;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                     </svg>
-                    <span class="font-semibold">15 November 2025</span>
+                    <span class="font-semibold">{{ formatTanggalIndo($berita->tanggal) }}</span>
                 </div>
                 <div class="flex items-center gap-2">
                     <svg class="w-5 h-5 flex-shrink-0" style="color: #37537A;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                     </svg>
-                    <span class="font-semibold">Admin BEM REMA</span>
+                    <span class="font-semibold">{{ $berita->author }}</span>
                 </div>
                 <div class="flex items-center gap-2">
                     <svg class="w-5 h-5 flex-shrink-0" style="color: #37537A;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
                     </svg>
-                    <span class="font-semibold">1,234 views</span>
+                    <span class="font-semibold">{{ formatViews($berita->views) }} views</span>
                 </div>
             </div>
 
             {{-- Featured Image --}}
             <div class="animate-on-scroll group relative rounded-3xl overflow-hidden shadow-2xl mb-8 opacity-0 transition-all duration-1000" style="transform: translateY(40px); transition-delay: 400ms;">
                 <div class="relative overflow-hidden aspect-video">
-                    <img src="{{ asset('build/assets/image/Team Rema.jpg') }}" alt="Featured Image" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-700">
+                    <img src="{{ $berita->thumbnail_url }}" alt="{{ $berita->judul }}" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
             </div>
@@ -62,41 +62,40 @@
                 {{-- Article Body with Markdown Support --}}
                 <article class="prose prose-lg max-w-none markdown-content">
                     <div class="text-gray-700 leading-relaxed" style="font-size: 1.125rem; line-height: 1.8;">
-                        {{-- Konten dari database akan ditampilkan di sini --}}
-                        {{-- Contoh static content, nanti diganti dengan: {!! $news->content !!} --}}
-                        
-                        <p>BEM REMA UPI kembali mengadakan workshop pengembangan soft skills yang bertujuan untuk meningkatkan kemampuan mahasiswa dalam menghadapi tantangan dunia kerja. Workshop ini diselenggarakan pada hari Jumat, 15 November 2025 di Gedung Student Center UPI Bandung.</p>
-
-                        <p>Workshop kali ini menghadirkan berbagai narasumber kompeten dari berbagai perusahaan terkemuka dan praktisi berpengalaman. Materi yang disampaikan meliputi public speaking, leadership, critical thinking, dan teamwork yang sangat dibutuhkan di era modern ini.</p>
-
-                        <h2>Rangkaian Acara</h2>
-                        
-                        <p>Acara dimulai pukul 08.00 WIB dengan registrasi peserta yang diikuti oleh lebih dari 300 mahasiswa dari berbagai fakultas. Antusiasme peserta sangat tinggi, terlihat dari banyaknya pertanyaan yang diajukan kepada narasumber.</p>
-
-                        <h3>Materi yang Disampaikan</h3>
-                        
-                        <ol>
-                            <li>Public Speaking & Communication - Teknik berbicara di depan umum dengan percaya diri dan cara berkomunikasi efektif dalam berbagai situasi profesional.</li>
-                            <li>Leadership & Team Management - Pengembangan jiwa kepemimpinan dan cara mengelola tim dengan efektif untuk mencapai tujuan bersama.</li>
-                            <li>Critical Thinking & Problem Solving - Melatih kemampuan berpikir kritis dan analitis dalam menghadapi berbagai permasalahan kompleks.</li>
-                            <li>Teamwork & Collaboration - Membangun kemampuan bekerja sama dalam tim dan berkolaborasi dengan berbagai karakter individu.</li>
-                        </ol>
-
-                        <p>Selain sesi presentasi, workshop ini juga dilengkapi dengan praktik langsung dan role play yang membuat peserta dapat merasakan langsung penerapan teori yang telah disampaikan. Metode interaktif ini terbukti sangat efektif dalam meningkatkan pemahaman peserta.</p>
-
-                        <h3>Kesimpulan</h3>
-                        
-                        <p>Workshop ini mendapat respon positif dari para peserta. Banyak mahasiswa yang merasa terbantu dengan materi yang disampaikan dan berencana untuk menerapkannya dalam kehidupan sehari-hari maupun persiapan menghadapi dunia kerja.</p>
-
-                        <p>BEM REMA UPI berkomitmen untuk terus mengadakan kegiatan-kegiatan yang bermanfaat bagi mahasiswa. Pantau terus media sosial dan website kami untuk informasi workshop dan kegiatan menarik lainnya.</p>
+                        {!! $berita->html_konten !!}
                     </div>
-
                 </article>
+
+                {{-- Share Buttons --}}
+                <div class="mt-12 pt-8 border-t border-gray-200">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">Bagikan Artikel:</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <button onclick="shareWhatsApp()" class="inline-flex items-center gap-2 px-5 py-2.5 bg-green-500 hover:bg-green-600 text-white rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                            <span>WhatsApp</span>
+                        </button>
+                        <button onclick="shareTwitter()" class="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-400 hover:bg-blue-500 text-white rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                            <span>Twitter</span>
+                        </button>
+                        <button onclick="shareFacebook()" class="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                            <span>Facebook</span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     {{-- Related News --}}
+    @if($relatedNews && $relatedNews->count() > 0)
     <section class="py-20 px-4 md:px-8 bg-gradient-to-br from-gray-50 to-white">
         <div class="max-w-7xl mx-auto">
             <div class="animate-on-scroll mb-12 opacity-0 transition-all duration-1000" style="transform: translateY(40px);">
@@ -105,43 +104,14 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                @php
-                    $relatedNews = [
-                        [
-                            'id' => 2,
-                            'title' => 'Kabinet Suar Sangga Resmi Dilantik untuk Periode 2025',
-                            'excerpt' => 'Pelantikan Kabinet Suar Sangga menandai dimulainya periode kepengurusan baru BEM REMA UPI.',
-                            'image' => 'Isola.png',
-                            'category' => 'Pelantikan',
-                            'date' => '10 Nov 2025',
-                        ],
-                        [
-                            'id' => 3,
-                            'title' => 'Rapat Koordinasi Kementerian BEM REMA UPI 2025',
-                            'excerpt' => 'Rapat koordinasi membahas program kerja semester ini dengan fokus pada peningkatan kualitas.',
-                            'image' => 'Logo Suar Sangga.png',
-                            'category' => 'Kegiatan',
-                            'date' => '08 Nov 2025',
-                        ],
-                        [
-                            'id' => 4,
-                            'title' => 'Mahasiswa REMA Raih Juara di Kompetisi Nasional',
-                            'excerpt' => 'Tim mahasiswa berhasil meraih juara pertama dalam kompetisi tingkat nasional.',
-                            'image' => 'Team Rema.jpg',
-                            'category' => 'Prestasi',
-                            'date' => '05 Nov 2025',
-                        ],
-                    ];
-                @endphp
-
                 @foreach($relatedNews as $index => $news)
-                <div class="animate-on-scroll group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-2 opacity-0" style="transform: translateY(30px); transition-delay: {{ $index * 100 }}ms;">
+                <a href="{{ route('berita.detail', $news->slug) }}" class="animate-on-scroll group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-2 opacity-0" style="transform: translateY(30px); transition-delay: {{ $index * 100 }}ms;">
                     <div class="relative overflow-hidden aspect-video">
-                        <img src="{{ asset('build/assets/image/' . $news['image']) }}" alt="{{ $news['title'] }}" class="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700">
+                        <img src="{{ $news->thumbnail_url }}" alt="{{ $news->judul }}" class="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="absolute top-4 left-4">
                             <span class="inline-block px-3 py-1 rounded-full text-xs font-bold text-black" style="background-color: #FACC15;">
-                                {{ $news['category'] }}
+                                {{ $news->kategori }}
                             </span>
                         </div>
                     </div>
@@ -151,30 +121,107 @@
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                                 </svg>
-                                <span>{{ $news['date'] }}</span>
+                                <span>{{ formatTanggalSingkat($news->tanggal) }}</span>
                             </span>
                         </div>
                         <h3 class="text-xl font-bold text-gray-800 group-hover:text-blue-900 transition-colors duration-300 mb-3 line-clamp-2">
-                            {{ $news['title'] }}
+                            {{ $news->judul }}
                         </h3>
                         <p class="text-gray-600 text-sm mb-4 line-clamp-2">
-                            {{ $news['excerpt'] }}
+                            {{ $news->excerpt }}
                         </p>
-                        <a href="#" class="inline-flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all duration-300" style="color: #37537A;">
+                        <span class="inline-flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all duration-300" style="color: #37537A;">
                             <span>Baca Selengkapnya</span>
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
-                        </a>
+                        </span>
                     </div>
-                </div>
+                </a>
                 @endforeach
             </div>
         </div>
     </section>
+    @endif
+
+    {{-- Latest News --}}
+    @if($latestNews && $latestNews->count() > 0)
+    <section class="py-20 px-4 md:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="animate-on-scroll mb-12 opacity-0 transition-all duration-1000" style="transform: translateY(40px);">
+                <h2 class="text-3xl md:text-4xl font-black mb-2 text-black">Berita Terbaru</h2>
+                <div style="width: 120px; height: 4px; background-color: #FACC15; border-radius: 9999px;"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                @foreach($latestNews as $index => $news)
+                <a href="{{ route('berita.detail', $news->slug) }}" class="animate-on-scroll group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-1 opacity-0 flex flex-col md:flex-row" style="transform: translateY(30px); transition-delay: {{ $index * 100 }}ms;">
+                    <div class="relative overflow-hidden md:w-2/5 aspect-video md:aspect-square">
+                        <img src="{{ $news->thumbnail_url }}" alt="{{ $news->judul }}" class="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="absolute top-3 left-3">
+                            <span class="inline-block px-2.5 py-1 rounded-full text-xs font-bold text-black" style="background-color: #FACC15;">
+                                {{ $news->kategori }}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6 md:w-3/5 flex flex-col justify-center">
+                        <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                                <span>{{ formatTanggalSingkat($news->tanggal) }}</span>
+                            </span>
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                </svg>
+                                <span>{{ formatViews($news->views) }}</span>
+                            </span>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-blue-900 transition-colors duration-300 mb-2 line-clamp-2">
+                            {{ $news->judul }}
+                        </h3>
+                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+                            {{ $news->excerpt }}
+                        </p>
+                        <span class="inline-flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all duration-300" style="color: #37537A;">
+                            <span>Selengkapnya</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    @endif
 </div>
 
 <script>
+// Share functions
+function shareWhatsApp() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent('{{ $berita->judul }}');
+    window.open(`https://wa.me/?text=${text}%20${url}`, '_blank');
+}
+
+function shareTwitter() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent('{{ $berita->judul }}');
+    window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+}
+
+function shareFacebook() {
+    const url = encodeURIComponent(window.location.href);
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+}
+
+// Animation on scroll
 document.addEventListener('DOMContentLoaded', function() {
     const observerOptions = {
         threshold: 0.1,
@@ -258,17 +305,6 @@ document.addEventListener('DOMContentLoaded', function() {
 .hover-tilt:hover {
     transform: translateY(-4px);
     box-shadow: 0 10px 30px rgba(55, 83, 122, 0.15);
-}
-
-/* First letter styling */
-.first-letter\:text-7xl::first-letter {
-    font-size: 4.5rem;
-    font-weight: 900;
-    float: left;
-    margin-right: 0.75rem;
-    margin-top: 0.25rem;
-    line-height: 1;
-    color: #37537A;
 }
 
 /* Smooth image loading */

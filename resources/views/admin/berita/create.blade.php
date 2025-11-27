@@ -158,7 +158,8 @@
             {{-- Form Container Card --}}
             <div style="background: white; border-radius: 16px; padding: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
                 
-                <form action="#" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.berita.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     {{-- Two Column Layout for Top Inputs --}}
                     <div style="display: grid; grid-template-columns: 1fr 420px; gap: 32px; margin-bottom: 32px;">
                         
@@ -167,9 +168,12 @@
                             {{-- Judul Berita --}}
                             <div style="margin-bottom: 24px;">
                                 <label style="display: block; font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 8px;">
-                                    Judul Berita
+                                    Judul Berita <span style="color: #dc2626;">*</span>
                                 </label>
-                                <input type="text" name="judul" placeholder="Masukkan judul berita..." required>
+                                <input type="text" name="judul" placeholder="Masukkan judul berita..." value="{{ old('judul') }}" required>
+                                @error('judul')
+                                    <p style="color: #dc2626; font-size: 12px; margin-top: 4px;">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             {{-- Kategori --}}
@@ -177,39 +181,45 @@
                                 <label style="display: block; font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 8px;">
                                     Kategori
                                 </label>
-                                <select name="kategori" required style="width: 100%; padding: 12px 16px; border: 1px solid #e5e7eb; border-radius: 8px; font-size: 14px; font-family: inherit; transition: all 0.2s ease; box-sizing: border-box; background: white; cursor: pointer;">
+                                <select name="kategori" style="width: 100%; padding: 12px 16px; border: 1px solid #e5e7eb; border-radius: 8px; font-size: 14px; font-family: inherit; transition: all 0.2s ease; box-sizing: border-box; background: white; cursor: pointer;">
                                     <option value="">Pilih Kategori</option>
-                                    <option value="Organisasi">Organisasi</option>
-                                    <option value="Teknologi">Teknologi</option>
-                                    <option value="Prestasi">Prestasi</option>
-                                    <option value="Pendidikan">Pendidikan</option>
-                                    <option value="Kemahasiswaan">Kemahasiswaan</option>
-                                    <option value="Pengumuman">Pengumuman</option>
-                                    <option value="Kegiatan">Kegiatan</option>
+                                    <option value="Program Kerja" {{ old('kategori') == 'Program Kerja' ? 'selected' : '' }}>Program Kerja</option>
+                                    <option value="Workshop" {{ old('kategori') == 'Workshop' ? 'selected' : '' }}>Workshop</option>
+                                    <option value="Kegiatan" {{ old('kategori') == 'Kegiatan' ? 'selected' : '' }}>Kegiatan</option>
+                                    <option value="Pelantikan" {{ old('kategori') == 'Pelantikan' ? 'selected' : '' }}>Pelantikan</option>
+                                    <option value="Prestasi" {{ old('kategori') == 'Prestasi' ? 'selected' : '' }}>Prestasi</option>
+                                    <option value="Pengumuman" {{ old('kategori') == 'Pengumuman' ? 'selected' : '' }}>Pengumuman</option>
+                                    <option value="Rema PERS" {{ old('kategori') == 'Rema PERS' ? 'selected' : '' }}>Rema PERS</option>
                                 </select>
                             </div>
 
                             {{-- Tanggal Publikasi --}}
                             <div style="margin-bottom: 24px;">
                                 <label style="display: block; font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 8px;">
-                                    Tanggal Publikasi
+                                    Tanggal Publikasi <span style="color: #dc2626;">*</span>
                                 </label>
-                                <input type="date" name="tanggal" value="2025-11-14" required>
+                                <input type="date" name="tanggal" value="{{ old('tanggal', date('Y-m-d')) }}" required>
+                                @error('tanggal')
+                                    <p style="color: #dc2626; font-size: 12px; margin-top: 4px;">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             {{-- Author --}}
                             <div style="margin-bottom: 24px;">
                                 <label style="display: block; font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 8px;">
-                                    Author
+                                    Author <span style="color: #dc2626;">*</span>
                                 </label>
-                                <input type="text" name="author" placeholder="Masukkan nama penulis" required>
+                                <input type="text" name="author" placeholder="Masukkan nama penulis" value="{{ old('author', 'Admin BEM REMA') }}" required>
+                                @error('author')
+                                    <p style="color: #dc2626; font-size: 12px; margin-top: 4px;">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
 
                         {{-- Right Column: Upload Gambar --}}
                         <div>
                             <label style="display: block; font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 8px;">
-                                Upload Gambar
+                                Upload Thumbnail
                             </label>
                             
                             <div class="upload-area" onclick="document.getElementById('fileInput').click()">
@@ -225,11 +235,15 @@
                                     Drag & drop atau klik untuk memilih file
                                 </p>
                                 <p style="font-size: 12px; color: #9ca3af;">
-                                    PNG, JPG hingga 10MB
+                                    PNG, JPG, WEBP hingga 2MB
                                 </p>
                             </div>
-                            <input type="file" id="fileInput" name="gambar" accept="image/png,image/jpeg,image/jpg" style="display: none;">
+                            <input type="file" id="fileInput" name="thumbnail" accept="image/png,image/jpeg,image/jpg,image/webp" style="display: none;">
                             
+                            @error('thumbnail')
+                                <p style="color: #dc2626; font-size: 12px; margin-top: 8px;">{{ $message }}</p>
+                            @enderror
+
                             {{-- Preview Image --}}
                             <div id="imagePreview" style="margin-top: 16px; display: none;">
                                 <img id="previewImg" style="width: 100%; border-radius: 12px; border: 1px solid #e5e7eb;">
@@ -278,14 +292,17 @@
                         </div>
                         
                         {{-- Textarea --}}
-                        <textarea id="articleContent" name="isi_artikel" placeholder="Mulai menulis artikel berita di sini..." required style="border-radius: 0 0 8px 8px; border-top: none;"></textarea>
+                        <textarea id="articleContent" name="konten" placeholder="Mulai menulis artikel berita di sini...&#10;&#10;Gunakan HTML untuk formatting:&#10;- <p>Paragraf</p>&#10;- <h2>Heading 2</h2>&#10;- <strong>Tebal</strong>&#10;- <em>Miring</em>&#10;- <ul><li>List</li></ul>" required style="border-radius: 0 0 8px 8px; border-top: none;">{{ old('konten') }}</textarea>
+                        @error('konten')
+                            <p style="color: #dc2626; font-size: 12px; margin-top: 8px;">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     {{-- Action Buttons --}}
                     <div style="display: flex; justify-content: flex-end; gap: 12px; padding-top: 24px; border-top: 1px solid #e5e7eb;">
-                        <button type="button" class="btn btn-secondary" onclick="window.history.back()">
+                        <a href="{{ route('admin.berita.index') }}" class="btn btn-secondary">
                             Batal
-                        </button>
+                        </a>
                         <button type="submit" class="btn btn-primary">
                             <svg style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"/>

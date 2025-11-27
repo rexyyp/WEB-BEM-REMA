@@ -1,52 +1,48 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\Admin\BeritaController as AdminBeritaController;
+use App\Http\Controllers\Admin\AuthController;
 
 // Public Routes
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/tentang', function () {
     return view('tentang');
 })->name('tentang');
 
-Route::get('/berita', function () {
-    return view('berita');
-})->name('berita');
+// Berita Public Routes
+Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
+Route::get('/berita/{slug}', [BeritaController::class, 'show'])->name('berita.detail');
 
-Route::get('/berita-detail', function () {
-    return view('berita-detail');
-})->name('berita.detail');
-
-// Admin Routes
+// Admin Authentication Routes (Public)
 Route::prefix('admin')->name('admin.')->group(function () {
-    // Login Page
-    Route::get('/login', function () {
-        return view('admin.auth.login');
-    })->name('login');
+    Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+    Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+});
+
+// Admin Protected Routes
+Route::prefix('admin')->name('admin.')->middleware('admin.auth')->group(function () {
+    // Logout
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     
-    // Login POST - langsung redirect ke dashboard tanpa validasi
-    Route::post('/login', function () {
-        return redirect()->route('admin.dashboard');
-    })->name('login.post');
-    
-    // Dashboard Page
+    // Dashboard
     Route::get('/dashboard', function () {
-        return view('admin.dashboard.index');
+        $totalBerita = \App\Models\Berita::count();
+        $totalViews = \App\Models\Berita::sum('views');
+        $latestBerita = \App\Models\Berita::latest('created_at')->limit(5)->get();
+        
+        return view('admin.dashboard.index', compact('totalBerita', 'totalViews', 'latestBerita'));
     })->name('dashboard');
     
-    // Data Anggota Page
+    // Data Anggota
     Route::get('/anggota', function () {
         return view('admin.anggota.index');
     })->name('anggota');
     
-    // Berita Routes
-    Route::get('/berita', function () {
-        return view('admin.berita.index');
-    })->name('berita');
-    
-    Route::get('/berita/create', function () {
-        return view('admin.berita.create');
-    })->name('berita.create');
+    // Berita CRUD Routes (Resource Controller)
+    Route::resource('berita', AdminBeritaController::class);
 });

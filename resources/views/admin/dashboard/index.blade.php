@@ -179,7 +179,7 @@
                         <h3 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 4px;">Berita Terbaru Diterbitkan</h3>
                         <p style="font-size: 14px; color: #6b7280;">10 artikel terakhir yang telah dipublikasikan</p>
                     </div>
-                    <a href="{{ route('admin.berita') }}" style="padding: 10px 20px; background: white; border: 2px solid #dc2626; color: #dc2626; font-size: 13px; font-weight: 600; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block;">
+                    <a href="{{ route('admin.berita.index') }}" style="padding: 10px 20px; background: white; border: 2px solid #dc2626; color: #dc2626; font-size: 13px; font-weight: 600; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block;">
                         Lihat Semua Berita
                     </a>
                 </div>

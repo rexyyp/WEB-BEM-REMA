@@ -15,43 +15,21 @@
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
-            @php
-                $newsItems = [
-                    [
-                        'category' => 'SEMINAR',
-                        'title' => 'Seminar Kepemimpinan Mahasiswa 2024',
-                        'description' => 'Acara seminar tahunan untuk meningkatkan kompetensi kepemimpinan mahasiswa UPI',
-                        'image' => 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80',
-                        'categoryColor' => 'bg-red-100 text-red-700',
-                    ],
-                    [
-                        'category' => 'SOSIAL',
-                        'title' => 'Program Bakti Sosial Desa Binaan',
-                        'description' => 'Kegiatan pemberdayaan masyarakat desa melalui program edukasi berkelanjutan',
-                        'image' => 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80',
-                        'categoryColor' => 'bg-yellow-100 text-yellow-700',
-                    ],
-                    [
-                        'category' => 'ACARA',
-                        'title' => 'Festival Seni dan Budaya UPI',
-                        'description' => 'Merayakan keragaman budaya dengan berbagai pertunjukan seni di kampus',
-                        'image' => 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=600&q=80',
-                        'categoryColor' => 'bg-green-100 text-green-700',
-                    ],
-                ];
-            @endphp
-            
             {{-- Decorative Background Elements --}}
             <div class="absolute top-1/4 left-0 w-96 h-96 morph-blob opacity-5" style="background: linear-gradient(135deg, #FACC15, #93C5FD); filter: blur(100px); z-index: -1;"></div>
             <div class="absolute bottom-1/4 right-0 w-80 h-80 liquid-shape opacity-5" style="background: linear-gradient(135deg, #37537A, #F59E0B); filter: blur(100px); z-index: -1;"></div>
             
-            @foreach($newsItems as $index => $item)
+            @php
+                $latestNews = \App\Models\Berita::latest()->limit(3)->get();
+            @endphp
+
+            @forelse($latestNews as $index => $item)
                 <div class="animate-on-scroll group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-3 opacity-0 card-3d" style="transform: translateY(30px); transition-delay: {{ $index * 100 }}ms; display: grid; grid-template-rows: auto 1fr; height: 480px;">
                     {{-- Image --}}
                     <div class="relative overflow-hidden aspect-video">
                         <img
-                            src="{{ $item['image'] }}"
-                            alt="{{ $item['title'] }}"
+                            src="{{ $item->thumbnail_url }}"
+                            alt="{{ $item->judul }}"
                             class="w-full h-full object-cover transform group-hover:scale-110 group-hover:rotate-2 transition-all duration-700"
                         />
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -60,11 +38,13 @@
                         <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 pointer-events-none"></div>
                         
                         {{-- Category Badge with Pulse --}}
+                        @if($item->kategori)
                         <div class="absolute top-4 left-4 transform group-hover:scale-110 transition-transform duration-300">
                             <span class="inline-block px-3 py-1 rounded-full text-xs font-bold text-black" style="background-color: #FACC15;">
-                                {{ $item['category'] }}
+                                {{ $item->kategori }}
                             </span>
                         </div>
+                        @endif
                     </div>
 
                     {{-- Content --}}
@@ -74,28 +54,28 @@
                                 <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                                 </svg>
-                                <span>15 Nov 2025</span>
+                                <span>{{ formatTanggalSingkat($item->tanggal) }}</span>
                             </span>
                             <span class="flex items-center gap-2">
                                 <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                                 </svg>
-                                <span>Admin BEM</span>
+                                <span>{{ $item->author }}</span>
                             </span>
                         </div>
 
                         <h3 class="text-xl font-bold text-gray-800 group-hover:text-blue-900 transition-colors duration-300 line-clamp-2">
-                            {{ $item['title'] }}
+                            {{ $item->judul }}
                         </h3>
 
                         <p class="text-gray-600 text-sm line-clamp-3">
-                            {{ $item['description'] }}
+                            {{ $item->excerpt }}
                         </p>
 
                         <div></div>
 
                         <div style="align-self: end;">
-                            <a href="/berita-detail" class="inline-flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all duration-300" style="color: #37537A;">
+                            <a href="{{ route('berita.detail', $item->slug) }}" class="inline-flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all duration-300" style="color: #37537A;">
                                 <span>Baca Selengkapnya</span>
                                 <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -104,7 +84,11 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <div class="col-span-3 text-center py-12">
+                    <p class="text-gray-500 text-lg">Belum ada berita yang dipublikasikan.</p>
+                </div>
+            @endforelse
         </div>
     </div>
 </section>
