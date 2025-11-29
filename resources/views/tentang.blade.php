@@ -3,7 +3,7 @@
 @section('content')
 <div class="pt-20">
     {{-- Hero Section --}}
-    <section class="relative py-20 px-4 md:px-8 bg-gradient-to-br from-white via-gray-50 to-white overflow-hidden animate-on-scroll opacity-0" style="transform: translateY(40px);">
+    <section class="relative py-20 px-8 md:px-12 bg-gradient-to-br from-white via-gray-50 to-white overflow-hidden animate-on-scroll opacity-0" style="transform: translateY(40px);">
         <div class="absolute inset-0 opacity-5">
             <div class="absolute top-10 left-10 w-72 h-72 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full blur-3xl"></div>
             <div class="absolute bottom-10 right-10 w-96 h-96 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full blur-3xl"></div>
@@ -26,41 +26,62 @@
     </section>
 
     {{-- Sejarah Section --}}
-    <section class="py-20 px-4 md:px-8 bg-white">
+    <section class="py-20 px-8 md:px-12 bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
                 <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="transform: translateX(-40px);">
                     <h2 class="text-4xl md:text-5xl font-black mb-6 leading-tight">
-                        <span class="text-black">Sejarah</span>
+                        <span class="text-black">Tentang</span>
                         <span style="color: #37537A;">BEM REMA UPI</span>
                     </h2>
                     <div class="flex mb-6">
                         <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="width: 0px; height: 4px; background-color: #37537A; border-radius: 9999px; transition-delay: 200ms;"></div>
                     </div>
-                    <p class="text-gray-600 leading-relaxed mb-4 animate-on-scroll opacity-0 transition-all duration-700" style="transform: translateY(20px); transition-delay: 300ms;">
-                        BEM REMA UPI (Badan Eksekutif Mahasiswa Rumpun Eksakta) merupakan organisasi mahasiswa tingkat universitas yang menaungi seluruh mahasiswa dari fakultas-fakultas eksakta di Universitas Pendidikan Indonesia.
-                    </p>
-                    <p class="text-gray-600 leading-relaxed mb-4 animate-on-scroll opacity-0 transition-all duration-700" style="transform: translateY(20px); transition-delay: 400ms;">
-                        Didirikan dengan semangat untuk menjadi wadah aspirasi, kreativitas, dan pengembangan potensi mahasiswa, BEM REMA UPI telah berkontribusi dalam berbagai kegiatan kemahasiswaan baik di tingkat kampus maupun nasional.
-                    </p>
-                    <p class="text-gray-600 leading-relaxed animate-on-scroll opacity-0 transition-all duration-700" style="transform: translateY(20px); transition-delay: 500ms;">
-                        Melalui program-program strategis dan inovatif, kami terus berupaya menciptakan ekosistem kampus yang kondusif untuk pengembangan akademik dan non-akademik mahasiswa.
-                    </p>
+                        <p class="text-gray-600 leading-relaxed mb-4 animate-on-scroll opacity-0 transition-all duration-700" style="transform: translateY(20px); transition-delay: 300ms;">
+                            Mahasiswa adalah tulang punggung pergerakan, agen perubahan yang memiliki peran krusial dalam membentuk masa depan bangsa. 
+                            <strong>BEM Rema UPI</strong> hadir sebagai simpul kekuatan untuk mewadahi keberagaman identitas dan potensi tersebut. 
+                            Dengan semangat <strong>bergerak berdampak</strong>, <strong>melangkah terarah</strong>, kami bertekad menjadi motor penggerak perubahan positif, 
+                            bukan sekadar <em>“menara gading”</em> yang terasing dari realitas.
+                        </p>
+
+                        <p class="text-gray-600 leading-relaxed mb-4 animate-on-scroll opacity-0 transition-all duration-700" style="transform: translateY(20px); transition-delay: 400ms;">
+                            Kami percaya, sebuah organisasi mahasiswa yang ideal harus menjadi ekosistem yang 
+                            <strong>transparan</strong>, <strong>inklusif</strong>, dan <strong>berdaya</strong>. 
+                            Hal inilah yang menjadi landasan utama kami. Nilai-nilai ini terangkum dalam filosofi 
+                            <strong><em>“Suar Sangga”</em></strong>—cahaya pencerahan yang didukung oleh fondasi yang kokoh.
+                        </p>
+
+                        <p class="text-gray-600 leading-relaxed animate-on-scroll opacity-0 transition-all duration-700" style="transform: translateY(20px); transition-delay: 500ms;">
+                            Sebagai <em>“Suar”</em>, kami memimpin dengan <strong>transparansi</strong> dan <strong>responsivitas</strong>, 
+                            memastikan setiap informasi tersampaikan dengan jelas dan aspirasi mahasiswa ditanggapi dengan cepat. 
+                            Sebagai <em>“Sangga”</em>, kami menjadi fondasi yang kokoh, menguatkan <strong>kolaborasi</strong>, 
+                            merawat <strong>keberagaman</strong>, serta memastikan setiap individu mendapatkan <strong>ruang aman</strong> untuk berkembang. 
+                            Kami berkomitmen untuk membangun <strong>kapasitas organisasi</strong> dan menjaga <strong>kesejahteraan anggota</strong> sebagai pilar utama.
+                        </p>
+
+                        <p class="text-gray-600 leading-relaxed mt-4 animate-on-scroll opacity-0 transition-all duration-700" style="transform: translateY(20px); transition-delay: 600ms;">
+                            Dengan berpegang pada prinsip-prinsip ini, <strong>BEM Rema UPI</strong> tidak hanya akan menjadi representasi, 
+                            tetapi juga <strong>transformasi</strong>. Kami hadir untuk memberikan <strong>dampak nyata</strong> dan 
+                            <strong>berkelanjutan</strong>, membangun fondasi yang kuat, serta memastikan setiap mahasiswa 
+                            dapat berkontribusi aktif bagi kemajuan bersama.
+                        </p>
                 </div>
                 <div class="animate-on-scroll relative group opacity-0 transition-all duration-1000" style="transform: translateX(40px); transition-delay: 200ms;">
                     <div class="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-blue-500 to-yellow-400 rounded-2xl blur-2xl opacity-20 group-hover:opacity-40 transition-all duration-700"></div>
-                    <img
-                        src="{{ asset('build/assets/image/Team Rema.jpg') }}"
-                        alt="Sejarah BEM REMA UPI"
-                        class="relative w-full rounded-2xl shadow-2xl object-cover aspect-[4/3] transform group-hover:scale-105 transition-all duration-500"
-                    />
+                    <div class="relative w-full rounded-2xl shadow-2xl overflow-hidden" style="aspect-ratio: 4/3;">
+                        <img
+                            src="{{ asset('build/assets/image/Team Rema.jpg') }}"
+                            alt="Sejarah BEM REMA UPI"
+                            class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     {{-- Stats Section --}}
-    <section class="py-24 px-4 md:px-8 bg-white relative overflow-hidden">
+    <section class="py-20 px-8 md:px-12 bg-white relative overflow-hidden">
         {{-- Decorative Background Elements --}}
         <div class="absolute inset-0 overflow-hidden pointer-events-none">
             <div class="absolute top-20 left-10 w-64 h-64 rounded-full" style="background: radial-gradient(circle, rgba(250, 204, 21, 0.08), transparent); filter: blur(40px);"></div>
@@ -71,17 +92,13 @@
         <div class="max-w-7xl mx-auto relative z-10">
             {{-- Section Header --}}
             <div class="text-center mb-16 animate-on-scroll opacity-0" style="transform: translateY(30px);">
-                <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full mb-4" style="background: linear-gradient(135deg, rgba(250, 204, 21, 0.1), rgba(55, 83, 122, 0.1)); border: 2px solid rgba(250, 204, 21, 0.3);">
-                    <div class="w-2 h-2 rounded-full" style="background-color: #FACC15; animation: pulse-dot 2s ease-in-out infinite;"></div>
-                    <span class="text-xs font-bold uppercase tracking-wider" style="color: #37537A;">Statistik Kami</span>
-                </div>
                 <h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-4" style="color: #37537A;">
                     Pencapaian <span style="color: #FACC15;">BEM REMA</span>
                 </h2>
                 <div class="h-1 w-24 mx-auto rounded-full" style="background: linear-gradient(90deg, #37537A, #FACC15, #37537A);"></div>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                 @php
                     $stats = [
                         ['number' => '15', 'suffix' => '+', 'label' => 'Kementerian', 'sublabel' => 'Aktif', 'icon' => 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4'],
@@ -96,7 +113,7 @@
                          data-number="{{ $stat['number'] }}"
                          data-suffix="{{ $stat['suffix'] }}">
                         <div class="stat-card-3d group cursor-pointer h-full">
-                            <div class="stat-card-inner relative overflow-hidden rounded-3xl p-8 h-full transition-all duration-700">
+                            <div class="stat-card-inner relative overflow-hidden rounded-3xl p-4 h-full transition-all duration-700 flex flex-col justify-center" style="aspect-ratio: 4/3;">
                                 {{-- Animated Border Gradient --}}
                                 <div class="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(135deg, #FACC15, #37537A, #FACC15); padding: 3px;">
                                     <div class="w-full h-full rounded-3xl" style="background-color: white;"></div>
@@ -108,16 +125,16 @@
                                 {{-- Content --}}
                                 <div class="relative z-10">
                                     {{-- Icon Container --}}
-                                    <div class="flex justify-center mb-6">
+                                    <div class="flex justify-center mb-2">
                                         <div class="relative">
                                             {{-- Glow Effect --}}
                                             <div class="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-60 transition-all duration-500" 
                                                  style="background: linear-gradient(135deg, {{ $index % 2 === 0 ? '#FACC15' : '#37537A' }}, {{ $index % 2 === 0 ? '#37537A' : '#FACC15' }});"></div>
                                             
                                             {{-- Icon Background --}}
-                                            <div class="relative w-20 h-20 rounded-2xl flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg" 
+                                            <div class="relative w-12 h-12 rounded-2xl flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg" 
                                                  style="background: linear-gradient(135deg, {{ $index % 2 === 0 ? '#FACC15' : '#37537A' }}, {{ $index % 2 === 0 ? '#F59E0B' : '#2E4A6B' }});">
-                                                <svg class="w-10 h-10 {{ $index % 2 === 0 ? 'text-black' : 'text-white' }} transform group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <svg class="w-6 h-6 {{ $index % 2 === 0 ? 'text-black' : 'text-white' }} transform group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $stat['icon'] }}"/>
                                                 </svg>
                                             </div>
@@ -125,21 +142,21 @@
                                     </div>
                                     
                                     {{-- Number Counter --}}
-                                    <div class="text-center mb-4">
-                                        <div class="text-5xl md:text-6xl font-black" style="color: #37537A; font-variant-numeric: tabular-nums;">
+                                    <div class="text-center mb-2">
+                                        <div class="text-3xl md:text-4xl font-black" style="color: #37537A; font-variant-numeric: tabular-nums;">
                                             <span class="counter inline-block transform group-hover:scale-110 transition-transform duration-300">0</span><span class="suffix">{{ $stat['suffix'] }}</span>
                                         </div>
                                     </div>
                                     
                                     {{-- Label --}}
                                     <div class="text-center">
-                                        <p class="text-lg font-bold" style="color: #37537A;">{{ $stat['label'] }}</p>
-                                        <p class="text-sm font-semibold" style="color: #FACC15;">{{ $stat['sublabel'] }}</p>
+                                        <p class="text-base font-bold" style="color: #37537A;">{{ $stat['label'] }}</p>
+                                        <p class="text-xs font-semibold" style="color: #FACC15;">{{ $stat['sublabel'] }}</p>
                                     </div>
                                     
                                     {{-- Animated Progress Circle --}}
-                                    <div class="mt-6 flex justify-center">
-                                        <svg class="w-16 h-16 transform -rotate-90" viewBox="0 0 60 60">
+                                    <div class="mt-2 flex justify-center">
+                                        <svg class="w-8 h-8 transform -rotate-90" viewBox="0 0 60 60">
                                             <circle cx="30" cy="30" r="25" fill="none" stroke="rgba(55, 83, 122, 0.1)" stroke-width="4"/>
                                             <circle cx="30" cy="30" r="25" fill="none" stroke="#FACC15" stroke-width="4" 
                                                     class="progress-circle" 

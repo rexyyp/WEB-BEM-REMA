@@ -1,4 +1,4 @@
-<section id="vision" class="py-32 px-4 md:px-8 bg-white">
+<section id="vision" class="py-20 px-8 md:px-12 bg-white">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mb-20 relative">
             {{-- Decorative Background Elements --}}
@@ -18,7 +18,7 @@
 
         <div class="grid md:grid-cols-2 gap-12">
             {{-- Vision Card --}}
-            <div class="animate-on-scroll group p-12 rounded-2xl opacity-0 transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 cursor-pointer relative overflow-hidden glass-card"
+            <div class="animate-on-scroll group p-8 rounded-2xl opacity-0 transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 cursor-pointer relative overflow-hidden glass-card"
                  style="background: linear-gradient(135deg, rgba(55, 83, 122, 0.95), rgba(55, 83, 122, 0.85)); transform: translateY(40px); transition-delay: 200ms; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);">
                 <div class="absolute inset-0 bg-gradient-to-br from-white/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 {{-- Simple Glow Behind Card --}}
@@ -29,25 +29,25 @@
                 <div class="absolute bottom-10 left-10 w-16 h-16 rounded-full opacity-20 group-hover:opacity-40 transition-all duration-700" style="background: radial-gradient(circle, rgba(147, 197, 253, 0.6) 0%, transparent 70%); animation: particle-float 8s ease-in-out infinite reverse;"></div>
                 
                 <div class="relative z-10">
-                    <div class="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mb-8 transition-all duration-500 backdrop-blur-sm group-hover:scale-125 group-hover:rotate-12 group-hover:bg-white/30 relative">
-                        <svg class="w-8 h-8 text-white transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center mb-6 transition-all duration-500 backdrop-blur-sm group-hover:scale-110 group-hover:bg-white/30 relative">
+                        <svg class="w-5 h-5 text-white transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                         </svg>
                     </div>
 
-                                        <h3 class="text-3xl font-black mb-6 text-white">Visi</h3>
-                    <p class="text-white leading-relaxed text-lg font-medium mb-8 transition-all duration-200 group-hover:translate-x-1">
+                    <h3 class="text-2xl font-black mb-5 text-white">Visi</h3>
+                    <p class="text-white leading-relaxed text-base font-medium mb-6 transition-all duration-200 group-hover:translate-x-1">
                         Crafting The Ultimate Inclisive Ecosystem
                     </p>
-                    <p class="text-white leading-relaxed text-base font-light transition-all duration-200 group-hover:translate-x-1">
+                    <p class="text-white leading-relaxed text-sm font-light transition-all duration-200 group-hover:translate-x-1">
                         "Visi ini berarti menciptakan sistem atau lingkungan yang sepenuhnya merangkul dan memberdayakan setiap individu."
                     </p>
                 </div>
             </div>
 
             {{-- Mission Card --}}
-            <div class="animate-on-scroll group p-12 rounded-2xl opacity-0 transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 cursor-pointer relative overflow-hidden glass-card"
+            <div class="animate-on-scroll group p-8 rounded-2xl opacity-0 transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 cursor-pointer relative overflow-hidden glass-card"
                  style="background: linear-gradient(135deg, rgba(250, 204, 21, 0.15), rgba(245, 158, 11, 0.1)); border: 2px solid rgba(250, 204, 21, 0.3); transform: translateY(40px); transition-delay: 400ms;">
                 <div class="absolute inset-0 bg-gradient-to-br from-yellow-200/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 {{-- Simple Glow Behind Card --}}
@@ -63,15 +63,15 @@
                 <div class="absolute top-5 right-5 w-24 h-24 rounded-full opacity-20 group-hover:opacity-50 transition-all duration-700" style="background: radial-gradient(circle, rgba(250, 204, 21, 0.5) 0%, transparent 70%); animation: particle-float 7s ease-in-out infinite;"></div>
                 
                 <div class="relative z-10">
-                    <div class="w-16 h-16 rounded-2xl bg-yellow-100 flex items-center justify-center mb-8 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12 group-hover:bg-yellow-200 relative">
-                        <svg class="w-8 h-8 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-180" viewBox="0 0 24 24" fill="none">
+                    <div class="w-10 h-10 rounded-2xl bg-yellow-100 flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-yellow-200 relative">
+                        <svg class="w-5 h-5 transition-transform duration-300" viewBox="0 0 24 24" fill="none">
                             <circle cx="12" cy="12" r="10" fill="#EF4444"/>
                             <circle cx="12" cy="12" r="6" fill="white"/>
                             <circle cx="12" cy="12" r="3" fill="#EF4444"/>
                         </svg>
                     </div>
 
-                                        <h3 class="text-3xl font-black mb-6" style="color: #37537A;">Misi</h3>
+                    <h3 class="text-2xl font-black mb-5" style="color: #37537A;">Misi</h3>
 
                 <ul class="space-y-4">
                     @php

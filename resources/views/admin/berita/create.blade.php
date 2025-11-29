@@ -214,6 +214,17 @@
                                     <p style="color: #dc2626; font-size: 12px; margin-top: 4px;">{{ $message }}</p>
                                 @enderror
                             </div>
+
+                            {{-- Waktu Baca --}}
+                            <div style="margin-bottom: 24px;">
+                                <label style="display: block; font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 8px;">
+                                    Waktu Baca (menit) <span style="color: #dc2626;">*</span>
+                                </label>
+                                <input type="number" name="waktu_baca" placeholder="Estimasi waktu baca" value="{{ old('waktu_baca', 5) }}" min="1" max="60" required>
+                                @error('waktu_baca')
+                                    <p style="color: #dc2626; font-size: 12px; margin-top: 4px;">{{ $message }}</p>
+                                @enderror
+                            </div>
                         </div>
 
                         {{-- Right Column: Upload Gambar --}}

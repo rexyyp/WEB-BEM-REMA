@@ -34,6 +34,7 @@ class UpdateBeritaRequest extends FormRequest
             'author' => 'required|string|max:100',
             'thumbnail' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
             'konten' => 'required|string',
+            'waktu_baca' => 'nullable|integer|min:1|max:60',
         ];
     }
 

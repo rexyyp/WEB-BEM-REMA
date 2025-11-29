@@ -1,15 +1,15 @@
-<section id="leadership" class="py-32 px-4 md:px-8 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+<section id="leadership" class="py-20 px-8 md:px-12 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
     {{-- Enhanced Animated Background Elements --}}
     <div class="absolute top-0 left-0 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl morph-blob"></div>
     <div class="absolute bottom-0 right-0 w-96 h-96 bg-purple-100/30 rounded-full blur-3xl liquid-shape"></div>
     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-20 border-morph" style="background: radial-gradient(circle, rgba(250, 204, 21, 0.1) 0%, transparent 70%); filter: blur(80px);"></div>
     
     <div class="max-w-7xl mx-auto relative z-10">
-        <div class="text-center mb-20 relative">
+        <div class="text-center mb-16 relative">
             {{-- Decorative Background --}}
             <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-80 h-80 opacity-10 liquid-shape" style="background: radial-gradient(circle, rgba(250, 204, 21, 0.5) 0%, transparent 70%); filter: blur(60px); z-index: -1;"></div>
             
-            <h2 class="animate-on-scroll text-5xl md:text-6xl font-black mb-6 opacity-0 transition-all duration-1000" style="transform: translateY(40px); color: #37537A;">
+            <h2 class="animate-on-scroll text-4xl md:text-5xl font-black mb-6 opacity-0 transition-all duration-1000" style="transform: translateY(40px); color: #37537A;">
                 Sambutan
             </h2>
             <div class="flex justify-center mt-6 gap-3">
@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-12">
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             @php
                 $leaders = [
                     [
@@ -37,13 +37,13 @@
             @foreach($leaders as $index => $leader)
                 {{-- 3D Perspective Container --}}
                 <div class="animate-on-scroll opacity-0" style="perspective: 1500px; transition-delay: {{ $index * 200 }}ms;">
-                    <div class="card-3d-tilt-leadership bg-white rounded-3xl p-8 shadow-lg text-center group" style="transform-style: preserve-3d; will-change: transform;" data-tilt>
+                    <div class="card-3d-tilt-leadership bg-white rounded-3xl p-5 shadow-lg text-center group" style="transform-style: preserve-3d; will-change: transform;" data-tilt>
                         {{-- Leader Image --}}
-                        <div class="relative mb-8 rounded-3xl overflow-hidden" style="transform-style: preserve-3d;">
+                        <div class="relative mb-4 rounded-3xl overflow-hidden" style="transform-style: preserve-3d; aspect-ratio: 1/1;">
                             <img
                                 src="{{ $leader['image'] }}"
                                 alt="{{ $leader['name'] }}"
-                                class="w-full aspect-square object-cover"
+                                class="w-full h-full object-cover"
                                 style="will-change: transform; backface-visibility: hidden;"
                             />
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
@@ -59,10 +59,10 @@
                     </div>
                     
                     <div class="space-y-2">
-                        <h3 class="text-2xl font-black mb-2 transition-colors duration-300" style="color: #37537A;">{{ $leader['name'] }}</h3>
-                        <p class="text-gray-600 font-medium mb-4">{{ $leader['position'] }}</p>
-                        <p class="text-gray-500 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                        <h3 class="text-lg font-black mb-1 transition-colors duration-300" style="color: #37537A;">{{ $leader['name'] }}</h3>
+                        <p class="text-gray-600 font-medium text-xs mb-2">{{ $leader['position'] }}</p>
+                        <p class="text-gray-500 text-xs leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         </p>
                     </div>
                     </div>

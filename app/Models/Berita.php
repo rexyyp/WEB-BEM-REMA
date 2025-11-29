@@ -19,12 +19,14 @@ class Berita extends Model
         'author',
         'thumbnail',
         'konten',
-        'views'
+        'views',
+        'waktu_baca'
     ];
 
     protected $casts = [
         'tanggal' => 'date',
         'views' => 'integer',
+        'waktu_baca' => 'integer',
     ];
 
     /**

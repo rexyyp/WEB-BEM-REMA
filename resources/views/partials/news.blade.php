@@ -1,6 +1,6 @@
-<section id="news" class="py-32 px-4 md:px-8 bg-gray-50">
+<section id="news" class="py-20 px-8 md:px-12 bg-gray-50">
     <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-20 relative">
+        <div class="text-center mb-16 relative">
             {{-- Decorative Elements --}}
             <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-72 h-72 opacity-15 liquid-shape" style="background: radial-gradient(circle, rgba(250, 204, 21, 0.4) 0%, transparent 70%); filter: blur(60px); z-index: -1;"></div>
             
@@ -24,7 +24,7 @@
             @endphp
 
             @forelse($latestNews as $index => $item)
-                <div class="animate-on-scroll group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-3 opacity-0 card-3d" style="transform: translateY(30px); transition-delay: {{ $index * 100 }}ms; display: grid; grid-template-rows: auto 1fr; height: 480px;">
+                <div class="animate-on-scroll group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-3 opacity-0 card-3d" style="transform: translateY(30px); transition-delay: {{ $index * 100 }}ms; display: grid; grid-template-rows: auto 1fr; height: 420px;">
                     {{-- Image --}}
                     <div class="relative overflow-hidden aspect-video">
                         <img
@@ -48,7 +48,7 @@
                     </div>
 
                     {{-- Content --}}
-                    <div class="p-6" style="display: grid; grid-template-rows: auto 3.5rem 3.6rem 1fr auto; gap: 0;">
+                    <div class="p-5" style="display: grid; grid-template-rows: auto 3rem 3rem 1fr auto; gap: 0;">
                         <div class="flex items-center gap-4 text-xs text-gray-500 mb-3">
                             <span class="flex items-center gap-2">
                                 <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

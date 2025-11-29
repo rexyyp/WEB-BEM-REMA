@@ -3,7 +3,7 @@
 @section('content')
 <div class="pt-32">
     {{-- Hero Section with Featured Image --}}
-    <section class="relative py-16 px-4 md:px-8 bg-gradient-to-br from-white via-gray-50 to-white overflow-hidden">
+    <section class="relative py-20 px-6 md:px-8 bg-gradient-to-br from-white via-gray-50 to-white overflow-hidden">
         <div class="absolute inset-0 opacity-5">
             <div class="absolute top-10 left-10 w-72 h-72 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full blur-3xl"></div>
             <div class="absolute bottom-10 right-10 w-96 h-96 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full blur-3xl"></div>
@@ -38,15 +38,14 @@
                 </div>
                 <div class="flex items-center gap-2">
                     <svg class="w-5 h-5 flex-shrink-0" style="color: #37537A;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
-                    <span class="font-semibold">{{ formatViews($berita->views) }} views</span>
+                    <span class="font-semibold">{{ $berita->waktu_baca ?? 5 }} menit baca</span>
                 </div>
             </div>
 
             {{-- Featured Image --}}
-            <div class="animate-on-scroll group relative rounded-3xl overflow-hidden shadow-2xl mb-8 opacity-0 transition-all duration-1000" style="transform: translateY(40px); transition-delay: 400ms;">
+            <div class="animate-on-scroll group relative rounded-3xl overflow-hidden shadow-2xl mb-12 opacity-0 transition-all duration-1000" style="transform: translateY(40px); transition-delay: 400ms;">
                 <div class="relative overflow-hidden aspect-video">
                     <img src="{{ $berita->thumbnail_url }}" alt="{{ $berita->judul }}" class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -61,8 +60,18 @@
             <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="transform: translateY(30px);">
                 {{-- Article Body with Markdown Support --}}
                 <article class="prose prose-lg max-w-none markdown-content">
-                    <div class="text-gray-700 leading-relaxed" style="font-size: 1.125rem; line-height: 1.8;">
-                        {!! $berita->html_konten !!}
+                    <div class="text-black leading-relaxed" style="font-size: 1.125rem; line-height: 1.8;">
+                        @php
+                            // Add dateline to first paragraph
+                            $kota = strtoupper($berita->kota ?? 'BANDUNG');
+                            $tanggal = formatTanggalIndo($berita->tanggal);
+                            $dateline = "<strong>{$kota}, {$tanggal} - </strong>";
+                            
+                            // Get content and add dateline to first <p> tag
+                            $content = $berita->html_konten;
+                            $content = preg_replace('/<p>/', '<p>' . $dateline, $content, 1);
+                        @endphp
+                        {!! $content !!}
                     </div>
                 </article>
 
@@ -96,8 +105,8 @@
 
     {{-- Related News --}}
     @if($relatedNews && $relatedNews->count() > 0)
-    <section class="py-20 px-4 md:px-8 bg-gradient-to-br from-gray-50 to-white">
-        <div class="max-w-7xl mx-auto">
+    <section class="py-20 px-6 md:px-8 bg-gradient-to-br from-gray-50 to-white">
+        <div class="max-w-4xl mx-auto">
             <div class="animate-on-scroll mb-12 opacity-0 transition-all duration-1000" style="transform: translateY(40px);">
                 <h2 class="text-3xl md:text-4xl font-black mb-2 text-black">Berita Terkait</h2>
                 <div style="width: 120px; height: 4px; background-color: #37537A; border-radius: 9999px;"></div>
@@ -115,7 +124,7 @@
                             </span>
                         </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-5">
                         <div class="flex items-center gap-4 text-xs text-gray-500 mb-3">
                             <span class="flex items-center gap-2">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -124,7 +133,7 @@
                                 <span>{{ formatTanggalSingkat($news->tanggal) }}</span>
                             </span>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-800 group-hover:text-blue-900 transition-colors duration-300 mb-3 line-clamp-2">
+                        <h3 class="text-lg font-bold text-gray-800 group-hover:text-blue-900 transition-colors duration-300 mb-3 line-clamp-2">
                             {{ $news->judul }}
                         </h3>
                         <p class="text-gray-600 text-sm mb-4 line-clamp-2">
@@ -146,8 +155,8 @@
 
     {{-- Latest News --}}
     @if($latestNews && $latestNews->count() > 0)
-    <section class="py-20 px-4 md:px-8 bg-white">
-        <div class="max-w-7xl mx-auto">
+    <section class="py-20 px-6 md:px-8 bg-white">
+        <div class="max-w-4xl mx-auto">
             <div class="animate-on-scroll mb-12 opacity-0 transition-all duration-1000" style="transform: translateY(40px);">
                 <h2 class="text-3xl md:text-4xl font-black mb-2 text-black">Berita Terbaru</h2>
                 <div style="width: 120px; height: 4px; background-color: #FACC15; border-radius: 9999px;"></div>
@@ -165,7 +174,7 @@
                             </span>
                         </div>
                     </div>
-                    <div class="p-6 md:w-3/5 flex flex-col justify-center">
+                    <div class="p-5 md:w-3/5 flex flex-col justify-center">
                         <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
                             <span class="flex items-center gap-1.5">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -181,7 +190,7 @@
                                 <span>{{ formatViews($news->views) }}</span>
                             </span>
                         </div>
-                        <h3 class="text-lg md:text-xl font-bold text-gray-800 group-hover:text-blue-900 transition-colors duration-300 mb-2 line-clamp-2">
+                        <h3 class="text-base md:text-lg font-bold text-gray-800 group-hover:text-blue-900 transition-colors duration-300 mb-2 line-clamp-2">
                             {{ $news->judul }}
                         </h3>
                         <p class="text-gray-600 text-sm mb-3 line-clamp-2">
@@ -296,6 +305,11 @@ document.addEventListener('DOMContentLoaded', function() {
 .prose h2,
 .prose h3 {
     scroll-margin-top: 100px;
+}
+
+/* Hide supertext/sup tags */
+.markdown-content sup {
+    display: none;
 }
 
 .hover-tilt {

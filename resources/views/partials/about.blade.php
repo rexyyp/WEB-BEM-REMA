@@ -1,4 +1,4 @@
-<section id="about" class="relative pt-32 pb-32 px-4 md:px-8 bg-white overflow-hidden">
+<section id="about" class="relative py-20 px-8 md:px-12 bg-white overflow-hidden">
     {{-- Decorative Background Particles --}}
     <div class="absolute top-20 left-10 w-2 h-2 rounded-full particle-drift" style="background: rgba(250, 204, 21, 0.6);"></div>
     <div class="absolute top-40 right-20 w-3 h-3 rounded-full particle-drift" style="background: rgba(147, 197, 253, 0.6); animation-delay: 2s;"></div>
@@ -30,7 +30,7 @@
                 </p>
 
                 {{-- Stats Grid --}}
-                <div class="grid grid-cols-3 gap-4">
+                <div class="grid grid-cols-3 gap-3">
                     @php
                         $stats = [
                             ['number' => '15+', 'label' => 'Kementerian'],
@@ -39,7 +39,7 @@
                         ];
                     @endphp
                     @foreach($stats as $index => $stat)
-                        <div class="p-5 rounded-xl bg-gradient-to-br from-white to-gray-50 border-2 hover:shadow-2xl transition-all duration-500 group cursor-pointer overflow-hidden relative bounce-entrance" style="border-color: #e5e7eb; animation-delay: {{ $index * 0.2 }}s;" onmouseover="this.style.borderColor='#FACC15'; this.style.transform='translateY(-8px)'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.transform='translateY(0)'">
+                        <div class="p-3 rounded-xl bg-gradient-to-br from-white to-gray-50 border-2 hover:shadow-2xl transition-all duration-500 group cursor-pointer overflow-hidden relative bounce-entrance" style="border-color: #e5e7eb; animation-delay: {{ $index * 0.2 }}s;" onmouseover="this.style.borderColor='#FACC15'; this.style.transform='translateY(-8px)'" onmouseout="this.style.borderColor='#e5e7eb'; this.style.transform='translateY(0)'">
                             {{-- Animated Background Gradient --}}
                             <div class="absolute inset-0 transition-all duration-700 opacity-0 group-hover:opacity-100" style="background: linear-gradient(135deg, rgba(250, 204, 21, 0.1) 0%, rgba(147, 197, 253, 0.1) 100%);"></div>
                             
@@ -50,10 +50,10 @@
                             <div class="absolute -right-4 -bottom-4 w-20 h-20 rounded-full opacity-10 group-hover:opacity-20 transition-all duration-500 group-hover:scale-150" style="background-color: #FACC15;"></div>
                             
                             <div class="relative z-10">
-                                <div class="text-3xl font-black mb-2 group-hover:scale-125 transition-all duration-500 float-animation" style="color: #FACC15; text-shadow: 0 2px 4px rgba(250, 204, 21, 0.2);">
+                                <div class="text-2xl font-black mb-1 group-hover:scale-125 transition-all duration-500 float-animation" style="color: #FACC15; text-shadow: 0 2px 4px rgba(250, 204, 21, 0.2);">
                                     {{ $stat['number'] }}
                                 </div>
-                                <p class="text-xs font-bold text-gray-600 group-hover:text-gray-900 transition-colors duration-300 uppercase tracking-wider">
+                                <p class="text-xs font-bold text-gray-600 group-hover:text-gray-900 transition-colors duration-300 uppercase tracking-wide">
                                     {{ $stat['label'] }}
                                 </p>
                             </div>
@@ -77,11 +77,11 @@
                     <div class="absolute -inset-4 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-700" style="background: radial-gradient(circle at center, rgba(250, 204, 21, 0.15), transparent 70%); filter: blur(20px);"></div>
                     
                     {{-- Image Container with Tilt Effect --}}
-                    <div class="relative overflow-hidden rounded-2xl shadow-2xl transition-all duration-500 group-hover:shadow-[0_25px_60px_-12px_rgba(250,204,21,0.4)] image-tilt-container">
+                    <div class="relative overflow-hidden rounded-2xl shadow-2xl transition-all duration-500 group-hover:shadow-[0_25px_60px_-12px_rgba(250,204,21,0.4)] image-tilt-container" style="aspect-ratio: 4/3;">
                         <img
                             src="{{ asset('build/assets/image/Team Rema.jpg') }}"
                             alt="BEM REMA UPI Team"
-                            class="w-full object-cover aspect-square transition-all duration-700 group-hover:scale-110"
+                            class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                             style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
                         />
                         

@@ -19,6 +19,7 @@ class BeritaSeeder extends Seeder
             'tanggal' => '2025-11-15',
             'author' => 'Admin BEM REMA',
             'thumbnail' => 'beritas/workshop-soft-skills.jpg',
+            'waktu_baca' => 7,
             'konten' => '<p>BEM REMA UPI kembali mengadakan workshop pengembangan soft skills yang bertujuan untuk meningkatkan kemampuan mahasiswa dalam menghadapi tantangan dunia kerja. Workshop ini diselenggarakan pada hari Jumat, 15 November 2025 di Gedung Student Center UPI Bandung.</p>
 
 <p>Workshop kali ini menghadirkan berbagai narasumber kompeten dari berbagai perusahaan terkemuka dan praktisi berpengalaman. Materi yang disampaikan meliputi public speaking, leadership, critical thinking, dan teamwork yang sangat dibutuhkan di era modern ini.</p>
@@ -55,6 +56,7 @@ class BeritaSeeder extends Seeder
             'tanggal' => '2025-11-10',
             'author' => 'Tim Redaksi',
             'thumbnail' => 'beritas/pelantikan-kabinet.jpg',
+            'waktu_baca' => 5,
             'konten' => '<p>Pelantikan Kabinet Suar Sangga menandai dimulainya periode kepengurusan baru BEM REMA UPI dengan visi dan misi yang inovatif untuk memajukan organisasi kemahasiswaan di lingkungan UPI.</p>
 
 <h2>Upacara Pelantikan</h2>
@@ -85,6 +87,7 @@ class BeritaSeeder extends Seeder
             'tanggal' => '2025-11-08',
             'author' => 'Humas BEM REMA',
             'thumbnail' => 'beritas/rapat-koordinasi.jpg',
+            'waktu_baca' => 6,
             'konten' => '<p>Rapat koordinasi kementerian BEM REMA UPI periode 2025 dilaksanakan untuk membahas program kerja semester ini dengan fokus pada peningkatan kualitas layanan kepada mahasiswa dan penguatan koordinasi antar kementerian.</p>
 
 <h2>Agenda Rapat</h2>

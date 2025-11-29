@@ -3,7 +3,7 @@
 @section('content')
 <div class="pt-20">
     {{-- Hero Section --}}
-    <section class="relative py-20 px-4 md:px-8 bg-gradient-to-br from-white via-gray-50 to-white overflow-hidden animate-on-scroll opacity-0" style="transform: translateY(40px);">
+    <section class="relative py-20 px-8 md:px-12 bg-gradient-to-br from-white via-gray-50 to-white overflow-hidden animate-on-scroll opacity-0" style="transform: translateY(40px);">
         <div class="absolute inset-0 opacity-5">
             <div class="absolute top-10 left-10 w-72 h-72 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full blur-3xl"></div>
             <div class="absolute bottom-10 right-10 w-96 h-96 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full blur-3xl"></div>
@@ -26,7 +26,7 @@
     </section>
 
     {{-- Featured News --}}
-    <section class="py-20 px-4 md:px-8 bg-white">
+    <section class="py-20 px-8 md:px-12 bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="animate-on-scroll mb-12 opacity-0 transition-all duration-1000" style="transform: translateY(40px);">
                 <h2 class="text-3xl md:text-4xl font-black mb-2 text-black">Berita Utama</h2>
@@ -87,7 +87,7 @@
     </section>
 
     {{-- All News --}}
-    <section class="py-20 px-4 md:px-8 bg-gradient-to-br from-gray-50 to-white">
+    <section class="py-20 px-8 md:px-12 bg-gradient-to-br from-gray-50 to-white">
         <div class="max-w-7xl mx-auto">
             <div class="mb-12">
                 <div class="animate-on-scroll mb-6 opacity-0 transition-all duration-1000" style="transform: translateY(40px);">
