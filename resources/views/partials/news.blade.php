@@ -24,7 +24,7 @@
             @endphp
 
             @forelse($latestNews as $index => $item)
-                <a href="{{ route('berita.detail', $item->slug) }}" class="animate-on-scroll group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-3 opacity-0 card-3d block" style="transform: translateY(30px); transition-delay: {{ $index * 100 }}ms; display: flex; flex-direction: column; height: 480px;">
+                <a href="{{ route('berita.detail', $item->slug) }}" class="animate-on-scroll group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-3 opacity-0 card-3d block" style="transform: translateY(30px); transition-delay: {{ $index * 100 }}ms; display: flex; flex-direction: column; min-height: 380px;">
                     {{-- Image --}}
                     <div class="relative overflow-hidden flex-shrink-0" style="height: 200px;">
                         <img
@@ -48,7 +48,7 @@
                     </div>
 
                     {{-- Content --}}
-                    <div class="p-5 flex flex-col h-full">
+                    <div class="p-5 flex flex-col h-full justify-between">
                         <div class="flex items-center gap-4 text-xs text-gray-500 mb-3 flex-shrink-0">
                             <span class="flex items-center gap-2">
                                 <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -68,11 +68,11 @@
                             {{ $item->judul }}
                         </h3>
 
-                        <p class="text-gray-600 text-sm line-clamp-3 mb-4 flex-grow">
+                        <p class="text-gray-600 text-sm line-clamp-3 mb-4">
                             {{ $item->excerpt }}
                         </p>
 
-                        <div class="flex-shrink-0">
+                        <div>
                             <span class="inline-flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all duration-300" style="color: #37537A;">
                                 <span>Baca Selengkapnya</span>
                                 <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
