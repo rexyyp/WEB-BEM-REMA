@@ -5,7 +5,7 @@
             <a href="/" class="flex items-center gap-3" style="margin-left: -100px;">
                 <img src="{{ asset('build/assets/image/Logo Suar Sangga.png') }}" alt="BEM REMA UPI Logo" class="h-12 w-auto">
                 <div>
-                    <div class="font-bold text-base leading-tight navbar-logo-text" style="color: #000000;">BEM REMA UPI</div>
+                    <div class="font-bold text-base leading-tight navbar-logo-text" style="color: #000000;">BEM Rema UPI</div>
                     <div class="text-xs leading-tight mt-0.5 navbar-logo-text" style="color: #000000;">KABINET SUAR SANGGA 2025</div>
                 </div>
             </a>

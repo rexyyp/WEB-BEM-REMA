@@ -132,19 +132,19 @@
                         <p class="text-xs text-gray-500 mb-3">{{ formatTanggalSingkat($news->tanggal) }}</p>
                         
                         {{-- Title --}}
-                        <h3 class="text-lg font-bold mb-3 line-clamp-2" style="font-family: 'Oswald', sans-serif; color: #37537A;">
+                        <h3 class="text-xl font-black mb-3 line-clamp-2 text-gray-900 group-hover:text-blue-900 transition-colors duration-300">
                             {{ $news->judul }}
                         </h3>
                         
                         {{-- Excerpt --}}
-                        <p class="text-sm text-gray-600 mb-4 line-clamp-3" style="font-family: 'Montserrat', sans-serif; line-height: 1.6;">
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-3 leading-relaxed">
                             {{ $news->excerpt }}
                         </p>
                         
                         {{-- Read More Link --}}
-                        <a href="{{ route('berita.detail', $news->slug) }}" class="inline-flex items-center gap-2 text-sm font-semibold transition-all duration-300 group-hover:gap-3" style="color: #3B82F6;">
+                        <a href="{{ route('berita.detail', $news->slug) }}" class="inline-flex items-center gap-2 text-sm font-bold transition-all duration-300 group-hover:gap-3" style="color: #37537A;">
                             <span>Baca Selengkapnya</span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                             </svg>
                         </a>

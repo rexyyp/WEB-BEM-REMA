@@ -19,10 +19,10 @@
                 </div>
                 <h1 class="animate-on-scroll text-5xl md:text-7xl font-black mb-6 leading-tight opacity-0 transition-all duration-1000" style="transform: translateY(40px); transition-delay: 200ms;">
                     <span class="text-black">Badan Eksekutif</span><br>
-                    <span style="color: #37537A;">Mahasiswa REMA UPI</span>
+                    <span style="color: #37537A;">Mahasiswa Rema UPI</span>
                 </h1>
                 <p class="animate-on-scroll text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed opacity-0 transition-all duration-1000" style="transform: translateY(40px); transition-delay: 400ms;">
-                    Organisasi mahasiswa yang berkomitmen membangun masa depan mahasiswa Indonesia melalui inovasi, pemberdayaan, dan kolaborasi.
+                    BEM Rema UPI hadir sebagai lembaga eksekutif universitas yang memadukan ketajaman pergerakan dengan kehangatan pelayanan bagi seluruh sivitas akademika. Melalui Kabinet Suar Sangga, kami berkomitmen menghadirkan transparansi yang mencerahkan sekaligus dukungan kesejahteraan yang menguatkan. Ikuti dinamika kami di Instagram @bem.upi dan mari berkolaborasi langsung demi kemajuan pendidikan dan almamater.
                 </p>
             </div>
         </div>
@@ -34,7 +34,7 @@
             {{-- Title --}}
             <h2 class="text-4xl md:text-5xl font-black mb-12 leading-tight text-center animate-on-scroll opacity-0 transition-all duration-1000" style="transform: translateY(30px);">
                 <span class="text-black">Tentang</span>
-                <span style="color: #37537A;">BEM REMA UPI</span>
+                <span style="color: #37537A;">BEM Rema UPI</span>
             </h2>
 
             {{-- Three-Image Stack Header (Gallery Concept) --}}
@@ -82,31 +82,8 @@
                         Kami percaya, sebuah organisasi mahasiswa yang ideal harus menjadi ekosistem yang 
                         <strong>transparan</strong>, <strong>inklusif</strong>, dan <strong>berdaya</strong>. 
                         Hal inilah yang menjadi landasan utama kami. Nilai-nilai ini terangkum dalam filosofi 
-                        <strong><em>"Suar Sangga"</em></strong>—cahaya pencerahan yang didukung oleh fondasi yang kokoh.
+                        <strong><em>"Suar Sangga"</em></strong> cahaya pencerahan yang didukung oleh fondasi yang kokoh.
                     </p>
-
-                    {{-- Value Pills Row --}}
-                    <div class="flex flex-wrap gap-3">
-                        <div class="flex items-center gap-2 px-4 py-2 rounded-full border-2 transition-all hover:scale-105" style="border-color: #37537A; background: rgba(55, 83, 122, 0.05);">
-                            <svg class="w-4 h-4" fill="none" stroke="#37537A" viewBox="0 0 24 24" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                            </svg>
-                            <span class="text-sm font-semibold" style="color: #37537A;">Transparan</span>
-                        </div>
-                        <div class="flex items-center gap-2 px-4 py-2 rounded-full border-2 transition-all hover:scale-105" style="border-color: #F2994A; background: rgba(242, 153, 74, 0.05);">
-                            <svg class="w-4 h-4" fill="none" stroke="#F2994A" viewBox="0 0 24 24" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                            </svg>
-                            <span class="text-sm font-semibold" style="color: #F2994A;">Inklusif</span>
-                        </div>
-                        <div class="flex items-center gap-2 px-4 py-2 rounded-full border-2 transition-all hover:scale-105" style="border-color: #37537A; background: rgba(55, 83, 122, 0.05);">
-                            <svg class="w-4 h-4" fill="none" stroke="#37537A" viewBox="0 0 24 24" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
-                            <span class="text-sm font-semibold" style="color: #37537A;">Berdaya</span>
-                        </div>
-                    </div>
                 </div>
 
                 {{-- Right Column --}}
@@ -146,22 +123,25 @@
             {{-- Section Header --}}
             <div class="text-center mb-16 animate-on-scroll opacity-0" style="transform: translateY(30px);">
                 <h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-4" style="color: #37537A;">
-                    Pencapaian <span style="color: #FACC15;">BEM REMA</span>
+                    Profil Pencapaian Strategis
                 </h2>
-                <div class="h-1 w-24 mx-auto rounded-full" style="background: linear-gradient(90deg, #37537A, #FACC15, #37537A);"></div>
+                <div class="flex justify-center mt-6 gap-3">
+                    <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="width: 80px; height: 4px; background: linear-gradient(90deg, #37537A, #93C5FD); border-radius: 9999px; transform: translateY(40px); transition-delay: 200ms;"></div>
+                    <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="width: 6px; height: 6px; background-color: #37537A; border-radius: 50%; transform: translateY(40px); transition-delay: 250ms;"></div>
+                    <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="width: 80px; height: 4px; background: linear-gradient(90deg, #93C5FD, #FACC15); border-radius: 9999px; transform: translateY(40px); transition-delay: 300ms;"></div>
+                </div>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="flex justify-center items-center gap-6 flex-wrap">
                 @php
                     $stats = [
                         ['number' => '15', 'suffix' => '+', 'label' => 'Kementerian', 'sublabel' => 'Aktif', 'icon' => 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4'],
                         ['number' => '50', 'suffix' => '+', 'label' => 'Pengurus', 'sublabel' => 'Aktif', 'icon' => 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'],
                         ['number' => '100', 'suffix' => '+', 'label' => 'Program', 'sublabel' => 'Tahunan', 'icon' => 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01'],
-                        ['number' => '1000', 'suffix' => '+', 'label' => 'Mahasiswa', 'sublabel' => 'Terlayani', 'icon' => 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z'],
                     ];
                 @endphp
                 @foreach($stats as $index => $stat)
-                    <div class="animate-on-scroll opacity-0 transition-all duration-700 stat-card-wrapper" 
+                    <div class="animate-on-scroll opacity-0 transition-all duration-700 stat-card-wrapper w-64" 
                          style="transform: scale(0.85) translateY(30px); transition-delay: {{ $index * 100 }}ms;"
                          data-number="{{ $stat['number'] }}"
                          data-suffix="{{ $stat['suffix'] }}">

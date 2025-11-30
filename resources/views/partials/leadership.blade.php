@@ -24,15 +24,20 @@
                 $leaders = [
                     [
                         'name' => 'Abu Al Ghifari',
-                        'position' => 'Presiden Mahasiswa BEM REMA UPI 2025',
+                        'position' => 'Presiden Mahasiswa BEM Rema UPI 2025',
                         'image' => asset('build/assets/image/Presiden_Rema.jpg'),
-                        'message' => 'Sebagai Presiden BEM REMA UPI 2025, saya berkomitmen untuk membangun ekosistem mahasiswa yang inklusif dan inovatif.',
+                        'message' => 'Assalamualaikum Warahmatullahi Wabarakatuh, Hidup Mahasiswa!
+
+Selamat datang di gelanggang perjuangan! BEM Rema UPI hadir dengan filosofi "Suar" cahaya transparansi untuk membedah kebenaran dan melawan ketidakadilan secara lantang. Melalui visi Crafting The Ultimate Inclusive Ecosystem, kami bertekad menjadi motor penggerak yang mengubah aspirasi kalian menjadi kebijakan nyata. Mari nyalakan nalar kritis dan bergerak bersama menuju Indonesia Emas yang berdaulat!',
                     ],
                     [
                         'name' => 'Najril Fauzan',
-                        'position' => 'Wakil Presiden BEM REMA UPI 2025',
+                        'position' => 'Wakil Presiden BEM Rema UPI 2025',
                         'image' => asset('build/assets/image/Wapres_Rema.jpg'),
-                        'message' => 'Bersama Kabinet Suar Sangga, kami siap menjadi pilar yang kokoh dan cahaya yang menerangi jalan mahasiswa.',
+                        'message' => 'Salam hangat keluarga besar UPI. 
+
+                                      Jika pergerakan butuh api, kami hadir sebagai "Sangga" pondasi kokoh yang merawat kesejahteraan dan inklusivitas mahasiswa. Kami berkomitmen menciptakan ruang aman untuk aktualisasi diri, memastikan setiap mahasiswa bertumbuh, bukan sekadar bekerja. Mari melangkah bersama dengan napas panjang, saling menopang dalam kolaborasi harmonis demi masa depan almamater yang lebih baik.
+                                      Terima kasih, mari bertumbuh bersama.',
                     ],
                 ];
             @endphp
@@ -85,17 +90,12 @@
                                     {{ $leader['name'] }}
                                 </h3>
                                 
-                                {{-- Position Title --}}
-                                <p class="text-gray-600 font-semibold text-xs mb-4 uppercase tracking-wide">
-                                    BEM REMA UPI 2025
-                                </p>
-                                
                                 {{-- Decorative Line --}}
                                 <div class="w-16 h-1 rounded-full mb-4 transform group-hover:w-24 transition-all duration-500" style="background: linear-gradient(90deg, {{ $index === 0 ? '#FACC15' : '#37537A' }}, transparent);"></div>
                                 
                                 {{-- Message --}}
                                 <p class="text-gray-700 leading-relaxed mb-6 text-sm group-hover:text-gray-900 transition-colors duration-300">
-                                    {{ $leader['message'] }}
+                                    {!! nl2br(e($leader['message'])) !!}
                                 </p>
                                 
                                 {{-- Social Media --}}

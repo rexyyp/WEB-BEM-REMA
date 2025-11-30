@@ -24,9 +24,9 @@
             @endphp
 
             @forelse($latestNews as $index => $item)
-                <a href="{{ route('berita.detail', $item->slug) }}" class="animate-on-scroll group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-3 opacity-0 card-3d block" style="transform: translateY(30px); transition-delay: {{ $index * 100 }}ms; display: grid; grid-template-rows: auto 1fr; height: 420px;">
+                <a href="{{ route('berita.detail', $item->slug) }}" class="animate-on-scroll group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-3 opacity-0 card-3d block" style="transform: translateY(30px); transition-delay: {{ $index * 100 }}ms; display: flex; flex-direction: column; height: 480px;">
                     {{-- Image --}}
-                    <div class="relative overflow-hidden aspect-video">
+                    <div class="relative overflow-hidden flex-shrink-0" style="height: 200px;">
                         <img
                             src="{{ $item->thumbnail_url }}"
                             alt="{{ $item->judul }}"
@@ -48,8 +48,8 @@
                     </div>
 
                     {{-- Content --}}
-                    <div class="p-5" style="display: grid; grid-template-rows: auto 3rem 3rem 1fr auto; gap: 0;">
-                        <div class="flex items-center gap-4 text-xs text-gray-500 mb-3">
+                    <div class="p-5 flex flex-col h-full">
+                        <div class="flex items-center gap-4 text-xs text-gray-500 mb-3 flex-shrink-0">
                             <span class="flex items-center gap-2">
                                 <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
@@ -64,17 +64,15 @@
                             </span>
                         </div>
 
-                        <h3 class="text-xl font-bold text-gray-800 group-hover:text-blue-900 transition-colors duration-300 line-clamp-2">
+                        <h3 class="text-xl font-bold text-gray-800 group-hover:text-blue-900 transition-colors duration-300 line-clamp-2 mb-3 flex-shrink-0">
                             {{ $item->judul }}
                         </h3>
 
-                        <p class="text-gray-600 text-sm line-clamp-3">
+                        <p class="text-gray-600 text-sm line-clamp-3 mb-4 flex-grow">
                             {{ $item->excerpt }}
                         </p>
 
-                        <div></div>
-
-                        <div style="align-self: end;">
+                        <div class="flex-shrink-0">
                             <span class="inline-flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all duration-300" style="color: #37537A;">
                                 <span>Baca Selengkapnya</span>
                                 <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -89,6 +87,10 @@
                     <p class="text-gray-500 text-lg">Belum ada berita yang dipublikasikan.</p>
                 </div>
             @endforelse
+                      </div>
+                    </div>
+                </div>
+            {{-- @endforeach --}}
         </div>
     </div>
 </section>

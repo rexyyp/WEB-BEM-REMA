@@ -95,17 +95,21 @@
     </style>
 </head>
 <body>
-    @include('admin.partials.sidebar')
+    @include('admin.layouts.sidebar')
     
     <div class="main-content">
-        @include('admin.partials.header')
+        {{-- Top Header Bar --}}
+        <div style="background: white; border-bottom: 1px solid #e5e7eb; padding: 16px 32px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h1 style="font-size: 20px; font-weight: 700; color: #111827; margin: 0;">Detail Berita</h1>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <img src="{{ asset('build/assets/image/Logo Suar Sangga.png') }}" alt="Admin" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                    <span style="font-size: 14px; font-weight: 500; color: #374151;">Hi, Admin</span>
+                </div>
+            </div>
+        </div>
         
         <div class="p-8">
-            <div class="mb-6">
-                <h1 class="text-2xl font-bold text-gray-800">Detail Berita</h1>
-                <p class="text-gray-600 text-sm mt-1">Informasi lengkap berita</p>
-            </div>
-
             <div class="bg-white rounded-xl shadow-sm p-6">
                 <div class="mb-6">
                     <div class="info-row">

@@ -30,24 +30,9 @@
                 <div class="flip-card-inner relative w-full h-full transition-transform duration-700" style="transform-style: preserve-3d;">
                     {{-- Front Side - Deep Navy Gradient --}}
                     <div class="flip-card-front absolute w-full h-full rounded-2xl cursor-pointer overflow-hidden" style="backface-visibility: hidden; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); box-shadow: 0 20px 50px rgba(30, 60, 114, 0.4); border: 1px solid rgba(255, 255, 255, 0.2);">
-                        {{-- Background Watermark - Giant Eye Icon --}}
-                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 opacity-10">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
-                        </div>
-                        
                         {{-- Main Content --}}
                         <div class="relative z-10 h-full flex flex-col items-center justify-center">
-                            <h3 class="text-7xl font-black text-white tracking-wider" style="font-family: 'Oswald', sans-serif;">VISI</h3>
-                        </div>
-                        
-                        {{-- Bouncing Hint Icon --}}
-                        <div class="absolute bottom-6 right-6 w-12 h-12 rounded-full flex items-center justify-center animate-bounce" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3);">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"></path>
-                            </svg>
+                            <h3 class="text-5xl font-black text-white tracking-wider" style="font-family: 'Oswald', sans-serif;">VISI</h3>
                         </div>
                     </div>
 
@@ -84,47 +69,20 @@
                 <div class="flip-card-inner relative w-full h-full transition-transform duration-700" style="transform-style: preserve-3d;">
                     {{-- Front Side - Rich Gold Gradient --}}
                     <div class="flip-card-front absolute w-full h-full rounded-2xl cursor-pointer overflow-hidden" style="backface-visibility: hidden; background: linear-gradient(135deg, #F2994A 0%, #F2C94C 100%); box-shadow: 0 20px 50px rgba(242, 153, 74, 0.4); border: 1px solid rgba(255, 255, 255, 0.2);">
-                        {{-- Background Watermark - Giant Target Icon --}}
-                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 opacity-10">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <circle cx="12" cy="12" r="6"></circle>
-                                <circle cx="12" cy="12" r="2"></circle>
-                            </svg>
-                        </div>
-                        
                         {{-- Main Content --}}
                         <div class="relative z-10 h-full flex flex-col items-center justify-center">
-                            <h3 class="text-7xl font-black text-white tracking-wider" style="font-family: 'Oswald', sans-serif;">MISI</h3>
-                        </div>
-                        
-                        {{-- Bouncing Hint Icon --}}
-                        <div class="absolute bottom-6 right-6 w-12 h-12 rounded-full flex items-center justify-center animate-bounce" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3);">
-                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"></path>
-                            </svg>
+                            <h3 class="text-5xl font-black text-white tracking-wider" style="font-family: 'Oswald', sans-serif;">MISI</h3>
                         </div>
                     </div>
 
                     {{-- Back Side - Premium Off-White Background with Logo Watermark --}}
-                    <div class="flip-card-back absolute w-full h-full rounded-2xl overflow-auto flex items-center" style="backface-visibility: hidden; transform: rotateY(180deg); background: #F9FAFB; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); border: 1px solid rgba(0, 0, 0, 0.05);">
+                    <div class="flip-card-back absolute w-full h-full rounded-2xl overflow-hidden flex items-center" style="backface-visibility: hidden; transform: rotateY(180deg); background: #F9FAFB; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); border: 1px solid rgba(0, 0, 0, 0.05);">
                         {{-- BEM Logo Watermark --}}
                         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 opacity-[0.03] pointer-events-none">
                             <img src="{{ asset('build/assets/image/Logo Suar Sangga.png') }}" alt="BEM Logo" class="w-full h-full object-contain">
                         </div>
 
                         <div class="relative z-10 w-full" style="padding: 2.5rem;">
-                            <div class="flex items-center gap-4 mb-8">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #F2994A 0%, #F2C94C 100%);">
-                                    <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <circle cx="12" cy="12" r="6"></circle>
-                                        <circle cx="12" cy="12" r="2"></circle>
-                                    </svg>
-                                </div>
-                                <h3 class="text-2xl font-black" style="color: #1F2937; font-family: 'Oswald', sans-serif;">MISI</h3>
-                            </div>
-
                             <ul style="list-style: none; padding: 0; margin: 0;">
                                 <li class="flex gap-4 items-start pb-4 mb-4" style="border-bottom: 1px solid rgba(0,0,0,0.06);">
                                     <span class="flex-shrink-0 mt-0.5 text-xl" style="color: #F2994A;">◆</span>

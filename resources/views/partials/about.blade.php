@@ -26,15 +26,14 @@
                 </div>
 
                 <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight">
-                    <span class="inline-block animate-slide-in-left text-black">Membangun</span>
-                    <span class="inline-block animate-slide-in-left text-black" style="animation-delay: 0.1s;">Masa</span>
-                    <span class="inline-block animate-slide-in-left text-black" style="animation-delay: 0.2s;">Depan</span>
+                    <span class="inline-block animate-slide-in-left text-black">Kabinet</span>
+                    <span class="inline-block animate-slide-in-left" style="animation-delay: 0.1s; color: #FACC15;">Suar</span>
+                    <span class="inline-block animate-slide-in-left" style="animation-delay: 0.2s; color: #37537A;">Sangga</span>
                     <br>
-                    <span style="color: #37537A;">Mahasiswa Indonesia</span>
                 </h2>
 
                 <p class="text-base md:text-lg text-gray-600 mb-8 leading-relaxed font-light">
-                    BEM REMA UPI adalah organisasi mahasiswa yang berkontribusi untuk meningkatkan potensi mahasiswa melalui berbagai program inovatif dan pemberdayaan yang berkelanjutan.
+                    BEM Rema UPI hadir sebagai lembaga eksekutif universitas yang memadukan ketajaman pergerakan dengan kehangatan pelayanan bagi seluruh sivitas akademika. Melalui Kabinet Suar Sangga, kami berkomitmen menghadirkan transparansi yang mencerahkan sekaligus dukungan kesejahteraan yang menguatkan. Ikuti dinamika kami di Instagram @bem.upi dan mari berkolaborasi langsung demi kemajuan pendidikan dan almamater.
                 </p>
 
                 {{-- Stats Grid --}}
