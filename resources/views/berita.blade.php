@@ -3,10 +3,12 @@
 @section('content')
 <div class="pt-20">
     {{-- Hero Section --}}
-    <section class="relative py-20 px-8 md:px-12 bg-gradient-to-br from-white via-gray-50 to-white overflow-hidden animate-on-scroll opacity-0" style="transform: translateY(40px);">
-        <div class="absolute inset-0 opacity-5">
-            <div class="absolute top-10 left-10 w-72 h-72 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-10 right-10 w-96 h-96 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full blur-3xl"></div>
+    <section class="relative py-20 px-8 md:px-12 overflow-hidden animate-on-scroll opacity-0" style="transform: translateY(40px);">
+        {{-- Abstract Geometric Elements --}}
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-28 left-1/4 w-16 h-16 opacity-[0.06]" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Ccircle cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;35&quot; stroke=&quot;%2337537A&quot; stroke-width=&quot;3&quot; fill=&quot;none&quot; stroke-dasharray=&quot;10 5&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
+            <div class="absolute bottom-24 right-1/3 w-12 h-12 opacity-[0.05]" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Cpolygon points=&quot;50,20 80,80 20,80&quot; stroke=&quot;%23FACC15&quot; stroke-width=&quot;3&quot; fill=&quot;none&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
+            <div class="absolute top-40 right-20 w-10 h-10 opacity-[0.04]" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Cline x1=&quot;25&quot; y1=&quot;25&quot; x2=&quot;75&quot; y2=&quot;75&quot; stroke=&quot;%2337537A&quot; stroke-width=&quot;3&quot;/%3E%3Cline x1=&quot;75&quot; y1=&quot;25&quot; x2=&quot;25&quot; y2=&quot;75&quot; stroke=&quot;%2337537A&quot; stroke-width=&quot;3&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
         </div>
         
         <div class="max-w-7xl mx-auto relative z-10">
@@ -26,7 +28,7 @@
     </section>
 
     {{-- Featured News --}}
-    <section class="py-20 px-8 md:px-12 bg-white">
+    <section class="py-20 px-8 md:px-12">
         <div class="max-w-7xl mx-auto">
             <div class="animate-on-scroll mb-12 opacity-0 transition-all duration-1000" style="transform: translateY(40px);">
                 <h2 class="text-3xl md:text-4xl font-black mb-2 text-black">Berita Utama</h2>

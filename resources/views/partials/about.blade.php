@@ -1,4 +1,12 @@
-<section id="about" class="relative py-20 px-8 md:px-12 bg-white overflow-hidden">
+<section id="about" class="relative py-20 px-8 md:px-12 overflow-hidden">
+    {{-- Compass/Triangle Geometric Accents (from Logo) --}}
+    <div class="absolute top-20 right-20 w-40 h-40 opacity-[0.03] pointer-events-none" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Cpolygon points=&quot;50,5 95,85 5,85&quot; fill=&quot;none&quot; stroke=&quot;%2337537A&quot; stroke-width=&quot;2&quot;/%3E%3Cpolygon points=&quot;50,15 80,75 20,75&quot; fill=&quot;none&quot; stroke=&quot;%23FACC15&quot; stroke-width=&quot;1.5&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
+    <div class="absolute bottom-32 left-16 w-32 h-32 opacity-[0.03] pointer-events-none" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Cpolygon points=&quot;20,50 50,20 80,50 50,80&quot; fill=&quot;none&quot; stroke=&quot;%232563eb&quot; stroke-width=&quot;2&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
+    
+    {{-- Organic Doodle Shapes (Playful) --}}
+    <div class="absolute top-10 right-10 w-32 h-32 opacity-5 pointer-events-none" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Cpath d=&quot;M50 10 Q70 30 50 50 T50 90&quot; stroke=&quot;%23FACC15&quot; stroke-width=&quot;4&quot; fill=&quot;none&quot; stroke-linecap=&quot;round&quot;/%3E%3Ccircle cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;8&quot; fill=&quot;%2337537A&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
+    <div class="absolute bottom-20 left-10 w-24 h-24 opacity-5 pointer-events-none" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Cpath d=&quot;M20 50 L50 20 L80 50 L50 80 Z&quot; stroke=&quot;%2337537A&quot; stroke-width=&quot;3&quot; fill=&quot;none&quot; stroke-linejoin=&quot;round&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
+    
     {{-- Decorative Background Particles --}}
     <div class="absolute top-20 left-10 w-2 h-2 rounded-full particle-drift" style="background: rgba(250, 204, 21, 0.6);"></div>
     <div class="absolute top-40 right-20 w-3 h-3 rounded-full particle-drift" style="background: rgba(147, 197, 253, 0.6); animation-delay: 2s;"></div>
@@ -69,15 +77,18 @@
 
             {{-- Right Image --}}
             <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="transform: translateX(40px);">
-                <div class="relative group">
+                <div class="relative group h-full flex items-stretch">
                     {{-- Animated Border Gradient --}}
-                    <div class="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-blue-500 to-yellow-400 rounded-2xl blur-2xl opacity-30 group-hover:opacity-60 transition-all duration-700 animate-gradient-rotate"></div>
+                    <div class="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-blue-500 to-yellow-400 rounded-3xl blur-2xl opacity-30 group-hover:opacity-60 transition-all duration-700 animate-gradient-rotate"></div>
                     
                     {{-- Floating Glow Effect --}}
-                    <div class="absolute -inset-4 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-700" style="background: radial-gradient(circle at center, rgba(250, 204, 21, 0.15), transparent 70%); filter: blur(20px);"></div>
+                    <div class="absolute -inset-4 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-700" style="background: radial-gradient(circle at center, rgba(250, 204, 21, 0.15), transparent 70%); filter: blur(20px);"></div>
+                    
+                    {{-- Decorative Frame Border --}}
+                    <div class="absolute inset-0 rounded-3xl border-4 opacity-50 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style="border-color: rgba(250, 204, 21, 0.3); box-shadow: inset 0 0 30px rgba(250, 204, 21, 0.1);"></div>
                     
                     {{-- Image Container with Tilt Effect --}}
-                    <div class="relative overflow-hidden rounded-2xl shadow-2xl transition-all duration-500 group-hover:shadow-[0_25px_60px_-12px_rgba(250,204,21,0.4)] image-tilt-container" style="aspect-ratio: 4/3;">
+                    <div class="relative overflow-hidden rounded-3xl shadow-2xl transition-all duration-500 group-hover:shadow-[0_25px_60px_-12px_rgba(250,204,21,0.4)] image-tilt-container w-full" style="border: 6px solid white; box-shadow: 0 20px 50px rgba(0,0,0,0.15);">
                         <img
                             src="{{ asset('build/assets/image/Team Rema.jpg') }}"
                             alt="BEM REMA UPI Team"
@@ -94,8 +105,12 @@
                         </div>
                         
                         {{-- Corner Accents --}}
-                        <div class="absolute top-0 left-0 w-20 h-20 border-t-4 border-l-4 rounded-tl-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 transform -translate-x-2 -translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0" style="border-color: #FACC15;"></div>
-                        <div class="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 rounded-br-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0" style="border-color: #37537A;"></div>
+                        <div class="absolute top-2 left-2 w-20 h-20 border-t-4 border-l-4 rounded-tl-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 transform -translate-x-2 -translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0" style="border-color: #FACC15;"></div>
+                        <div class="absolute bottom-2 right-2 w-20 h-20 border-b-4 border-r-4 rounded-br-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-2 translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0" style="border-color: #37537A;"></div>
+                        
+                        {{-- Inner Frame Decoration --}}
+                        <div class="absolute top-4 left-4 w-12 h-12 opacity-20 pointer-events-none" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Ccircle cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;40&quot; stroke=&quot;%23FACC15&quot; stroke-width=&quot;3&quot; fill=&quot;none&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
+                        <div class="absolute bottom-4 right-4 w-12 h-12 opacity-20 pointer-events-none" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Cpolygon points=&quot;50,10 90,90 10,90&quot; stroke=&quot;%2337537A&quot; stroke-width=&quot;3&quot; fill=&quot;none&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
                     </div>
                     
                     {{-- Floating Particles Around Image --}}

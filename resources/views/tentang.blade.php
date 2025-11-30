@@ -3,10 +3,13 @@
 @section('content')
 <div class="pt-20">
     {{-- Hero Section --}}
-    <section class="relative py-20 px-8 md:px-12 bg-gradient-to-br from-white via-gray-50 to-white overflow-hidden animate-on-scroll opacity-0" style="transform: translateY(40px);">
-        <div class="absolute inset-0 opacity-5">
-            <div class="absolute top-10 left-10 w-72 h-72 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-10 right-10 w-96 h-96 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full blur-3xl"></div>
+    <section class="relative py-20 px-8 md:px-12 overflow-hidden animate-on-scroll opacity-0" style="transform: translateY(40px);">
+        {{-- Abstract Geometric Elements --}}
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-20 right-1/4 w-16 h-16 opacity-[0.06]" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Ccircle cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;40&quot; stroke=&quot;%2337537A&quot; stroke-width=&quot;3&quot; fill=&quot;none&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
+            <div class="absolute bottom-32 left-1/3 w-12 h-12 opacity-[0.05]" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Cpolygon points=&quot;50,15 90,85 10,85&quot; stroke=&quot;%23FACC15&quot; stroke-width=&quot;3&quot; fill=&quot;none&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
+            <div class="absolute top-1/3 left-20 w-10 h-10 opacity-[0.04]" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Crect x=&quot;20&quot; y=&quot;20&quot; width=&quot;60&quot; height=&quot;60&quot; stroke=&quot;%2337537A&quot; stroke-width=&quot;3&quot; fill=&quot;none&quot; transform=&quot;rotate(45 50 50)&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
+            <div class="absolute bottom-1/4 right-1/3 w-14 h-14 opacity-[0.05]" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Cpath d=&quot;M50,10 L90,50 L50,90 L10,50 Z&quot; stroke=&quot;%23FACC15&quot; stroke-width=&quot;2.5&quot; fill=&quot;none&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
         </div>
         
         <div class="max-w-7xl mx-auto relative z-10">
@@ -26,7 +29,7 @@
     </section>
 
     {{-- Sejarah Section --}}
-    <section class="py-20 px-8 md:px-12 bg-white">
+    <section class="py-20 px-8 md:px-12">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
                 <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="transform: translateX(-40px);">
@@ -81,7 +84,7 @@
     </section>
 
     {{-- Stats Section --}}
-    <section class="py-20 px-8 md:px-12 bg-white relative overflow-hidden">
+    <section class="py-20 px-8 md:px-12 relative overflow-hidden">
         {{-- Decorative Background Elements --}}
         <div class="absolute inset-0 overflow-hidden pointer-events-none">
             <div class="absolute top-20 left-10 w-64 h-64 rounded-full" style="background: radial-gradient(circle, rgba(250, 204, 21, 0.08), transparent); filter: blur(40px);"></div>
@@ -114,7 +117,7 @@
                          data-suffix="{{ $stat['suffix'] }}">
                         <div class="stat-card-3d group cursor-pointer h-full">
                             <div class="stat-card-inner relative overflow-hidden rounded-3xl p-4 h-full transition-all duration-700 flex flex-col justify-center" style="aspect-ratio: 4/3;">
-                                {{-- Animated Border Gradient --}}
+                                {{-- Animated Border Gradient (Suar Effect) --}}
                                 <div class="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(135deg, #FACC15, #37537A, #FACC15); padding: 3px;">
                                     <div class="w-full h-full rounded-3xl" style="background-color: white;"></div>
                                 </div>
@@ -127,13 +130,13 @@
                                     {{-- Icon Container --}}
                                     <div class="flex justify-center mb-2">
                                         <div class="relative">
-                                            {{-- Glow Effect --}}
+                                            {{-- Glow Effect (Suar/Light) --}}
                                             <div class="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-60 transition-all duration-500" 
                                                  style="background: linear-gradient(135deg, {{ $index % 2 === 0 ? '#FACC15' : '#37537A' }}, {{ $index % 2 === 0 ? '#37537A' : '#FACC15' }});"></div>
                                             
                                             {{-- Icon Background --}}
                                             <div class="relative w-12 h-12 rounded-2xl flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg" 
-                                                 style="background: linear-gradient(135deg, {{ $index % 2 === 0 ? '#FACC15' : '#37537A' }}, {{ $index % 2 === 0 ? '#F59E0B' : '#2E4A6B' }});">
+                                                 style="background: linear-gradient(135deg, {{ $index % 2 === 0 ? '#FACC15' : '#37537A' }}, {{ $index % 2 === 0 ? '#F59E0B' : '#1e40af' }});">
                                                 <svg class="w-6 h-6 {{ $index % 2 === 0 ? 'text-black' : 'text-white' }} transform group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $stat['icon'] }}"/>
                                                 </svg>
@@ -152,19 +155,6 @@
                                     <div class="text-center">
                                         <p class="text-base font-bold" style="color: #37537A;">{{ $stat['label'] }}</p>
                                         <p class="text-xs font-semibold" style="color: #FACC15;">{{ $stat['sublabel'] }}</p>
-                                    </div>
-                                    
-                                    {{-- Animated Progress Circle --}}
-                                    <div class="mt-2 flex justify-center">
-                                        <svg class="w-8 h-8 transform -rotate-90" viewBox="0 0 60 60">
-                                            <circle cx="30" cy="30" r="25" fill="none" stroke="rgba(55, 83, 122, 0.1)" stroke-width="4"/>
-                                            <circle cx="30" cy="30" r="25" fill="none" stroke="#FACC15" stroke-width="4" 
-                                                    class="progress-circle" 
-                                                    stroke-dasharray="157" 
-                                                    stroke-dashoffset="157"
-                                                    stroke-linecap="round"
-                                                    style="transition: stroke-dashoffset 2s ease-out;"/>
-                                        </svg>
                                     </div>
                                     
                                     {{-- Floating Particles --}}

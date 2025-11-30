@@ -2,8 +2,36 @@
 <div class="relative w-full overflow-hidden flex items-center justify-center pt-32 pb-20"
      style="min-height: 100vh; background-image: url('{{ asset('build/assets/image/hero-bem.jpeg') }}'); background-size: cover; background-position: center; background-attachment: fixed;">
     
-    {{-- Dark overlay with gradient --}}
-    <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(10, 37, 64, 0.85) 0%, rgba(10, 37, 64, 0.65) 50%, rgba(10, 37, 64, 0.75) 100%); z-index: 1;"></div>
+    {{-- Global Gradient Overlay - Dark Left to Transparent Right --}}
+    <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(16, 24, 40, 0.95) 0%, rgba(16, 24, 40, 0.8) 40%, rgba(16, 24, 40, 0.1) 100%); z-index: 1;"></div>
+
+    {{-- Giant Ghost Outline Text Animation - Multiple Rows --}}
+    <div class="ghost-text-container" style="position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; display: flex; flex-direction: column; justify-content: space-around; padding: 8rem 0 2rem 0;">
+        {{-- Row 1 --}}
+        <div class="ghost-text-scroll" style="white-space: nowrap; animation: ghost-scroll 20s linear infinite;">
+            <span style="font-size: 6rem; font-weight: 900; color: transparent; -webkit-text-stroke: 2px rgba(255, 255, 255, 0.15); font-family: 'Poppins', sans-serif; letter-spacing: 0.05em;">
+                BERGERAK BERDAMPAK  ✦  MELANGKAH TERARAH  ✦  BERGERAK BERDAMPAK  ✦  MELANGKAH TERARAH  ✦  
+            </span>
+        </div>
+        {{-- Row 2 (opposite direction) --}}
+        <div class="ghost-text-scroll-reverse" style="white-space: nowrap; animation: ghost-scroll-reverse 20s linear infinite;">
+            <span style="font-size: 6rem; font-weight: 900; color: transparent; -webkit-text-stroke: 2px rgba(255, 255, 255, 0.15); font-family: 'Poppins', sans-serif; letter-spacing: 0.05em;">
+                MELANGKAH TERARAH  ✦  BERGERAK BERDAMPAK  ✦  MELANGKAH TERARAH  ✦  BERGERAK BERDAMPAK  ✦  
+            </span>
+        </div>
+        {{-- Row 3 --}}
+        <div class="ghost-text-scroll" style="white-space: nowrap; animation: ghost-scroll 20s linear infinite; animation-delay: -7s;">
+            <span style="font-size: 6rem; font-weight: 900; color: transparent; -webkit-text-stroke: 2px rgba(255, 255, 255, 0.15); font-family: 'Poppins', sans-serif; letter-spacing: 0.05em;">
+                BERGERAK BERDAMPAK  ✦  MELANGKAH TERARAH  ✦  BERGERAK BERDAMPAK  ✦  MELANGKAH TERARAH  ✦  
+            </span>
+        </div>
+        {{-- Row 4 (opposite direction) --}}
+        <div class="ghost-text-scroll-reverse" style="white-space: nowrap; animation: ghost-scroll-reverse 20s linear infinite; animation-delay: -14s;">
+            <span style="font-size: 6rem; font-weight: 900; color: transparent; -webkit-text-stroke: 2px rgba(255, 255, 255, 0.15); font-family: 'Poppins', sans-serif; letter-spacing: 0.05em;">
+                MELANGKAH TERARAH  ✦  BERGERAK BERDAMPAK  ✦  MELANGKAH TERARAH  ✦  BERGERAK BERDAMPAK  ✦  
+            </span>
+        </div>
+    </div>
 
     {{-- Animated floating particles --}}
     <div class="particles-container" style="position: absolute; inset: 0; z-index: 2; pointer-events: none;">
@@ -23,48 +51,35 @@
 
     {{-- Main content --}}
     <div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8">
-        <div class="max-w-4xl">
-            {{-- Enhanced Badge with premium design --}}
-            <div class="inline-block mb-8 badge-slide-right" style="animation-delay: 0s;">
-                <div class="relative group" style="display: inline-block;">
-                    {{-- Glow effect --}}
-                    <div class="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 rounded-full blur opacity-40 group-hover:opacity-75 transition duration-500"></div>
-                    {{-- Main badge --}}
-                    <div class="relative" style="padding: 10px 28px; background: linear-gradient(135deg, #FACC15 0%, #F59E0B 100%); border-radius: 50px; box-shadow: 0 8px 25px rgba(250, 204, 21, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);">
-                        <div class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-black" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                            </svg>
-                            <span style="color: #000000; font-size: 13px; font-weight: 800; font-family: 'Poppins', sans-serif; letter-spacing: 0.1em; text-transform: uppercase;">Kabinet Suar Sangga 2025</span>
-                        </div>
-                    </div>
-                </div>
+        <div style="max-width: 55%; text-align: left; margin-left: 5%;">
+            {{-- Top Label - Minimalist Tech --}}
+            <div style="font-size: 14px; font-weight: 500; letter-spacing: 4px; color: #F1C40F; text-transform: uppercase; margin-bottom: 20px; display: block; border-left: 3px solid #F1C40F; padding-left: 10px; animation: slideRight 0.8s ease-out forwards; font-family: 'Montserrat', sans-serif;">
+                Kabinet Suar Sangga 2025
             </div>
 
-            {{-- Main heading with staggered animation --}}
-            <div class="mb-8 relative">
-                <h1 class="text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-4" style="font-family: 'Poppins', sans-serif;">
-                    <span class="block hero-text-reveal text-white" style="animation-delay: 0.2s;">BADAN EKSEKUTIF</span>
-                    <span class="block gradient-text hero-text-reveal" style="animation-delay: 0.4s; background: linear-gradient(90deg, #FACC15, #F59E0B, #FACC15); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-                        MAHASISWA
-                    </span>
-                    <span class="block hero-text-reveal text-white" style="animation-delay: 0.6s;">REPUBLIK</span>
-                    <span class="block hero-text-reveal text-white" style="animation-delay: 0.8s;">MAHASISWA UPI</span>
-                </h1>
+            {{-- Main Heading with Clean Typography --}}
+            <div class="mb-8">
+                {{-- Line 1: Badan Eksekutif - Readable Serif --}}
+                <div class="hero-text-reveal" style="animation-delay: 0.2s; color: #ffffff; font-size: 2rem; font-weight: 600; font-style: normal; line-height: 1.2; margin-bottom: -10px; font-family: 'Merriweather', serif; text-transform: capitalize;">
+                    Badan Eksekutif
+                </div>
                 
-                {{-- Tagline with fade-in animation --}}
-                <p class="text-lg md:text-xl text-white font-light leading-relaxed max-w-2xl hero-text-reveal" style="animation-delay: 1s; font-family: 'Poppins', sans-serif; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);">
-                    'Bergerak Berdampak, Melangkah Terarah' 
-                </p>
+                {{-- Line 2: MAHASISWA - Dominant Visual Anchor --}}
+                <div class="hero-text-reveal" style="animation-delay: 0.4s; color: #F1C40F; font-size: 7rem; font-weight: 700; line-height: 1; letter-spacing: -2px; text-transform: uppercase; text-shadow: 0 0 40px rgba(241, 196, 15, 0.3); font-family: 'Oswald', sans-serif; margin: 0;">
+                    MAHASISWA
+                </div>
                 
-                {{-- Decorative Line --}}
-                <div class="absolute -left-6 top-1/2 transform -translate-y-1/2 w-1 h-32 opacity-30" style="background: linear-gradient(180deg, transparent, #FACC15, transparent);"></div>
+                {{-- Line 3: REPUBLIK MAHASISWA UPI - Cinematic Wide Spacing --}}
+                <div class="hero-text-reveal" style="animation-delay: 0.6s; color: #ffffff; font-size: 1.2rem; font-weight: 500; text-transform: uppercase; letter-spacing: 6px; line-height: 1.2; margin-top: 10px; font-family: 'Montserrat', sans-serif;">
+                    REPUBLIK MAHASISWA UPI
+                </div>
+            </div>
             </div>
 
            {{-- CTA Buttons with enhanced hover effects --}}
             <div class="flex flex-wrap gap-4">
                 <a href="#about" class="cta-btn group hero-text-reveal magnetic-effect" style="text-decoration: none; animation-delay: 1.2s;">
-                    <div class="cta-btn-inner relative" style="display: inline-block; padding: 16px 42px; background: #FACC15; border: 3px solid #FACC15; border-radius: 12px; cursor: pointer; overflow: hidden; transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); box-shadow: 0 4px 15px rgba(250, 204, 21, 0.4);">
+                    <div class="cta-btn-inner relative" style="display: inline-block; padding: 16px 42px; background: linear-gradient(135deg, #FACC15, #F59E0B); border: 3px solid #FACC15; border-radius: 12px; cursor: pointer; overflow: hidden; transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); box-shadow: 0 6px 20px rgba(250, 204, 21, 0.5), 0 0 30px rgba(250, 204, 21, 0.2);">
                         <span class="cta-text relative z-10 group-hover:scale-110 transition-transform duration-300" style="color: #000000; font-size: 16px; font-weight: 900; font-family: 'Poppins', sans-serif; display: block; text-align: center;">Tentang Kami</span>
                         <div class="cta-bg absolute inset-0 group-hover:scale-150 transition-all duration-500" style="background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%); opacity: 0; z-index: 1; border-radius: 12px;"></div>
                         <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100"></div>
@@ -84,6 +99,26 @@
 
 {{-- Modern Animations --}}
 <style>
+/* Ghost Text Scroll Animation - Left to Right */
+@keyframes ghost-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Ghost Text Scroll Animation - Right to Left (Reverse) */
+@keyframes ghost-scroll-reverse {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
 /* Badge slide from left animation */
 .badge-slide-right {
     opacity: 0;
@@ -127,7 +162,7 @@
 
 .cta-btn:hover .cta-btn-inner {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(250, 204, 21, 0.5);
+    box-shadow: 0 8px 30px rgba(217, 179, 68, 0.6);
 }
 
 /* Tombol Tentang Kami hover - background putih */
@@ -137,7 +172,7 @@
 }
 
 .cta-btn:first-child:hover .cta-text {
-    color: #37537A !important;
+    color: #34547D !important;
 }
 
 /* Tombol Berita Terbaru tetap sama */

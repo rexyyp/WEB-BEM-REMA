@@ -1,4 +1,4 @@
-<section id="news" class="py-20 px-8 md:px-12 bg-gray-50">
+<section id="news" class="py-20 px-8 md:px-12">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16 relative">
             {{-- Decorative Elements --}}
@@ -24,7 +24,7 @@
             @endphp
 
             @forelse($latestNews as $index => $item)
-                <div class="animate-on-scroll group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-3 opacity-0 card-3d" style="transform: translateY(30px); transition-delay: {{ $index * 100 }}ms; display: grid; grid-template-rows: auto 1fr; height: 420px;">
+                <a href="{{ route('berita.detail', $item->slug) }}" class="animate-on-scroll group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-3 opacity-0 card-3d block" style="transform: translateY(30px); transition-delay: {{ $index * 100 }}ms; display: grid; grid-template-rows: auto 1fr; height: 420px;">
                     {{-- Image --}}
                     <div class="relative overflow-hidden aspect-video">
                         <img
@@ -75,15 +75,15 @@
                         <div></div>
 
                         <div style="align-self: end;">
-                            <a href="{{ route('berita.detail', $item->slug) }}" class="inline-flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all duration-300" style="color: #37537A;">
+                            <span class="inline-flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all duration-300" style="color: #37537A;">
                                 <span>Baca Selengkapnya</span>
                                 <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                                 </svg>
-                            </a>
+                            </span>
                         </div>
                     </div>
-                </div>
+                </a>
             @empty
                 <div class="col-span-3 text-center py-12">
                     <p class="text-gray-500 text-lg">Belum ada berita yang dipublikasikan.</p>
