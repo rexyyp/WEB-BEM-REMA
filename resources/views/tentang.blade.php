@@ -28,56 +28,106 @@
         </div>
     </section>
 
-    {{-- Sejarah Section --}}
+    {{-- Tentang Section - Stacked Gallery Header + Magazine Layout --}}
     <section class="py-20 px-8 md:px-12">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-                <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="transform: translateX(-40px);">
-                    <h2 class="text-4xl md:text-5xl font-black mb-6 leading-tight">
-                        <span class="text-black">Tentang</span>
-                        <span style="color: #37537A;">BEM REMA UPI</span>
-                    </h2>
-                    <div class="flex mb-6">
-                        <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="width: 0px; height: 4px; background-color: #37537A; border-radius: 9999px; transition-delay: 200ms;"></div>
+        <div class="max-w-6xl mx-auto">
+            {{-- Title --}}
+            <h2 class="text-4xl md:text-5xl font-black mb-12 leading-tight text-center animate-on-scroll opacity-0 transition-all duration-1000" style="transform: translateY(30px);">
+                <span class="text-black">Tentang</span>
+                <span style="color: #37537A;">BEM REMA UPI</span>
+            </h2>
+
+            {{-- Three-Image Stack Header (Gallery Concept) --}}
+            <div class="stacked-gallery-container animate-on-scroll opacity-0 transition-all duration-1000" style="transform: scale(0.9); transition-delay: 200ms;">
+                {{-- Left Image (Tilted Left, Behind) --}}
+                <div class="stack-image stack-left">
+                    <img
+                        src="{{ asset('build/assets/image/bem-tentang2.jpeg') }}"
+                        alt="BEM REMA UPI Activity 1"
+                        class="w-full h-full object-cover"
+                    />
+                </div>
+
+                {{-- Center Image (Hero, On Top) --}}
+                <div class="stack-image stack-center">
+                    <img
+                        src="{{ asset('build/assets/image/hero-bem.jpeg') }}"
+                        alt="BEM REMA UPI Team"
+                        class="w-full h-full object-cover"
+                    />
+                </div>
+
+                {{-- Right Image (Tilted Right, Behind) --}}
+                <div class="stack-image stack-right">
+                    <img
+                        src="{{ asset('build/assets/image/bem-tentang3.jpeg') }}"
+                        alt="BEM REMA UPI Activity 2"
+                        class="w-full h-full object-cover"
+                    />
+                </div>
+            </div>
+
+            {{-- 2-Column Text Layout - Magazine Style --}}
+            <div class="magazine-columns animate-on-scroll opacity-0 transition-all duration-1000" style="transform: translateY(30px); transition-delay: 400ms; margin-top: 3rem;">
+                {{-- Left Column --}}
+                <div class="column-left">
+                    <p class="text-gray-700 mb-6" style="line-height: 1.6; font-size: 1.05rem;">
+                        Mahasiswa adalah tulang punggung pergerakan, agen perubahan yang memiliki peran krusial dalam membentuk masa depan bangsa. 
+                        <strong>BEM Rema UPI</strong> hadir sebagai simpul kekuatan untuk mewadahi keberagaman identitas dan potensi tersebut. 
+                        Dengan semangat <strong>bergerak berdampak</strong>, <strong>melangkah terarah</strong>, kami bertekad menjadi motor penggerak perubahan positif, 
+                        bukan sekadar <em>"menara gading"</em> yang terasing dari realitas.
+                    </p>
+
+                    <p class="text-gray-700 mb-6" style="line-height: 1.6; font-size: 1.05rem;">
+                        Kami percaya, sebuah organisasi mahasiswa yang ideal harus menjadi ekosistem yang 
+                        <strong>transparan</strong>, <strong>inklusif</strong>, dan <strong>berdaya</strong>. 
+                        Hal inilah yang menjadi landasan utama kami. Nilai-nilai ini terangkum dalam filosofi 
+                        <strong><em>"Suar Sangga"</em></strong>—cahaya pencerahan yang didukung oleh fondasi yang kokoh.
+                    </p>
+
+                    {{-- Value Pills Row --}}
+                    <div class="flex flex-wrap gap-3">
+                        <div class="flex items-center gap-2 px-4 py-2 rounded-full border-2 transition-all hover:scale-105" style="border-color: #37537A; background: rgba(55, 83, 122, 0.05);">
+                            <svg class="w-4 h-4" fill="none" stroke="#37537A" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                            <span class="text-sm font-semibold" style="color: #37537A;">Transparan</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-4 py-2 rounded-full border-2 transition-all hover:scale-105" style="border-color: #F2994A; background: rgba(242, 153, 74, 0.05);">
+                            <svg class="w-4 h-4" fill="none" stroke="#F2994A" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            <span class="text-sm font-semibold" style="color: #F2994A;">Inklusif</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-4 py-2 rounded-full border-2 transition-all hover:scale-105" style="border-color: #37537A; background: rgba(55, 83, 122, 0.05);">
+                            <svg class="w-4 h-4" fill="none" stroke="#37537A" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            <span class="text-sm font-semibold" style="color: #37537A;">Berdaya</span>
+                        </div>
                     </div>
-                        <p class="text-gray-600 leading-relaxed mb-4 animate-on-scroll opacity-0 transition-all duration-700" style="transform: translateY(20px); transition-delay: 300ms;">
-                            Mahasiswa adalah tulang punggung pergerakan, agen perubahan yang memiliki peran krusial dalam membentuk masa depan bangsa. 
-                            <strong>BEM Rema UPI</strong> hadir sebagai simpul kekuatan untuk mewadahi keberagaman identitas dan potensi tersebut. 
-                            Dengan semangat <strong>bergerak berdampak</strong>, <strong>melangkah terarah</strong>, kami bertekad menjadi motor penggerak perubahan positif, 
-                            bukan sekadar <em>“menara gading”</em> yang terasing dari realitas.
-                        </p>
+                </div>
 
-                        <p class="text-gray-600 leading-relaxed mb-4 animate-on-scroll opacity-0 transition-all duration-700" style="transform: translateY(20px); transition-delay: 400ms;">
-                            Kami percaya, sebuah organisasi mahasiswa yang ideal harus menjadi ekosistem yang 
-                            <strong>transparan</strong>, <strong>inklusif</strong>, dan <strong>berdaya</strong>. 
-                            Hal inilah yang menjadi landasan utama kami. Nilai-nilai ini terangkum dalam filosofi 
-                            <strong><em>“Suar Sangga”</em></strong>—cahaya pencerahan yang didukung oleh fondasi yang kokoh.
-                        </p>
-
-                        <p class="text-gray-600 leading-relaxed animate-on-scroll opacity-0 transition-all duration-700" style="transform: translateY(20px); transition-delay: 500ms;">
-                            Sebagai <em>“Suar”</em>, kami memimpin dengan <strong>transparansi</strong> dan <strong>responsivitas</strong>, 
+                {{-- Right Column --}}
+                <div class="column-right">
+                    {{-- Blockquote Commitment (Serif Font for Distinction) --}}
+                    <blockquote class="border-l-[5px] pl-6 py-5 mb-6 rounded-r-lg" style="border-color: #F1C40F; background: linear-gradient(to right, rgba(55, 83, 122, 0.05), transparent);">
+                        <p class="text-gray-700 italic" style="font-family: 'Playfair Display', serif; font-size: 1.05rem; line-height: 1.6;">
+                            Sebagai <em>"Suar"</em>, kami memimpin dengan <strong>transparansi</strong> dan <strong>responsivitas</strong>, 
                             memastikan setiap informasi tersampaikan dengan jelas dan aspirasi mahasiswa ditanggapi dengan cepat. 
-                            Sebagai <em>“Sangga”</em>, kami menjadi fondasi yang kokoh, menguatkan <strong>kolaborasi</strong>, 
+                            Sebagai <em>"Sangga"</em>, kami menjadi fondasi yang kokoh, menguatkan <strong>kolaborasi</strong>, 
                             merawat <strong>keberagaman</strong>, serta memastikan setiap individu mendapatkan <strong>ruang aman</strong> untuk berkembang. 
                             Kami berkomitmen untuk membangun <strong>kapasitas organisasi</strong> dan menjaga <strong>kesejahteraan anggota</strong> sebagai pilar utama.
                         </p>
+                    </blockquote>
 
-                        <p class="text-gray-600 leading-relaxed mt-4 animate-on-scroll opacity-0 transition-all duration-700" style="transform: translateY(20px); transition-delay: 600ms;">
-                            Dengan berpegang pada prinsip-prinsip ini, <strong>BEM Rema UPI</strong> tidak hanya akan menjadi representasi, 
-                            tetapi juga <strong>transformasi</strong>. Kami hadir untuk memberikan <strong>dampak nyata</strong> dan 
-                            <strong>berkelanjutan</strong>, membangun fondasi yang kuat, serta memastikan setiap mahasiswa 
-                            dapat berkontribusi aktif bagi kemajuan bersama.
-                        </p>
-                </div>
-                <div class="animate-on-scroll relative group opacity-0 transition-all duration-1000" style="transform: translateX(40px); transition-delay: 200ms;">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-blue-500 to-yellow-400 rounded-2xl blur-2xl opacity-20 group-hover:opacity-40 transition-all duration-700"></div>
-                    <div class="relative w-full rounded-2xl shadow-2xl overflow-hidden" style="aspect-ratio: 4/3;">
-                        <img
-                            src="{{ asset('build/assets/image/Team Rema.jpg') }}"
-                            alt="Sejarah BEM REMA UPI"
-                            class="w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500"
-                        />
-                    </div>
+                    <p class="text-gray-700" style="line-height: 1.6; font-size: 1.05rem;">
+                        Dengan berpegang pada prinsip-prinsip ini, <strong>BEM Rema UPI</strong> tidak hanya akan menjadi representasi, 
+                        tetapi juga <strong>transformasi</strong>. Kami hadir untuk memberikan <strong>dampak nyata</strong> dan 
+                        <strong>berkelanjutan</strong>, membangun fondasi yang kuat, serta memastikan setiap mahasiswa 
+                        dapat berkontribusi aktif bagi kemajuan bersama.
+                    </p>
                 </div>
             </div>
         </div>
@@ -269,6 +319,106 @@ document.addEventListener('DOMContentLoaded', function() {
 .animate-on-scroll.is-visible {
     opacity: 1 !important;
     transform: translate(0, 0) scale(1) !important;
+}
+
+/* Stacked Gallery - Three Images Header */
+.stacked-gallery-container {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.stack-image {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Center Image (Hero - On Top) */
+.stack-center {
+    position: relative;
+    z-index: 10;
+    width: 450px;
+    height: 300px;
+    transform: rotate(0deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.stack-center:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Left Image (Tilted Left, Behind) */
+.stack-left {
+    position: absolute;
+    z-index: 1;
+    width: 400px;
+    height: 280px;
+    transform: rotate(-6deg) translateX(-260px) translateY(20px);
+    opacity: 0.9;
+}
+
+.stack-left:hover {
+    transform: rotate(-6deg) translateX(-260px) translateY(20px) scale(1.05);
+    opacity: 1;
+    z-index: 5;
+}
+
+/* Right Image (Tilted Right, Behind) */
+.stack-right {
+    position: absolute;
+    z-index: 1;
+    width: 400px;
+    height: 280px;
+    transform: rotate(6deg) translateX(260px) translateY(20px);
+    opacity: 0.9;
+}
+
+.stack-right:hover {
+    transform: rotate(6deg) translateX(260px) translateY(20px) scale(1.05);
+    opacity: 1;
+    z-index: 5;
+}
+
+/* Responsive: Stack images vertically on mobile */
+@media (max-width: 768px) {
+    .stacked-gallery-container {
+        height: auto;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .stack-center,
+    .stack-left,
+    .stack-right {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        height: 250px;
+        transform: rotate(0deg) !important;
+        opacity: 1;
+        z-index: auto;
+    }
+}
+
+/* Magazine 2-Column Layout */
+.magazine-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    text-align: left;
+}
+
+/* Responsive: Stack to 1 column on mobile */
+@media (max-width: 768px) {
+    .magazine-columns {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }
 
 /* Smooth width transition for lines */

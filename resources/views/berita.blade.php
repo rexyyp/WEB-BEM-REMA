@@ -90,7 +90,7 @@
 
     {{-- All News --}}
     <section class="py-20 px-8 md:px-12 bg-gradient-to-br from-gray-50 to-white">
-        <div class="max-w-7xl mx-auto">
+        <div style="max-width: 1200px; margin: 0 auto;">
             <div class="mb-12">
                 <div class="animate-on-scroll mb-6 opacity-0 transition-all duration-1000" style="transform: translateY(40px);">
                     <h2 class="text-3xl md:text-4xl font-black mb-2 text-black">Semua Berita</h2>
@@ -98,66 +98,60 @@
                 </div>
 
                 {{-- Category Filter --}}
-                <div class="animate-on-scroll flex flex-wrap gap-3 opacity-0 transition-all duration-1000 justify-start" style="transform: translateY(40px); transition-delay: 200ms;">
-                    <a href="{{ route('berita') }}" class="px-5 py-2 rounded-full text-sm font-bold text-black transition-all duration-300 hover:scale-105 whitespace-nowrap {{ !request('kategori') ? 'bg-yellow-400' : 'bg-white border-2 border-gray-200 text-gray-600 hover:border-yellow-400' }}" style="{{ !request('kategori') ? 'background-color: #FACC15;' : '' }}">
+                <div id="category-filters" class="animate-on-scroll flex flex-wrap gap-3 opacity-0 transition-all duration-1000 justify-start" style="transform: translateY(40px); transition-delay: 200ms;">
+                    <button data-category="" class="category-btn px-5 py-2 rounded-full text-sm font-bold transition-all duration-300 hover:scale-105 whitespace-nowrap {{ !request('kategori') ? 'text-black' : 'text-gray-600 bg-white border-2 border-gray-200 hover:border-yellow-400' }}" style="{{ !request('kategori') ? 'background-color: #FACC15;' : '' }}">
                         Semua
-                    </a>
+                    </button>
                     @foreach($categories as $category)
-                    <a href="{{ route('berita', ['kategori' => $category]) }}" class="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 whitespace-nowrap {{ request('kategori') == $category ? 'text-black' : 'text-gray-600 bg-white border-2 border-gray-200 hover:border-yellow-400' }}" style="{{ request('kategori') == $category ? 'background-color: #FACC15;' : '' }}">
+                    <button data-category="{{ $category }}" class="category-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 whitespace-nowrap {{ request('kategori') == $category ? 'text-black' : 'text-gray-600 bg-white border-2 border-gray-200 hover:border-yellow-400' }}" style="{{ request('kategori') == $category ? 'background-color: #FACC15;' : '' }}">
                         {{ $category }}
-                    </a>
+                    </button>
                     @endforeach
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            {{-- News Grid - Clean Layout --}}
+            <div id="news-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem;">
                 @forelse($beritas as $index => $news)
-                <div class="animate-on-scroll group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer hover:-translate-y-2 opacity-0" style="transform: translateY(30px); transition-delay: {{ $index * 100 }}ms; display: grid; grid-template-rows: auto 1fr; height: 480px;">
-                    <div class="relative overflow-hidden aspect-video">
-                        <img src="{{ $news->thumbnail_url }}" alt="{{ $news->judul }}" class="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="news-card animate-on-scroll group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 opacity-0" data-category="{{ $news->kategori }}" style="transform: translateY(30px); transition-delay: {{ $index * 100 }}ms;">
+                    {{-- Image --}}
+                    <div class="relative overflow-hidden" style="height: 220px; width: 100%;">
+                        <img src="{{ $news->thumbnail_url }}" alt="{{ $news->judul }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;">
                         @if($news->kategori)
-                        <div class="absolute top-4 left-4">
-                            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold text-black" style="background-color: #FACC15;">
+                        <div class="absolute top-3 left-3">
+                            <span class="inline-block px-3 py-1.5 rounded-full text-xs font-bold" style="background-color: #FACC15; color: #37537A;">
                                 {{ $news->kategori }}
                             </span>
                         </div>
                         @endif
                     </div>
-                    <div class="p-6" style="display: grid; grid-template-rows: auto 3.5rem 3.6rem 1fr auto; gap: 0;">
-                        <div class="flex items-center gap-4 text-xs text-gray-500 mb-3">
-                            <span class="flex items-center gap-2">
-                                <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                                </svg>
-                                <span>{{ formatTanggalSingkat($news->tanggal) }}</span>
-                            </span>
-                            <span class="flex items-center gap-2">
-                                <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                                </svg>
-                                <span>{{ $news->author }}</span>
-                            </span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 group-hover:text-blue-900 transition-colors duration-300 line-clamp-2">
+                    
+                    {{-- Content --}}
+                    <div class="p-5">
+                        {{-- Date --}}
+                        <p class="text-xs text-gray-500 mb-3">{{ formatTanggalSingkat($news->tanggal) }}</p>
+                        
+                        {{-- Title --}}
+                        <h3 class="text-lg font-bold mb-3 line-clamp-2" style="font-family: 'Oswald', sans-serif; color: #37537A;">
                             {{ $news->judul }}
                         </h3>
-                        <p class="text-gray-600 text-sm line-clamp-3">
+                        
+                        {{-- Excerpt --}}
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-3" style="font-family: 'Montserrat', sans-serif; line-height: 1.6;">
                             {{ $news->excerpt }}
                         </p>
-                        <div></div>
-                        <div style="align-self: end;">
-                            <a href="{{ route('berita.detail', $news->slug) }}" class="inline-flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all duration-300" style="color: #37537A;">
-                                <span>Baca Selengkapnya</span>
-                                <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </a>
-                        </div>
+                        
+                        {{-- Read More Link --}}
+                        <a href="{{ route('berita.detail', $news->slug) }}" class="inline-flex items-center gap-2 text-sm font-semibold transition-all duration-300 group-hover:gap-3" style="color: #3B82F6;">
+                            <span>Baca Selengkapnya</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
                 @empty
-                <div class="col-span-3 text-center py-12">
+                <div style="grid-column: 1 / -1; text-align: center; padding: 3rem 0;">
                     <p class="text-gray-500 text-lg">Belum ada berita yang dipublikasikan.</p>
                 </div>
                 @endforelse
@@ -167,7 +161,7 @@
     
     {{-- Pagination --}}
     @if($beritas->hasPages())
-    <div class="animate-on-scroll flex justify-center mt-16 mb-12 opacity-0 transition-all duration-1000" style="transform: translateY(20px); transition-delay: 600ms;">
+    <div id="pagination-container" class="animate-on-scroll flex justify-center mt-16 mb-12 opacity-0 transition-all duration-1000" style="transform: translateY(20px); transition-delay: 600ms;">
         {{ $beritas->links('pagination::tailwind') }}
     </div>
     @endif
@@ -193,6 +187,118 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.animate-on-scroll').forEach(el => {
         observer.observe(el);
     });
+
+    // AJAX Category Filtering
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const newsCards = document.querySelectorAll('.news-card');
+    
+    categoryButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const selectedCategory = this.dataset.category;
+            
+            // Update active button style
+            categoryButtons.forEach(b => {
+                b.classList.remove('bg-yellow-400', 'text-black');
+                b.classList.add('bg-white', 'border-2', 'border-gray-200', 'text-gray-600');
+                b.style.backgroundColor = '';
+            });
+            
+            this.classList.remove('bg-white', 'border-2', 'border-gray-200', 'text-gray-600');
+            this.classList.add('bg-yellow-400', 'text-black');
+            this.style.backgroundColor = '#FACC15';
+            
+            // Filter cards without page refresh
+            newsCards.forEach(card => {
+                const cardCategory = card.dataset.category;
+                
+                if (selectedCategory === '' || cardCategory === selectedCategory) {
+                    card.style.display = 'grid';
+                    // Re-trigger animation
+                    setTimeout(() => {
+                        card.classList.add('is-visible');
+                    }, 50);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Update URL without refresh
+            const url = new URL(window.location);
+            if (selectedCategory) {
+                url.searchParams.set('kategori', selectedCategory);
+            } else {
+                url.searchParams.delete('kategori');
+            }
+            window.history.pushState({}, '', url);
+            
+            // Smooth scroll to news section
+            document.getElementById('news-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    // AJAX Pagination
+    function handlePaginationClick(e) {
+        const link = e.target.closest('a');
+        if (!link || !link.href) return;
+        
+        e.preventDefault();
+        const url = new URL(link.href);
+        const page = url.searchParams.get('page');
+        
+        if (!page) return;
+        
+        // Update URL without refresh
+        window.history.pushState({}, '', url);
+        
+        // Fetch new page content
+        fetch(url, {
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => response.text())
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            
+            // Update news grid
+            const newGrid = doc.querySelector('#news-grid');
+            const currentGrid = document.querySelector('#news-grid');
+            if (newGrid && currentGrid) {
+                currentGrid.innerHTML = newGrid.innerHTML;
+                
+                // Re-attach event listeners to new cards
+                document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                    observer.observe(el);
+                });
+            }
+            
+            // Update pagination
+            const newPagination = doc.querySelector('#pagination-container');
+            const currentPagination = document.querySelector('#pagination-container');
+            if (newPagination && currentPagination) {
+                currentPagination.innerHTML = newPagination.innerHTML;
+                attachPaginationListeners();
+            }
+            
+            // Smooth scroll to top of news grid
+            document.getElementById('news-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        })
+        .catch(error => {
+            console.error('Error loading page:', error);
+        });
+    }
+    
+    function attachPaginationListeners() {
+        const paginationContainer = document.querySelector('#pagination-container');
+        if (paginationContainer) {
+            paginationContainer.addEventListener('click', handlePaginationClick);
+        }
+    }
+    
+    // Initial attachment
+    attachPaginationListeners();
 
     // Add parallax effect
     const hero = document.querySelector('.relative.py-20');

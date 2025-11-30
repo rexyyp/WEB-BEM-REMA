@@ -51,37 +51,6 @@
             min-height: 350px;
         }
         
-        /* Editor Toolbar */
-        .editor-toolbar {
-            display: flex;
-            gap: 4px;
-            padding: 8px 12px;
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-bottom: none;
-            border-radius: 8px 8px 0 0;
-            margin-bottom: 0;
-        }
-        
-        .editor-toolbar button {
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            border: 1px solid #e5e7eb;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            color: #374151;
-        }
-        
-        .editor-toolbar button:hover {
-            background: #f3f4f6;
-            border-color: #d1d5db;
-        }
-        
         /* Upload Area */
         .upload-area {
             border: 2px dashed #d1d5db;
@@ -214,17 +183,6 @@
                                     <p style="color: #dc2626; font-size: 12px; margin-top: 4px;">{{ $message }}</p>
                                 @enderror
                             </div>
-
-                            {{-- Waktu Baca --}}
-                            <div style="margin-bottom: 24px;">
-                                <label style="display: block; font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 8px;">
-                                    Waktu Baca (menit) <span style="color: #dc2626;">*</span>
-                                </label>
-                                <input type="number" name="waktu_baca" placeholder="Estimasi waktu baca" value="{{ old('waktu_baca', 5) }}" min="1" max="60" required>
-                                @error('waktu_baca')
-                                    <p style="color: #dc2626; font-size: 12px; margin-top: 4px;">{{ $message }}</p>
-                                @enderror
-                            </div>
                         </div>
 
                         {{-- Right Column: Upload Gambar --}}
@@ -268,42 +226,11 @@
                     {{-- Isi Artikel (Full Width) --}}
                     <div style="margin-bottom: 32px;">
                         <label style="display: block; font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 8px;">
-                            Isi Artikel
+                            Isi Artikel <span style="color: #dc2626;">*</span>
                         </label>
                         
-                        {{-- Editor Toolbar --}}
-                        <div class="editor-toolbar">
-                            <button type="button" title="Bold" onclick="formatText('bold')">
-                                <strong style="font-size: 15px; font-weight: 700;">B</strong>
-                            </button>
-                            <button type="button" title="Italic" onclick="formatText('italic')">
-                                <em style="font-size: 15px; font-style: italic;">I</em>
-                            </button>
-                            <button type="button" title="Underline" onclick="formatText('underline')">
-                                <span style="text-decoration: underline; font-size: 15px;">U</span>
-                            </button>
-                            <button type="button" title="Heading" onclick="formatText('heading')">
-                                <strong style="font-size: 15px; font-weight: 700;">H</strong>
-                            </button>
-                            <button type="button" title="Bullet List" onclick="formatText('bullet')">
-                                <svg style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                                </svg>
-                            </button>
-                            <button type="button" title="Numbered List" onclick="formatText('number')">
-                                <svg style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
-                                </svg>
-                            </button>
-                            <button type="button" title="Insert Link" onclick="insertLink()">
-                                <svg style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
-                                </svg>
-                            </button>
-                        </div>
-                        
-                        {{-- Textarea --}}
-                        <textarea id="articleContent" name="konten" placeholder="Mulai menulis artikel berita di sini...&#10;&#10;Gunakan HTML untuk formatting:&#10;- <p>Paragraf</p>&#10;- <h2>Heading 2</h2>&#10;- <strong>Tebal</strong>&#10;- <em>Miring</em>&#10;- <ul><li>List</li></ul>" required style="border-radius: 0 0 8px 8px; border-top: none;">{{ old('konten') }}</textarea>
+                        {{-- Simple Textarea (No Toolbar) --}}
+                        <textarea id="articleContent" name="konten" rows="10" placeholder="Tulis konten artikel di sini...&#10;&#10;Tips:&#10;- Gunakan paragraf untuk setiap topik&#10;- Pisahkan dengan enter untuk readability&#10;- Gunakan heading untuk sub-judul" required style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; font-size: 14px; line-height: 1.6; font-family: inherit;">{{ old('konten') }}</textarea>
                         @error('konten')
                             <p style="color: #dc2626; font-size: 12px; margin-top: 8px;">{{ $message }}</p>
                         @enderror
@@ -393,58 +320,6 @@
                 fileInput.dispatchEvent(new Event('change'));
             }
         });
-        
-        // Text formatting functions
-        function formatText(command) {
-            const textarea = document.getElementById('articleContent');
-            const start = textarea.selectionStart;
-            const end = textarea.selectionEnd;
-            const selectedText = textarea.value.substring(start, end);
-            
-            if (!selectedText) {
-                alert('Please select text first');
-                return;
-            }
-            
-            let formattedText = '';
-            switch(command) {
-                case 'bold':
-                    formattedText = `**${selectedText}**`;
-                    break;
-                case 'italic':
-                    formattedText = `*${selectedText}*`;
-                    break;
-                case 'underline':
-                    formattedText = `<u>${selectedText}</u>`;
-                    break;
-                case 'heading':
-                    formattedText = `## ${selectedText}`;
-                    break;
-                case 'bullet':
-                    formattedText = `- ${selectedText}`;
-                    break;
-                case 'number':
-                    formattedText = `1. ${selectedText}`;
-                    break;
-            }
-            
-            textarea.value = textarea.value.substring(0, start) + formattedText + textarea.value.substring(end);
-            textarea.focus();
-        }
-        
-        function insertLink() {
-            const url = prompt('Enter URL:');
-            if (url) {
-                const textarea = document.getElementById('articleContent');
-                const start = textarea.selectionStart;
-                const end = textarea.selectionEnd;
-                const selectedText = textarea.value.substring(start, end) || 'link text';
-                
-                const link = `[${selectedText}](${url})`;
-                textarea.value = textarea.value.substring(0, start) + link + textarea.value.substring(end);
-                textarea.focus();
-            }
-        }
     </script>
 
 </body>

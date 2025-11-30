@@ -84,13 +84,6 @@
                     Tulis Berita Baru
                 </a>
                 
-                <a href="{{ route('admin.anggota') }}" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; background: white; color: #2563eb; border: 2px solid #2563eb; border-radius: 10px; font-weight: 600; font-size: 14px; cursor: pointer; text-decoration: none;">
-                    <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                    </svg>
-                    Kelola Anggota Kabinet
-                </a>
-                
                 <a href="{{ url('/') }}" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; background: white; color: #374151; border: 2px solid #374151; border-radius: 10px; font-weight: 600; font-size: 14px; cursor: pointer; text-decoration: none;">
                     <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -101,7 +94,7 @@
             </div>
 
             {{-- Stats Cards ROW --}}
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 32px;">
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 32px;">
                 
                 {{-- Card 1: Total Pengunjung --}}
                 <div class="stat-card" style="background: white; border-radius: 16px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
@@ -116,7 +109,7 @@
                             </svg>
                         </div>
                     </div>
-                    <h3 style="font-size: 32px; font-weight: 700; color: #111827; margin-bottom: 8px;">11,342</h3>
+                    <h3 id="total-views" style="font-size: 32px; font-weight: 700; color: #111827; margin-bottom: 8px;">11,342</h3>
                     <p style="font-size: 13px; color: #10b981; font-weight: 600;">↑ 12.5% vs bulan lalu</p>
                 </div>
 
@@ -133,25 +126,8 @@
                             </svg>
                         </div>
                     </div>
-                    <h3 style="font-size: 32px; font-weight: 700; color: #111827; margin-bottom: 8px;">48</h3>
-                    <p style="font-size: 13px; color: #6b7280;">Bulan ini: <span style="font-weight: 600;">8 artikel</span></p>
-                </div>
-
-                {{-- Card 3: Anggota --}}
-                <div class="stat-card" style="background: white; border-radius: 16px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
-                        <div>
-                            <p style="font-size: 14px; color: #6b7280; margin-bottom: 4px;">Anggota Kabinet</p>
-                            <p style="font-size: 12px; color: #9ca3af;">Profil Lengkap</p>
-                        </div>
-                        <div style="width: 40px; height: 40px; background: #dbeafe; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-                            <svg style="width: 24px; height: 24px; color: #3b82f6;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <h3 style="font-size: 32px; font-weight: 700; color: #111827; margin-bottom: 8px;">120</h3>
-                    <p style="font-size: 13px; color: #6b7280;">Update terakhir: <span style="font-weight: 600;">2 hari lalu</span></p>
+                    <h3 id="total-berita" style="font-size: 32px; font-weight: 700; color: #111827; margin-bottom: 8px;">48</h3>
+                    <p style="font-size: 13px; color: #6b7280;">Bulan ini: <span id="monthly-berita" style="font-weight: 600;">8 artikel</span></p>
                 </div>
             </div>
 

@@ -36,16 +36,18 @@
                 <div class="flex gap-3">
                     @php
                         $socials = [
-                            ['icon' => 'icon_instagram.png', 'label' => 'Instagram'],
-                            ['icon' => 'icon_whatsapp.png', 'label' => 'WhatsApp'],
-                            ['icon' => 'icon_tiktok.png', 'label' => 'Tiktok'],
-                            ['icon' => 'icon_linkedin.png', 'label' => 'LinkedIn'],
-                            ['icon' => 'icon_email.png', 'label' => 'Email'],
+                            ['icon' => 'icon_instagram.png', 'label' => 'Instagram', 'url' => 'https://www.instagram.com/bem.upi?igsh=amF0eXZsdjdvMWJm'],
+                            ['icon' => 'icon_whatsapp.png', 'label' => 'WhatsApp', 'url' => '#'],
+                            ['icon' => 'icon_tiktok.png', 'label' => 'Tiktok', 'url' => 'https://www.tiktok.com/@bem.upiofficial?_r=1&_t=ZS-91p4VDR6P0E'],
+                            ['icon' => 'icon_linkedin.png', 'label' => 'LinkedIn', 'url' => 'https://www.linkedin.com/in/bem-rema-upi-3029a2388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'],
+                            ['icon' => 'icon_email.png', 'label' => 'Email', 'url' => '#'],
                         ];
                     @endphp
                     @foreach($socials as $social)
                         <a
-                            href="#"
+                            href="{{ $social['url'] }}"
+                            target="{{ $social['url'] !== '#' ? '_blank' : '_self' }}"
+                            rel="{{ $social['url'] !== '#' ? 'noopener noreferrer' : '' }}"
                             class="w-12 h-12 rounded-lg bg-white/10 hover:text-primary flex items-center justify-center transition-all duration-300 transform hover:scale-110"
                             style="transition: background-color 0.3s;"
                             onmouseover="this.style.backgroundColor='#FACC15'"

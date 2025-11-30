@@ -100,7 +100,7 @@
                                 
                                 {{-- Social Media --}}
                                 <div class="mt-auto">
-                                    <a href="https://instagram.com/{{ $index === 0 ? 'presiden_bemrema' : 'wapres_bemrema' }}" target="_blank" 
+                                    <a href="https://instagram.com/{{ $index === 0 ? 'abualghifarii' : 'najrilfauzan' }}" target="_blank" 
                                        class="inline-flex items-center gap-2 px-5 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-md hover:shadow-xl"
                                        style="background: linear-gradient(135deg, {{ $index === 0 ? '#FACC15' : '#37537A' }}, {{ $index === 0 ? '#F59E0B' : '#2563eb' }});">
                                         <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">

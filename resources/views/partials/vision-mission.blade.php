@@ -25,80 +25,153 @@
         </div>
 
         <div class="grid md:grid-cols-2 gap-12">
-            {{-- Vision Card --}}
-            <div class="animate-on-scroll group p-8 rounded-2xl opacity-0 transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 cursor-pointer relative overflow-hidden glass-card"
-                 style="background: linear-gradient(135deg, rgba(55, 83, 122, 0.95), rgba(55, 83, 122, 0.85)); transform: translateY(40px); transition-delay: 200ms; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);">
-                <div class="absolute inset-0 bg-gradient-to-br from-white/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                {{-- Golden Glow Behind Card (Suar Effect) --}}
-                <div class="absolute -inset-1 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-2xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 -z-10"></div>
-                
-                {{-- Animated Particles --}}
-                <div class="absolute top-10 right-10 w-20 h-20 rounded-full opacity-20 group-hover:opacity-40 transition-all duration-700" style="background: radial-gradient(circle, rgba(250, 204, 21, 0.6) 0%, transparent 70%); animation: particle-float 6s ease-in-out infinite;"></div>
-                <div class="absolute bottom-10 left-10 w-16 h-16 rounded-full opacity-20 group-hover:opacity-40 transition-all duration-700" style="background: radial-gradient(circle, rgba(147, 197, 253, 0.6) 0%, transparent 70%); animation: particle-float 8s ease-in-out infinite reverse;"></div>
-                
-                <div class="relative z-10">
-                    <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center mb-6 transition-all duration-500 backdrop-blur-sm group-hover:scale-110 group-hover:bg-white/30 relative">
-                        <svg class="w-5 h-5 text-white transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>
+            {{-- Vision Card with Flip Effect --}}
+            <div class="animate-on-scroll flip-card opacity-0 transition-all duration-500" style="transform: translateY(40px); transition-delay: 200ms; perspective: 1000px; height: 450px;">
+                <div class="flip-card-inner relative w-full h-full transition-transform duration-700" style="transform-style: preserve-3d;">
+                    {{-- Front Side - Deep Navy Gradient --}}
+                    <div class="flip-card-front absolute w-full h-full rounded-2xl cursor-pointer overflow-hidden" style="backface-visibility: hidden; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); box-shadow: 0 20px 50px rgba(30, 60, 114, 0.4); border: 1px solid rgba(255, 255, 255, 0.2);">
+                        {{-- Background Watermark - Giant Eye Icon --}}
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 opacity-10">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </div>
+                        
+                        {{-- Main Content --}}
+                        <div class="relative z-10 h-full flex flex-col items-center justify-center">
+                            <h3 class="text-7xl font-black text-white tracking-wider" style="font-family: 'Oswald', sans-serif;">VISI</h3>
+                        </div>
+                        
+                        {{-- Bouncing Hint Icon --}}
+                        <div class="absolute bottom-6 right-6 w-12 h-12 rounded-full flex items-center justify-center animate-bounce" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3);">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"></path>
+                            </svg>
+                        </div>
                     </div>
 
-                    <h3 class="text-2xl font-black mb-5 text-white">Visi</h3>
-                    <p class="text-white/95 leading-relaxed text-base font-medium mb-6 transition-all duration-200 group-hover:translate-x-1">
-                        Crafting The Ultimate Inclusive Ecosystem
-                    </p>
-                    <p class="text-white/90 leading-relaxed text-sm font-light transition-all duration-200 group-hover:translate-x-1">
-                        "Visi ini berarti menciptakan sistem atau lingkungan yang sepenuhnya merangkul dan memberdayakan setiap individu."
-                    </p>
+                    {{-- Back Side - Premium Off-White Background --}}
+                    <div class="flip-card-back absolute w-full h-full rounded-2xl overflow-hidden flex items-center" style="backface-visibility: hidden; transform: rotateY(180deg); background: #F9FAFB; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); border: 1px solid rgba(0, 0, 0, 0.05);">
+                        {{-- BEM Logo Watermark --}}
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 opacity-[0.03] pointer-events-none">
+                            <img src="{{ asset('build/assets/image/Logo Suar Sangga.png') }}" alt="BEM Logo" class="w-full h-full object-contain">
+                        </div>
+
+                        <div class="relative z-10 w-full text-center" style="padding: 2.5rem;">
+                            {{-- Opening Quote --}}
+                            <div class="text-6xl mb-4 opacity-20" style="color: #1e3c72; font-family: 'Playfair Display', serif;">"</div>
+                            
+                            <p class="text-2xl font-bold italic leading-relaxed mb-4" style="color: #1F2937; font-family: 'Playfair Display', serif;">
+                                Crafting The Ultimate Inclusive Ecosystem
+                            </p>
+                            
+                            {{-- Closing Quote --}}
+                            <div class="text-6xl mb-6 opacity-20" style="color: #1e3c72; font-family: 'Playfair Display', serif;">"</div>
+                            
+                            <div class="w-20 h-1 mb-6 rounded-full mx-auto" style="background: linear-gradient(90deg, #1e3c72, #2a5298);"></div>
+                            
+                            <p class="text-base leading-relaxed max-w-md mx-auto" style="color: #6B7280; font-family: 'Montserrat', sans-serif;">
+                                Menciptakan sistem atau lingkungan yang sepenuhnya merangkul dan memberdayakan setiap individu.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            {{-- Mission Card --}}
-            <div class="animate-on-scroll group p-8 rounded-2xl opacity-0 transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 cursor-pointer relative overflow-hidden glass-card"
-                 style="background: linear-gradient(135deg, rgba(250, 204, 21, 0.15), rgba(245, 158, 11, 0.1)); border: 2px solid rgba(250, 204, 21, 0.3); transform: translateY(40px); transition-delay: 400ms;">
-                <div class="absolute inset-0 bg-gradient-to-br from-yellow-200/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                {{-- Golden Flame Glow Behind Card --}}
-                <div class="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-25 blur-xl transition-opacity duration-500 -z-10" style="background: linear-gradient(135deg, #FACC15, #F59E0B);"></div>
-                
-                {{-- Scan Line Effect --}}
-                <div class="absolute inset-0 scan-effect"></div>
-                
-                {{-- More Particles --}}
-                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full opacity-10 morph-blob" style="background: radial-gradient(circle, rgba(250, 204, 21, 0.6) 0%, transparent 70%); filter: blur(40px);"></div>
-                
-                {{-- Animated Particles --}}
-                <div class="absolute top-5 right-5 w-24 h-24 rounded-full opacity-20 group-hover:opacity-50 transition-all duration-700" style="background: radial-gradient(circle, rgba(250, 204, 21, 0.5) 0%, transparent 70%); animation: particle-float 7s ease-in-out infinite;"></div>
-                
-                <div class="relative z-10">
-                    <div class="w-10 h-10 rounded-2xl bg-yellow-100 flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:bg-yellow-200 relative">
-                        <svg class="w-5 h-5 transition-transform duration-300" viewBox="0 0 24 24" fill="none">
-                            <circle cx="12" cy="12" r="10" fill="#EF4444"/>
-                            <circle cx="12" cy="12" r="6" fill="white"/>
-                            <circle cx="12" cy="12" r="3" fill="#EF4444"/>
-                        </svg>
+            {{-- Mission Card with Flip Effect --}}
+            <div class="animate-on-scroll flip-card opacity-0 transition-all duration-500" style="transform: translateY(40px); transition-delay: 400ms; perspective: 1000px; height: 450px;">
+                <div class="flip-card-inner relative w-full h-full transition-transform duration-700" style="transform-style: preserve-3d;">
+                    {{-- Front Side - Rich Gold Gradient --}}
+                    <div class="flip-card-front absolute w-full h-full rounded-2xl cursor-pointer overflow-hidden" style="backface-visibility: hidden; background: linear-gradient(135deg, #F2994A 0%, #F2C94C 100%); box-shadow: 0 20px 50px rgba(242, 153, 74, 0.4); border: 1px solid rgba(255, 255, 255, 0.2);">
+                        {{-- Background Watermark - Giant Target Icon --}}
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 opacity-10">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <circle cx="12" cy="12" r="6"></circle>
+                                <circle cx="12" cy="12" r="2"></circle>
+                            </svg>
+                        </div>
+                        
+                        {{-- Main Content --}}
+                        <div class="relative z-10 h-full flex flex-col items-center justify-center">
+                            <h3 class="text-7xl font-black text-white tracking-wider" style="font-family: 'Oswald', sans-serif;">MISI</h3>
+                        </div>
+                        
+                        {{-- Bouncing Hint Icon --}}
+                        <div class="absolute bottom-6 right-6 w-12 h-12 rounded-full flex items-center justify-center animate-bounce" style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3);">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"></path>
+                            </svg>
+                        </div>
                     </div>
 
-                    <h3 class="text-2xl font-black mb-5" style="color: #37537A;">Misi</h3>
+                    {{-- Back Side - Premium Off-White Background with Logo Watermark --}}
+                    <div class="flip-card-back absolute w-full h-full rounded-2xl overflow-auto flex items-center" style="backface-visibility: hidden; transform: rotateY(180deg); background: #F9FAFB; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); border: 1px solid rgba(0, 0, 0, 0.05);">
+                        {{-- BEM Logo Watermark --}}
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 opacity-[0.03] pointer-events-none">
+                            <img src="{{ asset('build/assets/image/Logo Suar Sangga.png') }}" alt="BEM Logo" class="w-full h-full object-contain">
+                        </div>
 
-                <ul class="space-y-4">
-                    @php
-                        $missions = [
-                            'Membangun sistem informasi yang transparan dan responsif',
-                            'Memperkuat peran kolaboratif dan jaringan strategis',
-                            'Meningkatkan dukungan akademik dan sumber daya',
-                            'Mengembangkan kapasitas organisasi yang terstruktur',
-                            'Mempromosikan keberagaman menuju aktualisasi diri',
-                        ];
-                    @endphp
-                    @foreach($missions as $mission)
-                        <li class="flex gap-4 items-start text-gray-700 font-medium">
-                            <span class="font-black text-xl flex-shrink-0" style="color: #37537A;">✓</span>
-                            <span class="pt-1">{{ $mission }}</span>
-                        </li>
-                    @endforeach
-                </ul>
+                        <div class="relative z-10 w-full" style="padding: 2.5rem;">
+                            <div class="flex items-center gap-4 mb-8">
+                                <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #F2994A 0%, #F2C94C 100%);">
+                                    <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <circle cx="12" cy="12" r="6"></circle>
+                                        <circle cx="12" cy="12" r="2"></circle>
+                                    </svg>
+                                </div>
+                                <h3 class="text-2xl font-black" style="color: #1F2937; font-family: 'Oswald', sans-serif;">MISI</h3>
+                            </div>
+
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li class="flex gap-4 items-start pb-4 mb-4" style="border-bottom: 1px solid rgba(0,0,0,0.06);">
+                                    <span class="flex-shrink-0 mt-0.5 text-xl" style="color: #F2994A;">◆</span>
+                                    <span style="color: #374151; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 500; line-height: 1.6;">
+                                        Membangun Sistem Informasi yang Transparan dan Responsif
+                                    </span>
+                                </li>
+                                <li class="flex gap-4 items-start pb-4 mb-4" style="border-bottom: 1px solid rgba(0,0,0,0.06);">
+                                    <span class="flex-shrink-0 mt-0.5 text-xl" style="color: #F2994A;">◆</span>
+                                    <span style="color: #374151; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 500; line-height: 1.6;">
+                                        Memperkuat Peran dengan Kolaborasi dan Jaringan Strategis
+                                    </span>
+                                </li>
+                                <li class="flex gap-4 items-start pb-4 mb-4" style="border-bottom: 1px solid rgba(0,0,0,0.06);">
+                                    <span class="flex-shrink-0 mt-0.5 text-xl" style="color: #F2994A;">◆</span>
+                                    <span style="color: #374151; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 500; line-height: 1.6;">
+                                        Mendorong Keberagaman, Inklusivitas, dan Aktualisasi Diri
+                                    </span>
+                                </li>
+                                <li class="flex gap-4 items-start pb-4 mb-4" style="border-bottom: 1px solid rgba(0,0,0,0.06);">
+                                    <span class="flex-shrink-0 mt-0.5 text-xl" style="color: #F2994A;">◆</span>
+                                    <span style="color: #374151; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 500; line-height: 1.6;">
+                                        Mengembangkan Kapasitas Organisasi dan Kesejahteraan Anggota
+                                    </span>
+                                </li>
+                                <li class="flex gap-4 items-start">
+                                    <span class="flex-shrink-0 mt-0.5 text-xl" style="color: #F2994A;">◆</span>
+                                    <span style="color: #374151; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 500; line-height: 1.6;">
+                                        Mengoptimalkan Dukungan Akademis dan Akuntabilitas Sumber Daya
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+{{-- Card Flip Styles --}}
+<style>
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-inner {
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+</style>

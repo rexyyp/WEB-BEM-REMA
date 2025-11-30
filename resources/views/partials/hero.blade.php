@@ -2,32 +2,32 @@
 <div class="relative w-full overflow-hidden flex items-center justify-center pt-32 pb-20"
      style="min-height: 100vh; background-image: url('{{ asset('build/assets/image/hero-bem.jpeg') }}'); background-size: cover; background-position: center; background-attachment: fixed;">
     
-    {{-- Global Gradient Overlay - Dark Left to Transparent Right --}}
-    <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(16, 24, 40, 0.95) 0%, rgba(16, 24, 40, 0.8) 40%, rgba(16, 24, 40, 0.1) 100%); z-index: 1;"></div>
+    {{-- Strong Gradient Overlay - Dark Left to Transparent Right --}}
+    <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(15, 23, 42, 0.975) 0%, rgba(15, 23, 42, 0.9) 42%, rgba(15, 23, 42, 0.4) 100%); z-index: 1;"></div>
 
     {{-- Giant Ghost Outline Text Animation - Multiple Rows --}}
     <div class="ghost-text-container" style="position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; display: flex; flex-direction: column; justify-content: space-around; padding: 8rem 0 2rem 0;">
         {{-- Row 1 --}}
         <div class="ghost-text-scroll" style="white-space: nowrap; animation: ghost-scroll 20s linear infinite;">
-            <span style="font-size: 6rem; font-weight: 900; color: transparent; -webkit-text-stroke: 2px rgba(255, 255, 255, 0.15); font-family: 'Poppins', sans-serif; letter-spacing: 0.05em;">
+            <span style="font-size: 6rem; font-weight: 900; color: transparent; -webkit-text-stroke: 2px rgba(255, 255, 255, 0.10); font-family: 'Poppins', sans-serif; letter-spacing: 0.05em;">
                 BERGERAK BERDAMPAK  ✦  MELANGKAH TERARAH  ✦  BERGERAK BERDAMPAK  ✦  MELANGKAH TERARAH  ✦  
             </span>
         </div>
         {{-- Row 2 (opposite direction) --}}
         <div class="ghost-text-scroll-reverse" style="white-space: nowrap; animation: ghost-scroll-reverse 20s linear infinite;">
-            <span style="font-size: 6rem; font-weight: 900; color: transparent; -webkit-text-stroke: 2px rgba(255, 255, 255, 0.15); font-family: 'Poppins', sans-serif; letter-spacing: 0.05em;">
+            <span style="font-size: 6rem; font-weight: 900; color: transparent; -webkit-text-stroke: 2px rgba(255, 255, 255, 0.10); font-family: 'Poppins', sans-serif; letter-spacing: 0.05em;">
                 MELANGKAH TERARAH  ✦  BERGERAK BERDAMPAK  ✦  MELANGKAH TERARAH  ✦  BERGERAK BERDAMPAK  ✦  
             </span>
         </div>
         {{-- Row 3 --}}
         <div class="ghost-text-scroll" style="white-space: nowrap; animation: ghost-scroll 20s linear infinite; animation-delay: -7s;">
-            <span style="font-size: 6rem; font-weight: 900; color: transparent; -webkit-text-stroke: 2px rgba(255, 255, 255, 0.15); font-family: 'Poppins', sans-serif; letter-spacing: 0.05em;">
+            <span style="font-size: 6rem; font-weight: 900; color: transparent; -webkit-text-stroke: 2px rgba(255, 255, 255, 0.10); font-family: 'Poppins', sans-serif; letter-spacing: 0.05em;">
                 BERGERAK BERDAMPAK  ✦  MELANGKAH TERARAH  ✦  BERGERAK BERDAMPAK  ✦  MELANGKAH TERARAH  ✦  
             </span>
         </div>
         {{-- Row 4 (opposite direction) --}}
         <div class="ghost-text-scroll-reverse" style="white-space: nowrap; animation: ghost-scroll-reverse 20s linear infinite; animation-delay: -14s;">
-            <span style="font-size: 6rem; font-weight: 900; color: transparent; -webkit-text-stroke: 2px rgba(255, 255, 255, 0.15); font-family: 'Poppins', sans-serif; letter-spacing: 0.05em;">
+            <span style="font-size: 6rem; font-weight: 900; color: transparent; -webkit-text-stroke: 2px rgba(255, 255, 255, 0.10); font-family: 'Poppins', sans-serif; letter-spacing: 0.05em;">
                 MELANGKAH TERARAH  ✦  BERGERAK BERDAMPAK  ✦  MELANGKAH TERARAH  ✦  BERGERAK BERDAMPAK  ✦  
             </span>
         </div>
@@ -60,7 +60,7 @@
             {{-- Main Heading with Clean Typography --}}
             <div class="mb-8">
                 {{-- Line 1: Badan Eksekutif - Readable Serif --}}
-                <div class="hero-text-reveal" style="animation-delay: 0.2s; color: #ffffff; font-size: 2rem; font-weight: 600; font-style: normal; line-height: 1.2; margin-bottom: -10px; font-family: 'Merriweather', serif; text-transform: capitalize;">
+                <div class="hero-text-reveal" style="animation-delay: 0.2s; color: #ffffff; font-size: 3rem; font-weight: 600; font-style: normal; line-height: 1.2; margin-bottom: -10px; font-family: 'Merriweather', serif; text-transform: capitalize;">
                     Badan Eksekutif
                 </div>
                 
@@ -73,27 +73,16 @@
                 <div class="hero-text-reveal" style="animation-delay: 0.6s; color: #ffffff; font-size: 1.2rem; font-weight: 500; text-transform: uppercase; letter-spacing: 6px; line-height: 1.2; margin-top: 10px; font-family: 'Montserrat', sans-serif;">
                     REPUBLIK MAHASISWA UPI
                 </div>
+                
+                {{-- Cabinet Tagline - Elegant Subtitle --}}
+                <div class="hero-text-reveal" style="animation-delay: 0.8s; margin-top: 40px;">
+                    <div style="width: 60px; height: 3px; background-color: #F1C40F; margin-bottom: 15px;"></div>
+                    <p style="font-family: 'Playfair Display', serif; font-style: italic; color: rgba(255, 255, 255, 0.8); font-size: 1.2rem; letter-spacing: 1px; line-height: 1.6;">
+                        "Bergerak Berdampak, Melangkah Terarah"
+                    </p>
+                </div>
             </div>
             </div>
-
-           {{-- CTA Buttons with enhanced hover effects --}}
-            <div class="flex flex-wrap gap-4">
-                <a href="#about" class="cta-btn group hero-text-reveal magnetic-effect" style="text-decoration: none; animation-delay: 1.2s;">
-                    <div class="cta-btn-inner relative" style="display: inline-block; padding: 16px 42px; background: linear-gradient(135deg, #FACC15, #F59E0B); border: 3px solid #FACC15; border-radius: 12px; cursor: pointer; overflow: hidden; transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); box-shadow: 0 6px 20px rgba(250, 204, 21, 0.5), 0 0 30px rgba(250, 204, 21, 0.2);">
-                        <span class="cta-text relative z-10 group-hover:scale-110 transition-transform duration-300" style="color: #000000; font-size: 16px; font-weight: 900; font-family: 'Poppins', sans-serif; display: block; text-align: center;">Tentang Kami</span>
-                        <div class="cta-bg absolute inset-0 group-hover:scale-150 transition-all duration-500" style="background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%); opacity: 0; z-index: 1; border-radius: 12px;"></div>
-                        <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100"></div>
-                    </div>
-                </a>
-                <a href="#news" class="cta-btn group hero-text-reveal magnetic-effect" style="text-decoration: none; animation-delay: 1.4s;">
-                    <div class="cta-btn-inner relative" style="display: inline-block; padding: 16px 42px; background: transparent; border: 3px solid #FACC15; border-radius: 12px; cursor: pointer; overflow: hidden; transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);">
-                        <span class="cta-text relative z-10 group-hover:scale-110 transition-transform duration-300" style="color: #FACC15; font-size: 16px; font-weight: 900; font-family: 'Poppins', sans-serif; display: block; text-align: center; text-shadow: 0 0 10px rgba(250, 204, 21, 0.5);">Berita Terbaru</span>
-                        <div class="cta-bg absolute inset-0 group-hover:scale-150 transition-all duration-500" style="background: radial-gradient(circle, rgba(250, 204, 21, 0.15) 0%, transparent 70%); opacity: 0; z-index: 1; border-radius: 12px;"></div>
-                        <div class="absolute inset-0 shimmer opacity-0 group-hover:opacity-100"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
     </div>
 </div>
 
