@@ -11,7 +11,8 @@ class StoreBeritaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true; // TODO: Tambahkan authorization sesuai kebutuhan
+        // Only allow if admin is logged in
+        return session()->has('admin_logged_in');
     }
 
     /**
@@ -26,7 +27,7 @@ class StoreBeritaRequest extends FormRequest
             'kategori' => 'nullable|string|max:100',
             'tanggal' => 'required|date',
             'author' => 'required|string|max:100',
-            'thumbnail' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048', // max 2MB
+            'thumbnail' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048|dimensions:min_width=300,min_height=300,max_width=4000,max_height=4000',
             'konten' => 'required|string',
             'waktu_baca' => 'nullable|integer|min:1|max:60',
         ];
@@ -46,6 +47,7 @@ class StoreBeritaRequest extends FormRequest
             'thumbnail.image' => 'File harus berupa gambar.',
             'thumbnail.mimes' => 'Gambar harus berformat: jpeg, jpg, png, atau webp.',
             'thumbnail.max' => 'Ukuran gambar maksimal 2MB.',
+            'thumbnail.dimensions' => 'Dimensi gambar minimal 300x300px dan maksimal 4000x4000px.',
         ];
     }
 }

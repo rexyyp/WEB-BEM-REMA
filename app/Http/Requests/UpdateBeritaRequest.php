@@ -12,7 +12,8 @@ class UpdateBeritaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true; // TODO: Tambahkan authorization sesuai kebutuhan
+        // Only allow if admin is logged in
+        return session()->has('admin_logged_in');
     }
 
     /**
@@ -22,17 +23,20 @@ class UpdateBeritaRequest extends FormRequest
      */
     public function rules(): array
     {
+        // Get the berita ID from route parameter
+        $beritaId = $this->route('beritum') ? $this->route('beritum')->id : null;
+
         return [
             'judul' => [
                 'required',
                 'string',
                 'max:255',
-                Rule::unique('beritas', 'judul')->ignore($this->route('beritum')),
+                Rule::unique('beritas', 'judul')->ignore($beritaId),
             ],
             'kategori' => 'nullable|string|max:100',
             'tanggal' => 'required|date',
             'author' => 'required|string|max:100',
-            'thumbnail' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048',
+            'thumbnail' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:2048|dimensions:min_width=300,min_height=300,max_width=4000,max_height=4000',
             'konten' => 'required|string',
             'waktu_baca' => 'nullable|integer|min:1|max:60',
         ];
@@ -52,6 +56,7 @@ class UpdateBeritaRequest extends FormRequest
             'thumbnail.image' => 'File harus berupa gambar.',
             'thumbnail.mimes' => 'Gambar harus berformat: jpeg, jpg, png, atau webp.',
             'thumbnail.max' => 'Ukuran gambar maksimal 2MB.',
+            'thumbnail.dimensions' => 'Dimensi gambar minimal 300x300px dan maksimal 4000x4000px.',
         ];
     }
 }

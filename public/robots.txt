@@ -1,2 +1,17 @@
+# robots.txt untuk BEM REMA UPI
 User-agent: *
-Disallow:
+Allow: /
+Allow: /berita
+Allow: /tentang
+
+# Block admin area from search engines
+Disallow: /admin/
+Disallow: /admin/login
+Disallow: /admin/dashboard
+
+# Block storage and vendor
+Disallow: /storage/
+Disallow: /vendor/
+
+# Sitemap location
+Sitemap: https://yourdomain.com/sitemap.xml

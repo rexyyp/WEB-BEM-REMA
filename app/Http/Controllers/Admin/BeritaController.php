@@ -7,6 +7,7 @@ use App\Models\Berita;
 use App\Http\Requests\StoreBeritaRequest;
 use App\Http\Requests\UpdateBeritaRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
 
 class BeritaController extends Controller
@@ -17,7 +18,7 @@ class BeritaController extends Controller
     public function index()
     {
         $beritas = Berita::latest()->paginate(10);
-        
+
         return view('admin.berita.index', compact('beritas'));
     }
 
@@ -38,11 +39,18 @@ class BeritaController extends Controller
 
         // Handle thumbnail upload
         if ($request->hasFile('thumbnail')) {
-            $validated['thumbnail'] = $request->file('thumbnail')->store('beritas', 'public');
+            $file = $request->file('thumbnail');
+            $filename = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('beritas', $filename, 'public');
+            $validated['thumbnail'] = $path;
         }
 
         // Slug akan di-generate otomatis oleh model
         Berita::create($validated);
+
+        // Clear cache
+        Cache::forget('home.latest_news');
+        Cache::forget('berita.latest');
 
         return redirect()
             ->route('admin.berita.index')
@@ -71,6 +79,7 @@ class BeritaController extends Controller
     public function update(UpdateBeritaRequest $request, Berita $beritum)
     {
         $validated = $request->validated();
+        $oldSlug = $beritum->slug;
 
         // Handle thumbnail upload
         if ($request->hasFile('thumbnail')) {
@@ -79,11 +88,22 @@ class BeritaController extends Controller
                 Storage::disk('public')->delete($beritum->thumbnail);
             }
 
-            $validated['thumbnail'] = $request->file('thumbnail')->store('beritas', 'public');
+            $file = $request->file('thumbnail');
+            $filename = time() . '_' . Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('beritas', $filename, 'public');
+            $validated['thumbnail'] = $path;
         }
 
         // Update berita (slug akan di-regenerate otomatis jika judul berubah)
         $beritum->update($validated);
+
+        // Clear cache
+        Cache::forget("berita.{$oldSlug}");
+        Cache::forget("berita.{$beritum->slug}");
+        Cache::forget("berita.{$oldSlug}.related");
+        Cache::forget("berita.{$beritum->slug}.related");
+        Cache::forget('berita.latest');
+        Cache::forget('home.latest_news');
 
         return redirect()
             ->route('admin.berita.index')
@@ -95,12 +115,20 @@ class BeritaController extends Controller
      */
     public function destroy(Berita $beritum)
     {
+        $slug = $beritum->slug;
+
         // Delete thumbnail if exists
         if ($beritum->thumbnail && Storage::disk('public')->exists($beritum->thumbnail)) {
             Storage::disk('public')->delete($beritum->thumbnail);
         }
 
         $beritum->delete();
+
+        // Clear cache
+        Cache::forget("berita.{$slug}");
+        Cache::forget("berita.{$slug}.related");
+        Cache::forget('berita.latest');
+        Cache::forget('home.latest_news');
 
         return redirect()
             ->route('admin.berita.index')

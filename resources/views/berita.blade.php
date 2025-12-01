@@ -1,6 +1,54 @@
 @extends('layouts.app')
 
+@section('title', 'Berita & Kegiatan - BEM REMA UPI')
+
+@push('meta')
+    <meta name="description" content="Berita dan kegiatan terkini BEM REMA UPI. Informasi seputar program kerja, acara, dan pencapaian Kabinet Suar Sangga Universitas Pendidikan Indonesia.">
+    <meta name="keywords" content="Berita BEM UPI, Kegiatan Mahasiswa UPI, Program Kerja BEM, Acara BEM REMA, Informasi Kampus UPI">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ url('/berita') }}">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url('/berita') }}">
+    <meta property="og:title" content="Berita & Kegiatan - BEM REMA UPI">
+    <meta property="og:description" content="Informasi terkini seputar kegiatan, program kerja, dan pencapaian BEM REMA UPI">
+    <meta property="og:image" content="{{ asset('build/assets/image/Logo Suar Sangga.png') }}">
+@endpush
+
+@push('structured-data')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Berita BEM REMA UPI",
+  "description": "Kumpulan berita dan informasi kegiatan BEM REMA Universitas Pendidikan Indonesia",
+  "url": "{{ url('/berita') }}",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "{{ url('/') }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Berita",
+        "item": "{{ url('/berita') }}"
+      }
+    ]
+  }
+}
+</script>
+@endpush
+
 @section('content')
+@include('partials.breadcrumbs', ['items' => [
+    ['name' => 'Beranda', 'url' => url('/')],
+    ['name' => 'Berita', 'url' => null]
+]])
 <div class="pt-20">
     {{-- Hero Section --}}
     <section class="relative py-20 px-8 md:px-12 overflow-hidden animate-on-scroll opacity-0" style="transform: translateY(40px);">

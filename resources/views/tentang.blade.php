@@ -1,6 +1,72 @@
 @extends('layouts.app')
 
+@section('title', 'Tentang Kami - BEM REMA UPI')
+
+@push('meta')
+    {{-- Primary Meta Tags --}}
+    <meta name="description" content="BEM REMA UPI adalah Badan Eksekutif Mahasiswa Universitas Pendidikan Indonesia. Pelajari visi, misi, struktur organisasi, dan program kerja Kabinet Suar Sangga yang menghadirkan transparansi dan kesejahteraan mahasiswa.">
+    <meta name="keywords" content="Tentang BEM UPI, Profil BEM REMA, Visi Misi BEM UPI, Struktur Organisasi, Kabinet Suar Sangga, Program Kerja BEM, Sejarah BEM UPI">
+    <meta name="author" content="BEM REMA UPI">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ url('/tentang') }}">
+
+    {{-- Open Graph / Facebook --}}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url('/tentang') }}">
+    <meta property="og:title" content="Tentang Kami - BEM REMA UPI">
+    <meta property="og:description" content="Kenali lebih dekat BEM REMA UPI Kabinet Suar Sangga. Organisasi mahasiswa yang berkomitmen untuk transparansi, integritas, dan kesejahteraan sivitas akademika UPI.">
+    <meta property="og:image" content="{{ asset('build/assets/image/Logo Suar Sangga.png') }}">
+    <meta property="og:site_name" content="BEM REMA UPI">
+    <meta property="og:locale" content="id_ID">
+
+    {{-- Twitter --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ url('/tentang') }}">
+    <meta name="twitter:title" content="Tentang Kami - BEM REMA UPI">
+    <meta name="twitter:description" content="Profil lengkap BEM REMA UPI: Visi, Misi, Struktur Organisasi, dan Program Kerja Kabinet Suar Sangga">
+    <meta name="twitter:image" content="{{ asset('build/assets/image/Logo Suar Sangga.png') }}">
+@endpush
+
+@push('structured-data')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "Tentang BEM REMA UPI",
+  "description": "Informasi lengkap tentang Badan Eksekutif Mahasiswa REMA Universitas Pendidikan Indonesia, termasuk visi, misi, struktur organisasi, dan program kerja.",
+  "url": "{{ url('/tentang') }}",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "BEM REMA UPI",
+    "alternateName": "Kabinet Suar Sangga",
+    "description": "BEM REMA UPI hadir sebagai lembaga eksekutif universitas yang memadukan ketajaman pergerakan dengan kehangatan pelayanan bagi seluruh sivitas akademika."
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "{{ url('/') }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Tentang Kami",
+        "item": "{{ url('/tentang') }}"
+      }
+    ]
+  }
+}
+</script>
+@endpush
+
 @section('content')
+@include('partials.breadcrumbs', ['items' => [
+    ['name' => 'Beranda', 'url' => url('/')],
+    ['name' => 'Tentang Kami', 'url' => null]
+]])
 <div class="pt-20">
     {{-- Hero Section --}}
     <section class="relative py-20 px-8 md:px-12 overflow-hidden animate-on-scroll opacity-0" style="transform: translateY(40px);">

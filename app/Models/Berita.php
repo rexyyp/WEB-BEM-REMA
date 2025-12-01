@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use App\Traits\LogsActivity;
 
 class Berita extends Model
 {
-    use HasFactory;
+    use HasFactory, LogsActivity;
 
     protected $fillable = [
         'judul',
@@ -56,7 +57,7 @@ class Berita extends Model
     {
         $slug = Str::slug($judul);
         $count = static::where('slug', 'LIKE', "{$slug}%")->count();
-        
+
         return $count ? "{$slug}-{$count}" : $slug;
     }
 
@@ -93,7 +94,7 @@ class Berita extends Model
         if ($this->thumbnail && file_exists(public_path('storage/' . $this->thumbnail))) {
             return asset('storage/' . $this->thumbnail);
         }
-        
+
         // Fallback ke default image
         return asset('build/assets/image/default-news.jpg');
     }
@@ -149,16 +150,15 @@ class Berita extends Model
             // Konten sudah HTML, return as-is
             return $this->konten;
         }
-        
+
         // Konten masih plain text atau markdown, convert dulu
         try {
             $converter = new \League\CommonMark\CommonMarkConverter([
                 'html_input' => 'strip',
                 'allow_unsafe_links' => false,
             ]);
-            
+
             return $converter->convert($this->konten)->getContent();
-            
         } catch (\Exception $e) {
             // Fallback: simple paragraph conversion
             return '<p>' . nl2br(e($this->konten)) . '</p>';

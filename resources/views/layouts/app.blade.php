@@ -5,10 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'BEM REMA UPI')</title>
     
+    {{-- Default Meta Tags --}}
+    <meta name="description" content="@yield('meta_description', 'BEM REMA UPI - Badan Eksekutif Mahasiswa Universitas Pendidikan Indonesia')">
+    <meta name="keywords" content="@yield('meta_keywords', 'BEM REMA UPI, BEM UPI, Mahasiswa UPI')">
+    <meta name="author" content="BEM REMA UPI">
+    
+    {{-- Additional Meta Tags from Pages --}}
+    @stack('meta')
+    
     {{-- Google Fonts - Editorial Font Pairing --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Merriweather:wght@500;600&family=Playfair+Display:ital@1&family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    {{-- Structured Data --}}
+    @stack('structured-data')
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
