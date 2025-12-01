@@ -3,51 +3,50 @@
 @section('title', 'Berita & Kegiatan - BEM REMA UPI')
 
 @push('meta')
-    <meta name="description" content="Berita dan kegiatan terkini BEM REMA UPI. Informasi seputar program kerja, acara, dan pencapaian Kabinet Suar Sangga Universitas Pendidikan Indonesia.">
-    <meta name="keywords" content="Berita BEM UPI, Kegiatan Mahasiswa UPI, Program Kerja BEM, Acara BEM REMA, Informasi Kampus UPI">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="{{ url('/berita') }}">
-    
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url('/berita') }}">
-    <meta property="og:title" content="Berita & Kegiatan - BEM REMA UPI">
-    <meta property="og:description" content="Informasi terkini seputar kegiatan, program kerja, dan pencapaian BEM REMA UPI">
-    <meta property="og:image" content="{{ asset('build/assets/image/Logo Suar Sangga.png') }}">
+<meta name="description" content="Berita dan kegiatan terkini BEM REMA UPI. Informasi seputar program kerja, acara, dan pencapaian Kabinet Suar Sangga Universitas Pendidikan Indonesia.">
+<meta name="keywords" content="Berita BEM UPI, Kegiatan Mahasiswa UPI, Program Kerja BEM, Acara BEM REMA, Informasi Kampus UPI">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ url('/berita') }}">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ url('/berita') }}">
+<meta property="og:title" content="Berita & Kegiatan - BEM REMA UPI">
+<meta property="og:description" content="Informasi terkini seputar kegiatan, program kerja, dan pencapaian BEM REMA UPI">
+<meta property="og:image" content="{{ asset('build/assets/image/Logo Suar Sangga.png') }}">
 @endpush
 
 @push('structured-data')
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "Berita BEM REMA UPI",
-  "description": "Kumpulan berita dan informasi kegiatan BEM REMA Universitas Pendidikan Indonesia",
-  "url": "{{ url('/berita') }}",
-  "breadcrumb": {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Beranda",
-        "item": "{{ url('/') }}"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Berita",
-        "item": "{{ url('/berita') }}"
-      }
-    ]
-  }
-}
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Berita BEM REMA UPI",
+        "description": "Kumpulan berita dan informasi kegiatan BEM REMA Universitas Pendidikan Indonesia",
+        "url": "{{ url('/berita') }}",
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Beranda",
+                    "item": "{{ url('/') }}"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Berita",
+                    "item": "{{ url('/berita') }}"
+                }
+            ]
+        }
+    }
 </script>
 @endpush
 
 @section('content')
 @include('partials.breadcrumbs', ['items' => [
-    ['name' => 'Beranda', 'url' => url('/')],
-    ['name' => 'Berita', 'url' => null]
+['name' => 'Beranda', 'url' => url('/')],
+['name' => 'Berita', 'url' => null]
 ]])
 <div class="pt-20">
     {{-- Hero Section --}}
@@ -58,7 +57,7 @@
             <div class="absolute bottom-24 right-1/3 w-12 h-12 opacity-[0.05]" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Cpolygon points=&quot;50,20 80,80 20,80&quot; stroke=&quot;%23FACC15&quot; stroke-width=&quot;3&quot; fill=&quot;none&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
             <div class="absolute top-40 right-20 w-10 h-10 opacity-[0.04]" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Cline x1=&quot;25&quot; y1=&quot;25&quot; x2=&quot;75&quot; y2=&quot;75&quot; stroke=&quot;%2337537A&quot; stroke-width=&quot;3&quot;/%3E%3Cline x1=&quot;75&quot; y1=&quot;25&quot; x2=&quot;25&quot; y2=&quot;75&quot; stroke=&quot;%2337537A&quot; stroke-width=&quot;3&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
         </div>
-        
+
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="text-center mb-12">
                 <div class="animate-on-scroll inline-block px-4 py-2 rounded-full mb-6 opacity-0 transition-all duration-700" style="background-color: #FACC15; transform: scale(0.8);">
@@ -105,13 +104,13 @@
                         <div class="flex items-center gap-4 text-gray-500 text-xs" style="margin-top: 0.75rem; margin-bottom: 1rem;">
                             <span class="flex items-center gap-2">
                                 <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
                                 <span>{{ formatTanggalSingkat($news->tanggal) }}</span>
                             </span>
                             <span class="flex items-center gap-2">
                                 <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                                 </svg>
                                 <span>{{ $news->author }}</span>
                             </span>
@@ -124,7 +123,7 @@
                             <a href="{{ route('berita.detail', $news->slug) }}" class="inline-flex items-center gap-2 text-sm font-bold group-hover:gap-3 transition-all duration-300" style="color: #37537A;">
                                 <span>Baca Selengkapnya</span>
                                 <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                 </svg>
                             </a>
                         </div>
@@ -173,27 +172,27 @@
                         </div>
                         @endif
                     </div>
-                    
+
                     {{-- Content --}}
                     <div class="p-5">
                         {{-- Date --}}
                         <p class="text-xs text-gray-500 mb-3">{{ formatTanggalSingkat($news->tanggal) }}</p>
-                        
+
                         {{-- Title --}}
                         <h3 class="text-xl font-black mb-3 line-clamp-2 text-gray-900 group-hover:text-blue-900 transition-colors duration-300">
                             {{ $news->judul }}
                         </h3>
-                        
+
                         {{-- Excerpt --}}
                         <p class="text-sm text-gray-600 mb-4 line-clamp-3 leading-relaxed">
                             {{ $news->excerpt }}
                         </p>
-                        
+
                         {{-- Read More Link --}}
                         <a href="{{ route('berita.detail', $news->slug) }}" class="inline-flex items-center gap-2 text-sm font-bold transition-all duration-300 group-hover:gap-3" style="color: #37537A;">
                             <span>Baca Selengkapnya</span>
                             <svg class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                             </svg>
                         </a>
                     </div>
@@ -206,7 +205,7 @@
             </div>
         </div>
     </section>
-    
+
     {{-- Pagination --}}
     @if($beritas->hasPages())
     <div id="pagination-container" class="animate-on-scroll flex justify-center mt-16 mb-12 opacity-0 transition-all duration-1000" style="transform: translateY(20px); transition-delay: 600ms;">
@@ -218,187 +217,193 @@
 
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+    document.addEventListener('DOMContentLoaded', function() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-        observer.observe(el);
-    });
-
-    // AJAX Category Filtering
-    const categoryButtons = document.querySelectorAll('.category-btn');
-    const newsCards = document.querySelectorAll('.news-card');
-    
-    categoryButtons.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const selectedCategory = this.dataset.category;
-            
-            // Update active button style
-            categoryButtons.forEach(b => {
-                b.classList.remove('bg-yellow-400', 'text-black');
-                b.classList.add('bg-white', 'border-2', 'border-gray-200', 'text-gray-600');
-                b.style.backgroundColor = '';
-            });
-            
-            this.classList.remove('bg-white', 'border-2', 'border-gray-200', 'text-gray-600');
-            this.classList.add('bg-yellow-400', 'text-black');
-            this.style.backgroundColor = '#FACC15';
-            
-            // Filter cards without page refresh
-            newsCards.forEach(card => {
-                const cardCategory = card.dataset.category;
-                
-                if (selectedCategory === '' || cardCategory === selectedCategory) {
-                    card.style.display = 'grid';
-                    // Re-trigger animation
-                    setTimeout(() => {
-                        card.classList.add('is-visible');
-                    }, 50);
-                } else {
-                    card.style.display = 'none';
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
                 }
             });
-            
-            // Update URL without refresh
-            const url = new URL(window.location);
-            if (selectedCategory) {
-                url.searchParams.set('kategori', selectedCategory);
-            } else {
-                url.searchParams.delete('kategori');
-            }
-            window.history.pushState({}, '', url);
-            
-            // Smooth scroll to news section
-            document.getElementById('news-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-    });
+        }, observerOptions);
 
-    // AJAX Pagination
-    function handlePaginationClick(e) {
-        const link = e.target.closest('a');
-        if (!link || !link.href) return;
-        
-        e.preventDefault();
-        const url = new URL(link.href);
-        const page = url.searchParams.get('page');
-        
-        if (!page) return;
-        
-        // Update URL without refresh
-        window.history.pushState({}, '', url);
-        
-        // Fetch new page content
-        fetch(url, {
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest'
-            }
-        })
-        .then(response => response.text())
-        .then(html => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, 'text/html');
-            
-            // Update news grid
-            const newGrid = doc.querySelector('#news-grid');
-            const currentGrid = document.querySelector('#news-grid');
-            if (newGrid && currentGrid) {
-                currentGrid.innerHTML = newGrid.innerHTML;
-                
-                // Re-attach event listeners to new cards
-                document.querySelectorAll('.animate-on-scroll').forEach(el => {
-                    observer.observe(el);
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // AJAX Category Filtering
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const newsCards = document.querySelectorAll('.news-card');
+
+        categoryButtons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const selectedCategory = this.dataset.category;
+
+                // Update active button style
+                categoryButtons.forEach(b => {
+                    b.classList.remove('bg-yellow-400', 'text-black');
+                    b.classList.add('bg-white', 'border-2', 'border-gray-200', 'text-gray-600');
+                    b.style.backgroundColor = '';
                 });
-            }
-            
-            // Update pagination
-            const newPagination = doc.querySelector('#pagination-container');
-            const currentPagination = document.querySelector('#pagination-container');
-            if (newPagination && currentPagination) {
-                currentPagination.innerHTML = newPagination.innerHTML;
-                attachPaginationListeners();
-            }
-            
-            // Smooth scroll to top of news grid
-            document.getElementById('news-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        })
-        .catch(error => {
-            console.error('Error loading page:', error);
-        });
-    }
-    
-    function attachPaginationListeners() {
-        const paginationContainer = document.querySelector('#pagination-container');
-        if (paginationContainer) {
-            paginationContainer.addEventListener('click', handlePaginationClick);
-        }
-    }
-    
-    // Initial attachment
-    attachPaginationListeners();
 
-    // Add parallax effect
-    const hero = document.querySelector('.relative.py-20');
-    if (hero) {
-        hero.addEventListener('mousemove', (e) => {
-            const blobs = hero.querySelectorAll('.absolute.opacity-5 > div');
-            const mouseX = e.clientX / window.innerWidth;
-            const mouseY = e.clientY / window.innerHeight;
-            
-            blobs.forEach((blob, index) => {
-                const speed = (index + 1) * 20;
-                const x = mouseX * speed;
-                const y = mouseY * speed;
-                blob.style.transform = `translate(${x}px, ${y}px)`;
+                this.classList.remove('bg-white', 'border-2', 'border-gray-200', 'text-gray-600');
+                this.classList.add('bg-yellow-400', 'text-black');
+                this.style.backgroundColor = '#FACC15';
+
+                // Filter cards without page refresh
+                newsCards.forEach(card => {
+                    const cardCategory = card.dataset.category;
+
+                    if (selectedCategory === '' || cardCategory === selectedCategory) {
+                        card.style.display = 'grid';
+                        // Re-trigger animation
+                        setTimeout(() => {
+                            card.classList.add('is-visible');
+                        }, 50);
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Update URL without refresh
+                const url = new URL(window.location);
+                if (selectedCategory) {
+                    url.searchParams.set('kategori', selectedCategory);
+                } else {
+                    url.searchParams.delete('kategori');
+                }
+                window.history.pushState({}, '', url);
+
+                // Smooth scroll to news section
+                document.getElementById('news-grid').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             });
         });
-    }
-});
+
+        // AJAX Pagination
+        function handlePaginationClick(e) {
+            const link = e.target.closest('a');
+            if (!link || !link.href) return;
+
+            e.preventDefault();
+            const url = new URL(link.href);
+            const page = url.searchParams.get('page');
+
+            if (!page) return;
+
+            // Update URL without refresh
+            window.history.pushState({}, '', url);
+
+            // Fetch new page content
+            fetch(url, {
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => response.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+
+                    // Update news grid
+                    const newGrid = doc.querySelector('#news-grid');
+                    const currentGrid = document.querySelector('#news-grid');
+                    if (newGrid && currentGrid) {
+                        currentGrid.innerHTML = newGrid.innerHTML;
+
+                        // Re-attach event listeners to new cards
+                        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                            observer.observe(el);
+                        });
+                    }
+
+                    // Update pagination
+                    const newPagination = doc.querySelector('#pagination-container');
+                    const currentPagination = document.querySelector('#pagination-container');
+                    if (newPagination && currentPagination) {
+                        currentPagination.innerHTML = newPagination.innerHTML;
+                        attachPaginationListeners();
+                    }
+
+                    // Smooth scroll to top of news grid
+                    document.getElementById('news-grid').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading page:', error);
+                });
+        }
+
+        function attachPaginationListeners() {
+            const paginationContainer = document.querySelector('#pagination-container');
+            if (paginationContainer) {
+                paginationContainer.addEventListener('click', handlePaginationClick);
+            }
+        }
+
+        // Initial attachment
+        attachPaginationListeners();
+
+        // Add parallax effect
+        const hero = document.querySelector('.relative.py-20');
+        if (hero) {
+            hero.addEventListener('mousemove', (e) => {
+                const blobs = hero.querySelectorAll('.absolute.opacity-5 > div');
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+
+                blobs.forEach((blob, index) => {
+                    const speed = (index + 1) * 20;
+                    const x = mouseX * speed;
+                    const y = mouseY * speed;
+                    blob.style.transform = `translate(${x}px, ${y}px)`;
+                });
+            });
+        }
+    });
 </script>
 
 <style>
-.animate-on-scroll.is-visible {
-    opacity: 1 !important;
-    transform: translate(0, 0) scale(1) !important;
-}
+    .animate-on-scroll.is-visible {
+        opacity: 1 !important;
+        transform: translate(0, 0) scale(1) !important;
+    }
 
-.line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
 
-.line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
 
-.absolute.opacity-5 > div,
-.absolute.opacity-10 > div {
-    transition: transform 0.3s ease-out;
-}
+    .absolute.opacity-5>div,
+    .absolute.opacity-10>div {
+        transition: transform 0.3s ease-out;
+    }
 
-/* Judul berita hitam default, biru saat hover card */
-.group h3 {
-    color: #000000 !important;
-}
+    /* Judul berita hitam default, biru saat hover card */
+    .group h3 {
+        color: #000000 !important;
+    }
 
-.group:hover h3 {
-    color: #37537A !important;
-}
+    .group:hover h3 {
+        color: #37537A !important;
+    }
 </style>
 @endsection

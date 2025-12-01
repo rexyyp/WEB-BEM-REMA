@@ -22,68 +22,67 @@
 
 @push('structured-data')
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "NewsArticle",
-  "headline": "{{ $berita->judul }}",
-  "description": "{{ $berita->excerpt }}",
-  "image": "{{ $berita->thumbnail_url }}",
-  "datePublished": "{{ $berita->tanggal->toIso8601String() }}",
-  "dateModified": "{{ $berita->updated_at->toIso8601String() }}",
-  "author": {
-    "@type": "Person",
-    "name": "{{ $berita->author }}"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "BEM REMA UPI",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "{{ asset('build/assets/image/Logo Suar Sangga.png') }}"
+    {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "{{ $berita->judul }}",
+        "description": "{{ $berita->excerpt }}",
+        "image": "{{ $berita->thumbnail_url }}",
+        "datePublished": "{{ $berita->tanggal->toIso8601String() }}",
+        "dateModified": "{{ $berita->updated_at->toIso8601String() }}",
+        "author": {
+            "@type": "Person",
+            "name": "{{ $berita->author }}"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "BEM REMA UPI",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{ asset('build/assets/image/Logo Suar Sangga.png') }}"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ route('berita.detail', $berita->slug) }}"
+        },
+        "articleSection": "{{ $berita->kategori }}",
+        "keywords": "{{ $berita->kategori }}, BEM REMA UPI, Mahasiswa UPI"
     }
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ route('berita.detail', $berita->slug) }}"
-  },
-  "articleSection": "{{ $berita->kategori }}",
-  "keywords": "{{ $berita->kategori }}, BEM REMA UPI, Mahasiswa UPI"
-}
 </script>
 
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
     {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Beranda",
-      "item": "{{ url('/') }}"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Berita",
-      "item": "{{ url('/berita') }}"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "{{ $berita->judul }}",
-      "item": "{{ route('berita.detail', $berita->slug) }}"
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Beranda",
+                "item": "{{ url('/') }}"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Berita",
+                "item": "{{ url('/berita') }}"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "{{ $berita->judul }}",
+                "item": "{{ route('berita.detail', $berita->slug) }}"
+            }
+        ]
     }
-  ]
-}
 </script>
 @endpush
 
 @section('content')
 @include('partials.breadcrumbs', ['items' => [
-    ['name' => 'Beranda', 'url' => url('/')],
-    ['name' => 'Berita', 'url' => url('/berita')],
-    ['name' => $berita->judul, 'url' => null]
+['name' => 'Beranda', 'url' => url('/')],
+['name' => 'Berita', 'url' => url('/berita')],
+['name' => $berita->judul, 'url' => null]
 ]])
 <div class="pt-32">
     {{-- Premium Editorial Header --}}
