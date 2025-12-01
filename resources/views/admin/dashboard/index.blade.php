@@ -109,8 +109,8 @@
                             </svg>
                         </div>
                     </div>
-                    <h3 id="total-views" style="font-size: 32px; font-weight: 700; color: #111827; margin-bottom: 8px;">11,342</h3>
-                    <p style="font-size: 13px; color: #10b981; font-weight: 600;">↑ 12.5% vs bulan lalu</p>
+                    <h3 id="total-views" style="font-size: 32px; font-weight: 700; color: #111827; margin-bottom: 8px;">{{ number_format($totalViews) }}</h3>
+                    <p style="font-size: 13px; color: #6b7280; font-weight: 600;">Total Views Artikel</p>
                 </div>
 
                 {{-- Card 2: Total Berita --}}
@@ -126,8 +126,8 @@
                             </svg>
                         </div>
                     </div>
-                    <h3 id="total-berita" style="font-size: 32px; font-weight: 700; color: #111827; margin-bottom: 8px;">48</h3>
-                    <p style="font-size: 13px; color: #6b7280;">Bulan ini: <span id="monthly-berita" style="font-weight: 600;">8 artikel</span></p>
+                    <h3 id="total-berita" style="font-size: 32px; font-weight: 700; color: #111827; margin-bottom: 8px;">{{ $totalBerita }}</h3>
+                    <p style="font-size: 13px; color: #6b7280;">Bulan ini: <span id="monthly-berita" style="font-weight: 600;">{{ $monthlyBerita }} artikel</span></p>
                 </div>
             </div>
 
@@ -136,15 +136,15 @@
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
                     <h3 style="font-size: 18px; font-weight: 700; color: #111827;">Statistik Pengunjung Website</h3>
                     <div style="display: flex; gap: 8px;">
-                        <button style="padding: 8px 16px; background: #3b5998; color: white; font-size: 13px; font-weight: 600; border-radius: 8px; border: none; cursor: pointer;">Monthly</button>
-                        <button style="padding: 8px 16px; background: #f3f4f6; color: #6b7280; font-size: 13px; font-weight: 600; border-radius: 8px; border: none; cursor: pointer;">Weekly</button>
+                        <button id="monthlyBtn" style="padding: 8px 16px; background: #3b5998; color: white; font-size: 13px; font-weight: 600; border-radius: 8px; border: none; cursor: pointer;">Monthly</button>
+                        <button id="weeklyBtn" style="padding: 8px 16px; background: #f3f4f6; color: #6b7280; font-size: 13px; font-weight: 600; border-radius: 8px; border: none; cursor: pointer;">Weekly</button>
                     </div>
                 </div>
                 <div style="position: relative; height: 280px;">
                     <canvas id="visitorChart"></canvas>
                 </div>
                 <div style="text-align: right; margin-top: 16px;">
-                    <button style="padding: 10px 20px; background: #10b981; color: white; font-size: 13px; font-weight: 600; border-radius: 8px; border: none; cursor: pointer;">Export</button>
+                    <button id="exportBtn" style="padding: 10px 20px; background: #10b981; color: white; font-size: 13px; font-weight: 600; border-radius: 8px; border: none; cursor: pointer;">Export</button>
                 </div>
             </div>
 
@@ -171,111 +171,43 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @forelse($latestBerita as $berita)
                             <tr style="border-bottom: 1px solid #f3f4f6;">
-                                <td style="padding: 16px; font-size: 14px; color: #111827;">Presiden Resmikan Proyek Infrastruktur Nasional</td>
+                                <td style="padding: 16px; font-size: 14px; color: #111827;">{{ Str::limit($berita->judul, 60) }}</td>
                                 <td style="padding: 16px;">
-                                    <span class="badge" style="background: #dbeafe; color: #1e40af;">Infrastruktur</span>
+                                    @if($berita->kategori == 'Rema PERS')
+                                        <span class="badge" style="background: #dbeafe; color: #1e40af;">{{ $berita->kategori }}</span>
+                                    @else
+                                        <span class="badge" style="background: #d1fae5; color: #065f46;">{{ $berita->kategori }}</span>
+                                    @endif
                                 </td>
-                                <td style="padding: 16px; font-size: 14px; color: #6b7280;">13 Nov 2025</td>
+                                <td style="padding: 16px; font-size: 14px; color: #6b7280;">{{ $berita->tanggal->format('d M Y') }}</td>
                                 <td style="padding: 16px;">
                                     <div style="display: flex; justify-content: center; gap: 8px;">
-                                        <button style="padding: 8px; background: transparent; border: none; color: #2563eb; cursor: pointer; border-radius: 6px;">
+                                        <a href="{{ route('admin.berita.edit', $berita->id) }}" style="padding: 8px; background: transparent; border: none; color: #2563eb; cursor: pointer; border-radius: 6px; display: inline-block;">
                                             <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
                                             </svg>
-                                        </button>
-                                        <button style="padding: 8px; background: transparent; border: none; color: #dc2626; cursor: pointer; border-radius: 6px;">
-                                            <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-                                            </svg>
-                                        </button>
+                                        </a>
+                                        <form action="{{ route('admin.berita.destroy', $berita->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('Yakin ingin menghapus berita ini?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" style="padding: 8px; background: transparent; border: none; color: #dc2626; cursor: pointer; border-radius: 6px;">
+                                                <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                                </svg>
+                                            </button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
-                            <tr style="border-bottom: 1px solid #f3f4f6;">
-                                <td style="padding: 16px; font-size: 14px; color: #111827;">Menteri BUMN Tinjau Kinerja Perusahaan Negara</td>
-                                <td style="padding: 16px;">
-                                    <span class="badge" style="background: #d1fae5; color: #065f46;">Ekonomi</span>
-                                </td>
-                                <td style="padding: 16px; font-size: 14px; color: #6b7280;">12 Nov 2025</td>
-                                <td style="padding: 16px;">
-                                    <div style="display: flex; justify-content: center; gap: 8px;">
-                                        <button style="padding: 8px; background: transparent; border: none; color: #2563eb; cursor: pointer; border-radius: 6px;">
-                                            <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
-                                            </svg>
-                                        </button>
-                                        <button style="padding: 8px; background: transparent; border: none; color: #dc2626; cursor: pointer; border-radius: 6px;">
-                                            <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #f3f4f6;">
-                                <td style="padding: 16px; font-size: 14px; color: #111827;">Peluncuran Program Beasiswa untuk Mahasiswa Berprestasi</td>
-                                <td style="padding: 16px;">
-                                    <span class="badge" style="background: #e9d5ff; color: #6b21a8;">Pendidikan</span>
-                                </td>
-                                <td style="padding: 16px; font-size: 14px; color: #6b7280;">11 Nov 2025</td>
-                                <td style="padding: 16px;">
-                                    <div style="display: flex; justify-content: center; gap: 8px;">
-                                        <button style="padding: 8px; background: transparent; border: none; color: #2563eb; cursor: pointer; border-radius: 6px;">
-                                            <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
-                                            </svg>
-                                        </button>
-                                        <button style="padding: 8px; background: transparent; border: none; color: #dc2626; cursor: pointer; border-radius: 6px;">
-                                            <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #f3f4f6;">
-                                <td style="padding: 16px; font-size: 14px; color: #111827;">Kementerian Kesehatan Luncurkan Aplikasi Telemedicine</td>
-                                <td style="padding: 16px;">
-                                    <span class="badge" style="background: #fee2e2; color: #991b1b;">Kesehatan</span>
-                                </td>
-                                <td style="padding: 16px; font-size: 14px; color: #6b7280;">10 Nov 2025</td>
-                                <td style="padding: 16px;">
-                                    <div style="display: flex; justify-content: center; gap: 8px;">
-                                        <button style="padding: 8px; background: transparent; border: none; color: #2563eb; cursor: pointer; border-radius: 6px;">
-                                            <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
-                                            </svg>
-                                        </button>
-                                        <button style="padding: 8px; background: transparent; border: none; color: #dc2626; cursor: pointer; border-radius: 6px;">
-                                            <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
+                            @empty
                             <tr>
-                                <td style="padding: 16px; font-size: 14px; color: #111827;">Pertemuan Bilateral dengan Delegasi Internasional</td>
-                                <td style="padding: 16px;">
-                                    <span class="badge" style="background: #fef3c7; color: #92400e;">Luar Negeri</span>
-                                </td>
-                                <td style="padding: 16px; font-size: 14px; color: #6b7280;">9 Nov 2025</td>
-                                <td style="padding: 16px;">
-                                    <div style="display: flex; justify-content: center; gap: 8px;">
-                                        <button style="padding: 8px; background: transparent; border: none; color: #2563eb; cursor: pointer; border-radius: 6px;">
-                                            <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
-                                            </svg>
-                                        </button>
-                                        <button style="padding: 8px; background: transparent; border: none; color: #dc2626; cursor: pointer; border-radius: 6px;">
-                                            <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-                                            </svg>
-                                        </button>
-                                    </div>
+                                <td colspan="4" style="padding: 32px; text-align: center; color: #6b7280;">
+                                    Belum ada berita yang diterbitkan
                                 </td>
                             </tr>
+                            @endforelse
                             </tbody>
                         </table>
                     </div>
@@ -287,14 +219,27 @@
 
     {{-- Chart.js Script --}}
     <script>
+        // Data dari backend
+        const monthlyData = {
+            labels: {!! json_encode(array_column($monthlyStats, 'label')) !!},
+            data: {!! json_encode(array_column($monthlyStats, 'value')) !!}
+        };
+        
+        const weeklyData = {
+            labels: {!! json_encode(array_column($weeklyStats, 'label')) !!},
+            data: {!! json_encode(array_column($weeklyStats, 'value')) !!}
+        };
+        
+        let currentView = 'monthly';
+        
         const ctx = document.getElementById('visitorChart');
-        new Chart(ctx, {
+        const chart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                labels: monthlyData.labels,
                 datasets: [{
                     label: 'Pengunjung',
-                    data: [8500, 9200, 8900, 11500, 12200, 10800, 11900, 13500, 12800, 14200, 11000, 9500],
+                    data: monthlyData.data,
                     backgroundColor: '#3b5998',
                     borderRadius: 6,
                     barThickness: 40
@@ -328,6 +273,38 @@
                     }
                 }
             }
+        });
+        
+        // Toggle buttons
+        const monthlyBtn = document.getElementById('monthlyBtn');
+        const weeklyBtn = document.getElementById('weeklyBtn');
+        const exportBtn = document.getElementById('exportBtn');
+        
+        function setActiveButton(activeBtn, inactiveBtn) {
+            activeBtn.style.background = '#3b5998';
+            activeBtn.style.color = 'white';
+            inactiveBtn.style.background = '#f3f4f6';
+            inactiveBtn.style.color = '#6b7280';
+        }
+        
+        monthlyBtn.addEventListener('click', function() {
+            currentView = 'monthly';
+            chart.data.labels = monthlyData.labels;
+            chart.data.datasets[0].data = monthlyData.data;
+            chart.update();
+            setActiveButton(monthlyBtn, weeklyBtn);
+        });
+        
+        weeklyBtn.addEventListener('click', function() {
+            currentView = 'weekly';
+            chart.data.labels = weeklyData.labels;
+            chart.data.datasets[0].data = weeklyData.data;
+            chart.update();
+            setActiveButton(weeklyBtn, monthlyBtn);
+        });
+        
+        exportBtn.addEventListener('click', function() {
+            window.location.href = '{{ route('admin.export.stats') }}?type=' + currentView;
         });
     </script>
 

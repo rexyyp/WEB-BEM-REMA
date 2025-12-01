@@ -30,13 +30,8 @@ Route::prefix('admin')->name('admin.')->middleware('admin.auth')->group(function
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     
     // Dashboard
-    Route::get('/dashboard', function () {
-        $totalBerita = \App\Models\Berita::count();
-        $totalViews = \App\Models\Berita::sum('views');
-        $latestBerita = \App\Models\Berita::latest('created_at')->limit(5)->get();
-        
-        return view('admin.dashboard.index', compact('totalBerita', 'totalViews', 'latestBerita'));
-    })->name('dashboard');
+    Route::get('/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/export-stats', [App\Http\Controllers\Admin\DashboardController::class, 'exportStats'])->name('export.stats');
     
     // Data Anggota
     Route::get('/anggota', function () {

@@ -152,13 +152,8 @@
                                 </label>
                                 <select name="kategori" style="width: 100%; padding: 12px 16px; border: 1px solid #e5e7eb; border-radius: 8px; font-size: 14px; font-family: inherit; transition: all 0.2s ease; box-sizing: border-box; background: white; cursor: pointer;">
                                     <option value="">Pilih Kategori</option>
-                                    <option value="Program Kerja" {{ old('kategori') == 'Program Kerja' ? 'selected' : '' }}>Program Kerja</option>
-                                    <option value="Workshop" {{ old('kategori') == 'Workshop' ? 'selected' : '' }}>Workshop</option>
-                                    <option value="Kegiatan" {{ old('kategori') == 'Kegiatan' ? 'selected' : '' }}>Kegiatan</option>
-                                    <option value="Pelantikan" {{ old('kategori') == 'Pelantikan' ? 'selected' : '' }}>Pelantikan</option>
-                                    <option value="Prestasi" {{ old('kategori') == 'Prestasi' ? 'selected' : '' }}>Prestasi</option>
-                                    <option value="Pengumuman" {{ old('kategori') == 'Pengumuman' ? 'selected' : '' }}>Pengumuman</option>
                                     <option value="Rema PERS" {{ old('kategori') == 'Rema PERS' ? 'selected' : '' }}>Rema PERS</option>
+                                    <option value="Program Kerja" {{ old('kategori') == 'Program Kerja' ? 'selected' : '' }}>Program Kerja</option>
                                 </select>
                             </div>
 
@@ -230,7 +225,7 @@
                         </label>
                         
                         {{-- Simple Textarea (No Toolbar) --}}
-                        <textarea id="articleContent" name="konten" rows="10" placeholder="Tulis konten artikel di sini...&#10;&#10;Tips:&#10;- Gunakan paragraf untuk setiap topik&#10;- Pisahkan dengan enter untuk readability&#10;- Gunakan heading untuk sub-judul" required style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; font-size: 14px; line-height: 1.6; font-family: inherit;">{{ old('konten') }}</textarea>
+                        <textarea id="articleContent" name="konten" rows="10" placeholder="Tulis konten artikel di sini...&#10;&#10;Tips:&#10;- Gunakan paragraf untuk setiap topik&#10;- Pisahkan dengan enter untuk readability" required style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; font-size: 14px; line-height: 1.6; font-family: inherit;">{{ old('konten') }}</textarea>
                         @error('konten')
                             <p style="color: #dc2626; font-size: 12px; margin-top: 8px;">{{ $message }}</p>
                         @enderror

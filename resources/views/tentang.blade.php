@@ -70,15 +70,15 @@
             {{-- 2-Column Text Layout - Magazine Style --}}
             <div class="magazine-columns animate-on-scroll opacity-0 transition-all duration-1000" style="transform: translateY(30px); transition-delay: 400ms; margin-top: 3rem;">
                 {{-- Left Column --}}
-                <div class="column-left">
-                    <p class="text-gray-700 mb-6" style="line-height: 1.6; font-size: 1.05rem;">
+                <div class="column-left" style="margin-top: 0;">
+                    <p class="text-gray-700 mb-6" style="line-height: 1.6; font-size: 1.05rem; text-align: justify; margin-top: 0;">
                         Mahasiswa adalah tulang punggung pergerakan, agen perubahan yang memiliki peran krusial dalam membentuk masa depan bangsa. 
                         <strong>BEM Rema UPI</strong> hadir sebagai simpul kekuatan untuk mewadahi keberagaman identitas dan potensi tersebut. 
                         Dengan semangat <strong>bergerak berdampak</strong>, <strong>melangkah terarah</strong>, kami bertekad menjadi motor penggerak perubahan positif, 
                         bukan sekadar <em>"menara gading"</em> yang terasing dari realitas.
                     </p>
 
-                    <p class="text-gray-700 mb-6" style="line-height: 1.6; font-size: 1.05rem;">
+                    <p class="text-gray-700" style="line-height: 1.6; font-size: 1.05rem; text-align: justify;">
                         Kami percaya, sebuah organisasi mahasiswa yang ideal harus menjadi ekosistem yang 
                         <strong>transparan</strong>, <strong>inklusif</strong>, dan <strong>berdaya</strong>. 
                         Hal inilah yang menjadi landasan utama kami. Nilai-nilai ini terangkum dalam filosofi 
@@ -87,10 +87,10 @@
                 </div>
 
                 {{-- Right Column --}}
-                <div class="column-right">
+                <div class="column-right" style="margin-top: 0;">
                     {{-- Blockquote Commitment (Serif Font for Distinction) --}}
-                    <blockquote class="border-l-[5px] pl-6 py-5 mb-6 rounded-r-lg" style="border-color: #F1C40F; background: linear-gradient(to right, rgba(55, 83, 122, 0.05), transparent);">
-                        <p class="text-gray-700 italic" style="font-family: 'Playfair Display', serif; font-size: 1.05rem; line-height: 1.6;">
+                    <blockquote class="border-l-[5px] pl-6 py-5 rounded-r-lg" style="border-color: #F1C40F; background: linear-gradient(to right, rgba(55, 83, 122, 0.05), transparent); margin-top: 0;">
+                        <p class="text-gray-700 italic" style="font-family: 'Playfair Display', serif; font-size: 1.175rem; line-height: 1.6; text-align: justify;">
                             Sebagai <em>"Suar"</em>, kami memimpin dengan <strong>transparansi</strong> dan <strong>responsivitas</strong>, 
                             memastikan setiap informasi tersampaikan dengan jelas dan aspirasi mahasiswa ditanggapi dengan cepat. 
                             Sebagai <em>"Sangga"</em>, kami menjadi fondasi yang kokoh, menguatkan <strong>kolaborasi</strong>, 
@@ -98,14 +98,20 @@
                             Kami berkomitmen untuk membangun <strong>kapasitas organisasi</strong> dan menjaga <strong>kesejahteraan anggota</strong> sebagai pilar utama.
                         </p>
                     </blockquote>
-
-                    <p class="text-gray-700" style="line-height: 1.6; font-size: 1.05rem;">
-                        Dengan berpegang pada prinsip-prinsip ini, <strong>BEM Rema UPI</strong> tidak hanya akan menjadi representasi, 
-                        tetapi juga <strong>transformasi</strong>. Kami hadir untuk memberikan <strong>dampak nyata</strong> dan 
-                        <strong>berkelanjutan</strong>, membangun fondasi yang kuat, serta memastikan setiap mahasiswa 
-                        dapat berkontribusi aktif bagi kemajuan bersama.
-                    </p>
                 </div>
+            </div>
+
+            {{-- Closing Statement - Centered Below Columns --}}
+            <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="transform: translateY(30px); transition-delay: 600ms; text-align: center; max-width: 800px; margin: 3rem auto 0;">
+                {{-- Decorative Separator --}}
+                <div style="width: 80px; height: 3px; background: linear-gradient(90deg, transparent, #F1C40F, transparent); margin: 0 auto 2rem; border-radius: 2px;"></div>
+                
+                <p class="text-gray-700" style="line-height: 1.7; font-size: 1.1rem; text-align: center;">
+                    Dengan berpegang pada prinsip-prinsip ini, <strong>BEM Rema UPI</strong> tidak hanya akan menjadi representasi, 
+                    tetapi juga <strong>transformasi</strong>. Kami hadir untuk memberikan <strong>dampak nyata</strong> dan 
+                    <strong>berkelanjutan</strong>, membangun fondasi yang kuat, serta memastikan setiap mahasiswa 
+                    dapat berkontribusi aktif bagi kemajuan bersama.
+                </p>
             </div>
         </div>
     </section>
@@ -309,6 +315,11 @@ document.addEventListener('DOMContentLoaded', function() {
     align-items: center;
     justify-content: center;
     margin-bottom: 2rem;
+    overflow: visible;
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .stack-image {
@@ -320,7 +331,7 @@ document.addEventListener('DOMContentLoaded', function() {
 /* Center Image (Hero - On Top) */
 .stack-center {
     position: relative;
-    z-index: 10;
+    z-index: 2;
     width: 450px;
     height: 300px;
     transform: rotate(0deg);
@@ -391,6 +402,7 @@ document.addEventListener('DOMContentLoaded', function() {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     text-align: left;
+    align-items: start;
 }
 
 /* Responsive: Stack to 1 column on mobile */
