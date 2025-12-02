@@ -1,6 +1,6 @@
 {{-- Loading Overlay Component --}}
-<div id="loading-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-    <div class="bg-white rounded-lg p-8 flex flex-col items-center shadow-2xl">
+<div id="loading-overlay" class="hidden fixed inset-0 flex items-center justify-center z-50" style="background-color: rgba(255, 255, 255, 0.95);">
+    <div class="bg-white rounded-lg p-8 flex flex-col items-center shadow-2xl border border-gray-200">
         <div class="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-900 mb-4"></div>
         <p class="text-gray-700 font-semibold text-lg">Memproses...</p>
         <p class="text-gray-500 text-sm mt-2">Mohon tunggu sebentar</p>
@@ -8,7 +8,7 @@
 </div>
 
 {{-- Confirmation Modal Component --}}
-<div id="confirmation-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+<div id="confirmation-modal" class="hidden fixed inset-0 flex items-center justify-center z-[60]" style="background-color: rgba(0, 0, 0, 0.75);">
     <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4 shadow-2xl">
         <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-red-100 rounded-full">
             <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -31,6 +31,7 @@
 <script>
     // Global variables
     let deleteForm = null;
+    let isDeleting = false;
 
     // Show loading overlay
     function showLoading() {
@@ -43,8 +44,13 @@
     }
 
     // Show confirmation modal
-    function showDeleteConfirmation(form) {
+    function showDeleteConfirmation(form, event) {
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
         deleteForm = form;
+        isDeleting = true;
         document.getElementById('confirmation-modal').classList.remove('hidden');
         return false;
     }
@@ -54,6 +60,7 @@
         if (deleteForm) {
             document.getElementById('confirmation-modal').classList.add('hidden');
             showLoading();
+            isDeleting = false;
             deleteForm.submit();
         }
     }
@@ -61,7 +68,9 @@
     // Cancel delete
     function cancelDelete() {
         deleteForm = null;
+        isDeleting = false;
         document.getElementById('confirmation-modal').classList.add('hidden');
+        hideLoading();
     }
 
     // Auto-hide alerts after 5 seconds
@@ -76,12 +85,16 @@
             }, 5000);
         });
 
-        // Show loading on form submit (except search forms)
+        // Show loading on form submit (except delete forms with confirmation)
         document.querySelectorAll('form').forEach(form => {
             if (!form.classList.contains('no-loading')) {
                 form.addEventListener('submit', function(e) {
-                    // Don't show loading for delete forms (they use confirmation)
-                    if (!this.querySelector('button[name="_method"][value="DELETE"]')) {
+                    // Check if this is a delete form with onsubmit handler
+                    const hasDeleteConfirmation = this.getAttribute('onsubmit') && 
+                                                  this.getAttribute('onsubmit').includes('showDeleteConfirmation');
+                    
+                    // Don't show loading for delete forms that use confirmation modal
+                    if (!hasDeleteConfirmation) {
                         showLoading();
                     }
                 });

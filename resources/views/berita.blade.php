@@ -18,21 +18,21 @@
 @push('structured-data')
 <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "CollectionPage",
+        "@@context": "https://schema.org",
+        "@@type": "CollectionPage",
         "name": "Berita BEM REMA UPI",
         "description": "Kumpulan berita dan informasi kegiatan BEM REMA Universitas Pendidikan Indonesia",
         "url": "{{ url('/berita') }}",
         "breadcrumb": {
-            "@type": "BreadcrumbList",
+            "@@type": "BreadcrumbList",
             "itemListElement": [{
-                    "@type": "ListItem",
+                    "@@type": "ListItem",
                     "position": 1,
                     "name": "Beranda",
                     "item": "{{ url('/') }}"
                 },
                 {
-                    "@type": "ListItem",
+                    "@@type": "ListItem",
                     "position": 2,
                     "name": "Berita",
                     "item": "{{ url('/berita') }}"

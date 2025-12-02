@@ -2,23 +2,430 @@
 
 @theme {
     /* Original BEM REMA Color Palette */
-    --color-primary: #37537A;  /* Navy Blue */
+    --color-primary: #37537a; /* Navy Blue */
     --color-primary-light: #2563eb;
     --color-primary-accent: #1e40af;
-    --color-accent: #FACC15;  /* Yellow Gold */
+    --color-accent: #facc15; /* Yellow Gold */
     --color-accent-light: #fcd34d;
 }
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden !important;
+    max-width: 100vw;
+}
+
+/* Mobile responsive fixes */
+@media (max-width: 767px) {
+    /* Hide ghost text on mobile to prevent overflow */
+    .ghost-text-container {
+        display: none !important;
+    }
+
+    /* Ensure no horizontal overflow */
+    body,
+    html,
+    main {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+    }
+
+    /* Fix any potential overflow sections */
+    section {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+    }
+
+    /* Ensure cards don't overflow */
+    .card-3d,
+    .card-3d-tilt-leadership,
+    .card-3d-tilt-about {
+        max-width: 100% !important;
+    }
+
+    /* ========================================
+       HERO SECTION MOBILE - COMPACT & NO ANIMATIONS
+       ======================================== */
+
+    /* Reduce Hero Section Height & Padding */
+    .relative.w-full.overflow-hidden.flex.items-center.justify-center {
+        min-height: 60vh !important;
+        padding-top: 3rem !important;
+        padding-bottom: 1.5rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Ensure background image fits properly */
+    .relative.w-full.overflow-hidden.flex.items-center.justify-center {
+        background-size: cover !important;
+        background-position: center !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+
+    /* ========================================
+       DISABLE ALL ANIMATIONS ON MOBILE
+       ======================================== */
+
+    /* Disable text reveal animations */
+    .hero-text-reveal {
+        animation: none !important;
+        animation-delay: 0s !important;
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    /* Disable slideRight animation on badge */
+    .text-xs.sm\:text-sm.font-medium.uppercase,
+    div[style*="animation: slideRight"],
+    div[style*="animation:slideRight"] {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+    }
+
+    /* Disable particles animations */
+    .particles-container,
+    .particle {
+        display: none !important;
+        animation: none !important;
+    }
+
+    /* Disable blob animations */
+    .morph-blob,
+    .liquid-shape,
+    .border-morph {
+        animation: none !important;
+        opacity: 0.2 !important;
+        transform: none !important;
+    }
+
+    /* Disable wave effect */
+    .wave-effect {
+        animation: none !important;
+        opacity: 0.1 !important;
+    }
+
+    /* Override any inline animations */
+    div[style*="animation:"],
+    div[style*="animation :"] {
+        animation: none !important;
+    }
+
+    /* ========================================
+       TEXT SIZE ADJUSTMENTS FOR MOBILE
+       ======================================== */
+
+    /* Top Label - Kabinet */
+    .hero-text-reveal:nth-child(1),
+    div.text-xs.sm\:text-sm.font-medium.uppercase {
+        font-size: 0.75rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 0.5rem !important;
+        padding-left: 0.5rem !important;
+    }
+
+    /* Badan Eksekutif */
+    .hero-text-reveal:nth-child(1) {
+        font-size: 1rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    /* MAHASISWA - Main Title */
+    .hero-text-reveal:nth-child(2) {
+        font-size: 2rem !important;
+        line-height: 0.95 !important;
+        margin-bottom: 0.25rem !important;
+        margin-top: 0.25rem !important;
+    }
+
+    /* REPUBLIK MAHASISWA UPI */
+    .hero-text-reveal:nth-child(3) {
+        font-size: 0.625rem !important;
+        line-height: 1.2 !important;
+        margin-top: 0.375rem !important;
+        letter-spacing: 1px !important;
+    }
+
+    /* Tagline Section */
+    .hero-text-reveal:nth-child(4) {
+        margin-top: 1.25rem !important;
+    }
+
+    /* Divider line before tagline */
+    .hero-text-reveal:nth-child(4) .w-10,
+    .hero-text-reveal:nth-child(4) .sm\:w-12,
+    .hero-text-reveal:nth-child(4) .md\:w-16,
+    .hero-text-reveal:nth-child(4) div[style*="background-color"] {
+        width: 2.5rem !important;
+        height: 2px !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    /* Tagline Text */
+    .hero-text-reveal:nth-child(4) p {
+        font-size: 0.75rem !important;
+        line-height: 1.5 !important;
+    }
+
+    /* Container width adjustment */
+    .w-full.md\:max-w-\[55\%\] {
+        width: 100% !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+
+    /* Mobile Menu Visibility Enhancement */
+    .navbar-mobile-btn {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent !important;
+        padding: 0.5rem !important;
+        border-radius: 0.5rem !important;
+        color: #1f2937 !important;
+        transition: all 0.2s ease !important;
+        position: relative !important;
+        z-index: 10001 !important;
+    }
+
+    .navbar-mobile-btn:hover {
+        background-color: rgba(0, 0, 0, 0.05) !important;
+    }
+
+    .navbar-mobile-btn svg {
+        width: 1.75rem !important;
+        height: 1.75rem !important;
+        stroke-width: 2.5 !important;
+    }
+
+    /* Prevent color change on mobile button when scrolling */
+    .navbar-mobile-btn,
+    .navbar-mobile-btn * {
+        color: #1f2937 !important;
+    }
+
+    /* Mobile Menu Dropdown - Match navbar style */
+    /* Ultra-specific selectors to override ALL Tailwind classes */
+    #mobile-menu,
+    #mobile-menu.pb-4,
+    #mobile-menu.space-y-2,
+    div#mobile-menu {
+        display: block !important;
+        position: relative !important;
+        background: linear-gradient(
+            to right,
+            rgba(239, 246, 255, 0.3),
+            rgba(255, 255, 255, 0.3),
+            rgba(254, 252, 232, 0.3)
+        ) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border-radius: 0.5rem !important;
+        margin-top: 0.5rem !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        /* CRITICAL: Force padding to override Tailwind pb-4 */
+        padding-top: 1.5rem !important; /* 24px */
+        padding-bottom: 1.5rem !important; /* 24px - overrides pb-4 (1rem) */
+        padding-left: 1.5rem !important; /* 24px */
+        padding-right: 1.5rem !important; /* 24px */
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+        z-index: 10000 !important;
+        overflow: visible !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        box-sizing: border-box !important;
+        width: auto !important;
+        min-height: auto !important;
+    }
+
+    /* Override Tailwind space-y-2 utility with ultra-specific selector */
+    #mobile-menu > *,
+    #mobile-menu.space-y-2 > * {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    #mobile-menu > * + *,
+    #mobile-menu.space-y-2 > * + * {
+        margin-top: 0.75rem !important; /* 12px spacing between items */
+    }
+
+    #mobile-menu.hidden {
+        display: none !important;
+    }
+
+    /* Ultra-specific selectors for menu links to override py-2 and other Tailwind classes */
+    #mobile-menu a,
+    #mobile-menu a.block,
+    #mobile-menu a.py-2,
+    #mobile-menu > a {
+        /* CRITICAL: Force padding to override Tailwind py-2 */
+        padding-top: 1rem !important; /* 16px - overrides py-2 (0.5rem) */
+        padding-bottom: 1rem !important; /* 16px */
+        padding-left: 1.5rem !important; /* 24px */
+        padding-right: 1.5rem !important; /* 24px */
+        border-radius: 0.5rem !important;
+        transition: all 0.2s ease !important;
+        display: block !important;
+        color: #374151 !important;
+        font-weight: 500 !important;
+        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        text-align: left !important;
+        width: 100% !important;
+    }
+
+    /* Override active state border-l-4 and pl-2 */
+    #mobile-menu a.border-l-4 {
+        padding-left: 1.5rem !important; /* Keep consistent, override pl-2 */
+        border-left-width: 4px !important;
+    }
+
+    #mobile-menu a:first-child {
+        margin-top: 0 !important;
+    }
+
+    #mobile-menu a:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    #mobile-menu a:hover {
+        background-color: rgba(255, 255, 255, 0.7) !important;
+        color: #37537a !important;
+    }
+
+    #mobile-menu a.text-primary {
+        color: #37537a !important;
+        font-weight: 600 !important;
+    }
+
+    /* Disable ALL animations on mobile hero section */
+    .hero-text-reveal {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    /* Disable particles animation */
+    .particles-container,
+    .particle {
+        display: none !important;
+    }
+
+    /* Disable blob animations */
+    .morph-blob,
+    .liquid-shape,
+    .border-morph {
+        animation: none !important;
+        opacity: 0.3 !important;
+    }
+
+    /* Disable wave effect */
+    .wave-effect {
+        animation: none !important;
+    }
+
+    /* Static gradient overlay - no animation */
+    .relative.w-full.overflow-hidden.flex.items-center.justify-center > div {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    /* Leadership Card Mobile Responsive */
+    #leadership .card-3d-tilt-leadership > div {
+        grid-template-columns: 1fr !important;
+    }
+
+    #leadership .col-span-2,
+    #leadership .col-span-3 {
+        grid-column: span 1 !important;
+    }
+
+    #leadership .order-2,
+    #leadership .order-1 {
+        order: 0 !important;
+    }
+
+    #leadership .col-span-2 > div {
+        min-height: 200px !important;
+    }
+
+    #leadership .col-span-3 {
+        padding: 1rem !important;
+    }
+
+    #leadership .col-span-3 h3 {
+        font-size: 1rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    #leadership .col-span-3 .w-14 {
+        width: 2.5rem !important;
+        height: 2px !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    #leadership .col-span-3 .w-10 {
+        width: 2rem !important;
+        height: 2rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    /* Pastikan message text terlihat dan tidak overflow */
+    #leadership .col-span-3 p {
+        font-size: 0.7rem !important;
+        line-height: 1.5 !important;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* Adjust container message agar konten terlihat */
+    #leadership .col-span-3 > div[style*="padding-bottom"] {
+        padding-bottom: 3.5rem !important;
+        overflow-y: visible !important;
+        max-height: none !important;
+    }
+
+    #leadership .absolute.bottom-0 {
+        padding: 1rem !important;
+    }
+
+    #leadership .absolute.bottom-0 a {
+        font-size: 0.75rem !important;
+        padding: 0.5rem 0.75rem !important;
+    }
+
+    #leadership .absolute.bottom-0 svg {
+        width: 1rem !important;
+        height: 1rem !important;
+    }
+
+    #leadership .absolute.top-4 {
+        width: 2.5rem !important;
+        height: 2.5rem !important;
+        top: 0.5rem !important;
+        right: 0.5rem !important;
+        left: 0.5rem !important;
+    }
 }
 
 body {
-    overflow-x: hidden;
+    overflow-x: hidden !important;
+    max-width: 100vw;
     /* Abstract Liquid Soundwave Pattern - Fixed Background */
     background-color: #ffffff;
-    background-image: 
-        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="400" viewBox="0 0 2000 400"><path d="M0,200 Q250,120 500,200 T1000,200 T1500,200 T2000,200" stroke="%2337537A" stroke-width="2.5" fill="none" opacity="0.12"/><path d="M0,180 Q200,240 400,180 T800,180 T1200,180 T1600,180 T2000,180" stroke="%2337537A" stroke-width="2" fill="none" opacity="0.1"/><path d="M0,220 Q300,160 600,220 T1200,220 T1800,220 T2000,220" stroke="%2337537A" stroke-width="2.2" fill="none" opacity="0.09"/><path d="M0,240 Q180,200 360,240 T720,240 T1080,240 T1440,240 T1800,240 T2000,240" stroke="%23FACC15" stroke-width="1.5" fill="none" opacity="0.08"/><path d="M0,160 Q220,100 440,160 T880,160 T1320,160 T1760,160 T2000,160" stroke="%23FACC15" stroke-width="1.2" fill="none" opacity="0.07"/><path d="M0,190 Q280,150 560,190 T1120,190 T1680,190 T2000,190" stroke="%2337537A" stroke-width="1.8" fill="none" opacity="0.08"/><path d="M0,210 Q150,170 300,210 T600,210 T900,210 T1200,210 T1500,210 T1800,210 T2000,210" stroke="%2337537A" stroke-width="1.5" fill="none" opacity="0.06"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="400" viewBox="0 0 2000 400"><path d="M0,200 Q250,120 500,200 T1000,200 T1500,200 T2000,200" stroke="%2337537A" stroke-width="2.5" fill="none" opacity="0.12"/><path d="M0,180 Q200,240 400,180 T800,180 T1200,180 T1600,180 T2000,180" stroke="%2337537A" stroke-width="2" fill="none" opacity="0.1"/><path d="M0,220 Q300,160 600,220 T1200,220 T1800,220 T2000,220" stroke="%2337537A" stroke-width="2.2" fill="none" opacity="0.09"/><path d="M0,240 Q180,200 360,240 T720,240 T1080,240 T1440,240 T1800,240 T2000,240" stroke="%23FACC15" stroke-width="1.5" fill="none" opacity="0.08"/><path d="M0,160 Q220,100 440,160 T880,160 T1320,160 T1760,160 T2000,160" stroke="%23FACC15" stroke-width="1.2" fill="none" opacity="0.07"/><path d="M0,190 Q280,150 560,190 T1120,190 T1680,190 T2000,190" stroke="%2337537A" stroke-width="1.8" fill="none" opacity="0.08"/><path d="M0,210 Q150,170 300,210 T600,210 T900,210 T1200,210 T1500,210 T1800,210 T2000,210" stroke="%2337537A" stroke-width="1.5" fill="none" opacity="0.06"/></svg>');
     background-attachment: fixed;
     background-size: 100% auto;
     background-position: center center;
@@ -1030,7 +1437,8 @@ html {
 
 /* Floating Particle Side Animation */
 @keyframes float-particle-side {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0) translateX(0);
         opacity: 0.6;
     }

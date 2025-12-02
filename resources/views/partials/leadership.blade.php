@@ -92,7 +92,7 @@
                             {{-- Content --}}
                             <div class="col-span-3 {{ $index === 1 ? 'order-1' : '' }} p-6 flex flex-col relative" style="height: 100%;">
                                 
-                                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-3 self-start" style="background: linear-gradient(135deg, {{ $index === 0 ? '#FACC15' : '#37537A' }}, {{ $index === 0 ? '#F59E0B' : '#2563eb' }});">>
+                                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-3 self-start" style="background: linear-gradient(135deg, {{ $index === 0 ? '#FACC15' : '#37537A' }}, {{ $index === 0 ? '#F59E0B' : '#2563eb' }});">
                                     <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
                                     <span class="text-xs font-bold uppercase tracking-wider text-white">{{ $index === 0 ? 'Presiden' : 'Wakil Presiden' }}</span>
                                 </div>

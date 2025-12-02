@@ -41,10 +41,8 @@ class BeritaController extends Controller
             return Berita::latest('tanggal')->limit(2)->get();
         });
 
-        // Get unique categories for filter
-        $categories = Cache::remember('berita.categories', 600, function () {
-            return Berita::distinct()->pluck('kategori')->filter();
-        });
+        // Get unique categories for filter - only specific categories
+        $categories = collect(['Rema Pers', 'Program Kerja']);
 
         return view('berita', compact('beritas', 'featuredNews', 'categories'));
     }

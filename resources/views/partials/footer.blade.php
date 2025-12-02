@@ -1,7 +1,7 @@
-<footer class="text-white py-20 px-4 md:px-8" style="background-color: #0d1521;">
+<footer class="text-white py-12 md:py-20 px-4 sm:px-6 md:px-8" style="background-color: #0d1521;">
     <div class="max-w-7xl mx-auto">
         {{-- Main Footer Content --}}
-        <div class="grid md:grid-cols-3 gap-12 mb-12 pb-12 border-b border-white/10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8 md:mb-12 pb-8 md:pb-12 border-b border-white/10">
             {{-- Brand --}}
             <div>
                 <div class="flex items-center gap-3">
@@ -25,8 +25,8 @@
 
             {{-- Social Media --}}
             <div class="md:ml-auto">
-                <h4 class="text-lg font-black mb-6" style="color: #FACC15;">Ikuti Kami</h4>
-                <div class="flex gap-3">
+                <h4 class="text-base md:text-lg font-black mb-4 md:mb-6" style="color: #FACC15;">Ikuti Kami</h4>
+                <div class="flex flex-wrap gap-3">
                     @php
                         $socials = [
                             ['icon' => 'icon_instagram.png', 'label' => 'Instagram', 'url' => 'https://www.instagram.com/bem.upi?igsh=amF0eXZsdjdvMWJm'],
@@ -41,13 +41,13 @@
                             href="{{ $social['url'] }}"
                             target="{{ $social['url'] !== '#' ? '_blank' : '_self' }}"
                             rel="{{ $social['url'] !== '#' ? 'noopener noreferrer' : '' }}"
-                            class="w-12 h-12 rounded-lg bg-white/10 hover:text-primary flex items-center justify-center transition-all duration-300 transform hover:scale-110"
+                            class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-white/10 hover:text-primary flex items-center justify-center transition-all duration-300 transform hover:scale-110 flex-shrink-0"
                             style="transition: background-color 0.3s;"
                             onmouseover="this.style.backgroundColor='#FACC15'"
                             onmouseout="this.style.backgroundColor='rgba(255, 255, 255, 0.1)'"
                             title="{{ $social['label'] }}"
                         >
-                            <img src="{{ asset('build/assets/icon/' . $social['icon']) }}" alt="{{ $social['label'] }}" class="w-6 h-6 object-contain">
+                            <img src="{{ asset('build/assets/icon/' . $social['icon']) }}" alt="{{ $social['label'] }}" class="w-5 h-5 sm:w-6 sm:h-6 object-contain">
                         </a>
                     @endforeach
                 </div>

@@ -1,4 +1,4 @@
-<section id="vision" class="py-20 px-8 md:px-12 relative overflow-hidden">
+<section id="vision" class="py-12 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 relative overflow-hidden">
     {{-- Pillar/Compass Geometric Accents from Logo --}}
     <div class="absolute top-1/4 left-5 w-20 h-20 opacity-[0.04] pointer-events-none" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Cpath d=&quot;M50 10 C70 10 90 30 90 50 S70 90 50 90 10 70 10 50 30 10 50 10&quot; stroke=&quot;%23D9B344&quot; stroke-width=&quot;6&quot; fill=&quot;none&quot; stroke-dasharray=&quot;5 5&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
     <div class="absolute bottom-1/4 right-10 w-16 h-16 opacity-[0.04] pointer-events-none" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Cpolygon points=&quot;50,10 90,90 10,90&quot; stroke=&quot;%2334547D&quot; stroke-width=&quot;5&quot; fill=&quot;none&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
@@ -8,13 +8,13 @@
     <div class="absolute bottom-1/4 right-10 w-16 h-16 opacity-[0.04] pointer-events-none" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Cpolygon points=&quot;50,10 90,90 10,90&quot; stroke=&quot;%2337537A&quot; stroke-width=&quot;5&quot; fill=&quot;none&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
     
     <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-20 relative">
+        <div class="text-center mb-10 md:mb-20 relative">
             {{-- Decorative Background Elements --}}
             <div class="absolute -top-20 left-1/2 transform -translate-x-1/2 w-[600px] h-[600px] opacity-5 border-morph" style="background: radial-gradient(circle, #FACC15 0%, transparent 70%); filter: blur(80px); z-index: -1;"></div>
             <div class="absolute top-10 left-10 w-64 h-64 morph-blob opacity-5" style="background: linear-gradient(135deg, #93C5FD, #37537A); filter: blur(80px); z-index: -1;"></div>
             <div class="absolute top-10 right-10 w-64 h-64 liquid-shape opacity-5" style="background: linear-gradient(135deg, #F59E0B, #FACC15); filter: blur(80px); z-index: -1;"></div>
             
-            <h2 class="animate-on-scroll text-5xl md:text-6xl font-black mb-6 opacity-0 transition-all duration-1000" style="transform: translateY(40px); color: #37537A;">
+            <h2 class="animate-on-scroll text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 opacity-0 transition-all duration-1000" style="transform: translateY(40px); color: #37537A;">
                 Visi & Misi
             </h2>
             <div class="flex justify-center mt-6 gap-3">
@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
             {{-- Vision Card with Flip Effect --}}
             <div class="animate-on-scroll flip-card opacity-0 transition-all duration-500" style="transform: translateY(40px); transition-delay: 200ms; perspective: 1000px; height: 450px;">
                 <div class="flip-card-inner relative w-full h-full transition-transform duration-700" style="transform-style: preserve-3d;">
@@ -125,11 +125,42 @@
 
 {{-- Card Flip Styles --}}
 <style>
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
+/* Desktop: Enable flip animation */
+@media (min-width: 768px) {
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+    
+    .flip-card-inner {
+        transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    }
 }
 
-.flip-card-inner {
-    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+/* Mobile: Show back content directly, no flip */
+@media (max-width: 767px) {
+    .flip-card {
+        perspective: none !important;
+        height: auto !important;
+        min-height: auto !important;
+    }
+    
+    .flip-card-inner {
+        transform: none !important;
+        height: auto !important;
+        min-height: auto !important;
+        position: relative !important;
+    }
+    
+    .flip-card-front {
+        display: none !important;
+    }
+    
+    .flip-card-back {
+        position: relative !important;
+        transform: none !important;
+        backface-visibility: visible !important;
+        height: auto !important;
+        min-height: auto !important;
+    }
 }
 </style>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - BEM REMA UPI</title>
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+        
+        /* Main Content - Offset by sidebar width */
+        .main-content {
+            margin-left: 270px;
+            min-height: 100vh;
+            background: #f8f9fa;
+        }
+        
+        /* Stats Card Hover */
+        .stat-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+        }
+        
+        /* Table Hover */
+        tbody tr:hover {
+            background: #f8fafc;
+        }
+        
+        /* Badge Styles */
+        .badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    
+    
+    <?php echo $__env->make('admin.layouts.sidebar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
+
+    
+    <div class="main-content">
+        
+        
+        <div style="background: white; border-bottom: 1px solid #e5e7eb; padding: 16px 32px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h1 style="font-size: 20px; font-weight: 700; color: #111827;">Dashboard</h1>
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <img src="<?php echo e(asset('build/assets/image/Logo Suar Sangga.png')); ?>" alt="Admin" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                        <span style="font-size: 14px; font-weight: 500; color: #374151;">Hi, Admin</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div style="padding: 32px;">
+            
+            
+            <div style="margin-bottom: 32px;">
+                <h2 style="font-size: 28px; font-weight: 700; color: #111827; margin-bottom: 8px;">Selamat Datang, Admin!</h2>
+                <p style="font-size: 15px; color: #6b7280;">Kelola konten dan pantau performa website BEM REMA UPI</p>
+            </div>
+
+            
+            <div style="display: flex; gap: 16px; margin-bottom: 32px; flex-wrap: wrap;">
+                <a href="<?php echo e(route('admin.berita.create')); ?>" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; background: #dc2626; color: white; border-radius: 10px; font-weight: 600; font-size: 14px; border: none; cursor: pointer; box-shadow: 0 2px 8px rgba(220, 38, 38, 0.2); text-decoration: none;">
+                    <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                    </svg>
+                    Tulis Berita Baru
+                </a>
+                
+                <a href="<?php echo e(url('/')); ?>" target="_blank" style="display: flex; align-items: center; gap: 8px; padding: 12px 24px; background: white; color: #374151; border: 2px solid #374151; border-radius: 10px; font-weight: 600; font-size: 14px; cursor: pointer; text-decoration: none;">
+                    <svg style="width: 20px; height: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                    </svg>
+                    Lihat Tampilan Publik
+                </a>
+            </div>
+
+            
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-bottom: 32px;">
+                
+                
+                <div class="stat-card" style="background: white; border-radius: 16px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+                        <div>
+                            <p style="font-size: 14px; color: #6b7280; margin-bottom: 4px;">Total Pengunjung</p>
+                            <p style="font-size: 12px; color: #9ca3af;">30 Hari Terakhir</p>
+                        </div>
+                        <div style="width: 40px; height: 40px; background: #fee2e2; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                            <svg style="width: 24px; height: 24px; color: #ef4444;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 id="total-views" style="font-size: 32px; font-weight: 700; color: #111827; margin-bottom: 8px;"><?php echo e(number_format($totalViews)); ?></h3>
+                    <p style="font-size: 13px; color: #6b7280; font-weight: 600;">Total Views Artikel</p>
+                </div>
+
+                
+                <div class="stat-card" style="background: white; border-radius: 16px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+                        <div>
+                            <p style="font-size: 14px; color: #6b7280; margin-bottom: 4px;">Total Berita Terbit</p>
+                            <p style="font-size: 12px; color: #9ca3af;">Artikel Dipublikasikan</p>
+                        </div>
+                        <div style="width: 40px; height: 40px; background: #fef3c7; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                            <svg style="width: 24px; height: 24px; color: #f59e0b;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 id="total-berita" style="font-size: 32px; font-weight: 700; color: #111827; margin-bottom: 8px;"><?php echo e($totalBerita); ?></h3>
+                    <p style="font-size: 13px; color: #6b7280;">Bulan ini: <span id="monthly-berita" style="font-weight: 600;"><?php echo e($monthlyBerita); ?> artikel</span></p>
+                </div>
+            </div>
+
+            
+            <div style="background: white; border-radius: 16px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 32px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                    <h3 style="font-size: 18px; font-weight: 700; color: #111827;">Statistik Pengunjung Website</h3>
+                    <div style="display: flex; gap: 8px;">
+                        <button id="monthlyBtn" style="padding: 8px 16px; background: #3b5998; color: white; font-size: 13px; font-weight: 600; border-radius: 8px; border: none; cursor: pointer;">Monthly</button>
+                        <button id="weeklyBtn" style="padding: 8px 16px; background: #f3f4f6; color: #6b7280; font-size: 13px; font-weight: 600; border-radius: 8px; border: none; cursor: pointer;">Weekly</button>
+                    </div>
+                </div>
+                <div style="position: relative; height: 280px;">
+                    <canvas id="visitorChart"></canvas>
+                </div>
+                <div style="text-align: right; margin-top: 16px;">
+                    <button id="exportBtn" style="padding: 10px 20px; background: #10b981; color: white; font-size: 13px; font-weight: 600; border-radius: 8px; border: none; cursor: pointer;">Export</button>
+                </div>
+            </div>
+
+            
+            <div style="background: white; border-radius: 16px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                    <div>
+                        <h3 style="font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 4px;">Berita Terbaru Diterbitkan</h3>
+                        <p style="font-size: 14px; color: #6b7280;">10 artikel terakhir yang telah dipublikasikan</p>
+                    </div>
+                    <a href="<?php echo e(route('admin.berita.index')); ?>" style="padding: 10px 20px; background: white; border: 2px solid #dc2626; color: #dc2626; font-size: 13px; font-weight: 600; border-radius: 8px; cursor: pointer; text-decoration: none; display: inline-block;">
+                        Lihat Semua Berita
+                    </a>
+                </div>
+                
+                <div style="overflow-x: auto;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid #e5e7eb;">
+                                <th style="text-align: left; padding: 12px 16px; font-size: 13px; font-weight: 600; color: #6b7280;">Judul Berita</th>
+                                <th style="text-align: left; padding: 12px 16px; font-size: 13px; font-weight: 600; color: #6b7280;">Kategori</th>
+                                <th style="text-align: left; padding: 12px 16px; font-size: 13px; font-weight: 600; color: #6b7280;">Tanggal Terbit</th>
+                                <th style="text-align: center; padding: 12px 16px; font-size: 13px; font-weight: 600; color: #6b7280;">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $__empty_1 = true; $__currentLoopData = $latestBerita; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $berita): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                            <tr style="border-bottom: 1px solid #f3f4f6;">
+                                <td style="padding: 16px; font-size: 14px; color: #111827;"><?php echo e(Str::limit($berita->judul, 60)); ?></td>
+                                <td style="padding: 16px;">
+                                    <?php if($berita->kategori == 'Rema PERS'): ?>
+                                        <span class="badge" style="background: #dbeafe; color: #1e40af;"><?php echo e($berita->kategori); ?></span>
+                                    <?php else: ?>
+                                        <span class="badge" style="background: #d1fae5; color: #065f46;"><?php echo e($berita->kategori); ?></span>
+                                    <?php endif; ?>
+                                </td>
+                                <td style="padding: 16px; font-size: 14px; color: #6b7280;"><?php echo e($berita->tanggal->format('d M Y')); ?></td>
+                                <td style="padding: 16px;">
+                                    <div style="display: flex; justify-content: center; gap: 8px;">
+                                        <a href="<?php echo e(route('admin.berita.edit', $berita->id)); ?>" style="padding: 8px; background: transparent; border: none; color: #2563eb; cursor: pointer; border-radius: 6px; display: inline-block;">
+                                            <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+                                            </svg>
+                                        </a>
+                                        <form action="<?php echo e(route('admin.berita.destroy', $berita->id)); ?>" method="POST" style="display: inline;" onsubmit="showDeleteConfirmation(this, event); return false;">
+                                            <?php echo csrf_field(); ?>
+                                            <?php echo method_field('DELETE'); ?>
+                                            <button type="submit" style="padding: 8px; background: transparent; border: none; color: #dc2626; cursor: pointer; border-radius: 6px;">
+                                                <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                                </svg>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                            <tr>
+                                <td colspan="4" style="padding: 32px; text-align: center; color: #6b7280;">
+                                    Belum ada berita yang diterbitkan
+                                </td>
+                            </tr>
+                            <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    
+    <script>
+        // Data dari backend
+        const monthlyData = {
+            labels: <?php echo json_encode(array_column($monthlyStats, 'label')); ?>,
+            data: <?php echo json_encode(array_column($monthlyStats, 'value')); ?>
+
+        };
+        
+        const weeklyData = {
+            labels: <?php echo json_encode(array_column($weeklyStats, 'label')); ?>,
+            data: <?php echo json_encode(array_column($weeklyStats, 'value')); ?>
+
+        };
+        
+        let currentView = 'monthly';
+        
+        const ctx = document.getElementById('visitorChart');
+        const chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: monthlyData.labels,
+                datasets: [{
+                    label: 'Pengunjung',
+                    data: monthlyData.data,
+                    backgroundColor: '#3b5998',
+                    borderRadius: 6,
+                    barThickness: 40
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value >= 1000 ? (value/1000) + 'k' : value;
+                            }
+                        },
+                        grid: {
+                            display: true,
+                            color: '#f3f4f6'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Toggle buttons
+        const monthlyBtn = document.getElementById('monthlyBtn');
+        const weeklyBtn = document.getElementById('weeklyBtn');
+        const exportBtn = document.getElementById('exportBtn');
+        
+        function setActiveButton(activeBtn, inactiveBtn) {
+            activeBtn.style.background = '#3b5998';
+            activeBtn.style.color = 'white';
+            inactiveBtn.style.background = '#f3f4f6';
+            inactiveBtn.style.color = '#6b7280';
+        }
+        
+        monthlyBtn.addEventListener('click', function() {
+            currentView = 'monthly';
+            chart.data.labels = monthlyData.labels;
+            chart.data.datasets[0].data = monthlyData.data;
+            chart.update();
+            setActiveButton(monthlyBtn, weeklyBtn);
+        });
+        
+        weeklyBtn.addEventListener('click', function() {
+            currentView = 'weekly';
+            chart.data.labels = weeklyData.labels;
+            chart.data.datasets[0].data = weeklyData.data;
+            chart.update();
+            setActiveButton(weeklyBtn, monthlyBtn);
+        });
+        
+        exportBtn.addEventListener('click', function() {
+            window.location.href = '<?php echo e(route('admin.export.stats')); ?>?type=' + currentView;
+        });
+    </script>
+
+</body>
+</html>
+<?php /**PATH C:\PROOJEC WEB REMA\WEB REMA\resources\views/admin/dashboard/index.blade.php ENDPATH**/ ?>

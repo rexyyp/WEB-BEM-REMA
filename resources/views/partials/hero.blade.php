@@ -1,12 +1,12 @@
 {{-- Hero Section --}}
-<div class="relative w-full overflow-hidden flex items-center justify-center pt-32 pb-20"
-     style="min-height: 100vh; background-image: url('{{ asset('build/assets/image/hero-bem.jpeg') }}'); background-size: cover; background-position: center; background-attachment: fixed;">
+<div class="relative w-full overflow-hidden flex items-center justify-center pt-20 md:pt-32 pb-12 md:pb-20 px-4"
+     style="min-height: 100vh; background-image: url('{{ asset('build/assets/image/hero-bem.jpeg') }}'); background-size: cover; background-position: center; background-attachment: scroll;">
     
     {{-- Strong Gradient Overlay - Dark Left to Transparent Right --}}
-    <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(15, 23, 42, 0.975) 0%, rgba(15, 23, 42, 0.9) 42%, rgba(15, 23, 42, 0.4) 100%); z-index: 1;"></div>
+    <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.9) 50%, rgba(15, 23, 42, 0.85) 100%); z-index: 1;"></div>
 
-    {{-- Giant Ghost Outline Text Animation - Multiple Rows --}}
-    <div class="ghost-text-container" style="position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; display: flex; flex-direction: column; justify-content: space-around; padding: 8rem 0 2rem 0;">
+    {{-- Giant Ghost Outline Text Animation - Hidden on Mobile --}}
+    <div class="ghost-text-container hidden md:flex" style="position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; flex-direction: column; justify-content: space-around; padding: 8rem 0 2rem 0;">
         {{-- Row 1 --}}
         <div class="ghost-text-scroll" style="white-space: nowrap; animation: ghost-scroll 20s linear infinite;">
             <span style="font-size: 6rem; font-weight: 900; color: transparent; -webkit-text-stroke: 2px rgba(255, 255, 255, 0.10); font-family: 'Poppins', sans-serif; letter-spacing: 0.05em;">
@@ -50,43 +50,42 @@
     <div class="absolute bottom-0 left-0 right-0 h-32 z-3 wave-effect opacity-20" style="background: linear-gradient(180deg, transparent 0%, rgba(250, 204, 21, 0.3) 100%);"></div>
 
     {{-- Main content --}}
-    <div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-8">
-        <div style="max-width: 55%; text-align: left; margin-left: 5%;">
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div class="w-full md:max-w-[55%] text-left md:ml-[5%]">
             {{-- Top Label - Minimalist Tech --}}
-            <div style="font-size: 14px; font-weight: 500; letter-spacing: 4px; color: #F1C40F; text-transform: uppercase; margin-bottom: 20px; display: block; border-left: 3px solid #F1C40F; padding-left: 10px; animation: slideRight 0.8s ease-out forwards; font-family: 'Montserrat', sans-serif;">
+            <div class="text-xs sm:text-sm font-medium uppercase mb-4 sm:mb-5 md:mb-8 block border-l-2 sm:border-l-3 pl-2 sm:pl-3" style="letter-spacing: 2px; color: #F1C40F; border-color: #F1C40F; animation: slideRight 0.8s ease-out forwards; font-family: 'Montserrat', sans-serif;">
                 Kabinet Suar Sangga 2025
             </div>
 
             {{-- Main Heading with Clean Typography --}}
-            <div class="mb-8">
+            <div class="mb-6 md:mb-8">
                 {{-- Line 1: Badan Eksekutif - Readable Serif --}}
-                <div class="hero-text-reveal" style="animation-delay: 0.2s; color: #ffffff; font-size: 3rem; font-weight: 600; font-style: normal; line-height: 1.2; margin-bottom: -10px; font-family: 'Merriweather', serif; text-transform: capitalize;">
+                <div class="hero-text-reveal text-xl sm:text-2xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight mb-1" style="animation-delay: 0.2s; font-family: 'Merriweather', serif; text-transform: capitalize;">
                     Badan Eksekutif
                 </div>
                 
                 {{-- Line 2: MAHASISWA - Dominant Visual Anchor --}}
-                <div class="hero-text-reveal" style="animation-delay: 0.4s; color: #F1C40F; font-size: 7rem; font-weight: 700; line-height: 1; letter-spacing: -2px; text-transform: uppercase; text-shadow: 0 0 40px rgba(241, 196, 15, 0.3); font-family: 'Oswald', sans-serif; margin: 0;">
+                <div class="hero-text-reveal text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none tracking-tight uppercase mb-1 sm:mb-2" style="animation-delay: 0.4s; color: #F1C40F; text-shadow: 0 0 40px rgba(241, 196, 15, 0.3); font-family: 'Oswald', sans-serif;">
                     MAHASISWA
                 </div>
                 
-                {{-- Line 3: REPUBLIK MAHASISWA UPI - Cinematic Wide Spacing --}}
-                <div class="hero-text-reveal" style="animation-delay: 0.6s; color: #ffffff; font-size: 1.2rem; font-weight: 500; text-transform: uppercase; letter-spacing: 6px; line-height: 1.2; margin-top: 10px; font-family: 'Montserrat', sans-serif;">
+                {{-- Line 3: REPUBLIK MAHASISWA UPI - Cinematic Wide Spacing --}>
+                <div class="hero-text-reveal text-[0.65rem] sm:text-xs md:text-base lg:text-lg font-medium text-white uppercase leading-tight mt-1 sm:mt-2" style="animation-delay: 0.6s; letter-spacing: 2px; font-family: 'Montserrat', sans-serif;">
                     REPUBLIK MAHASISWA UPI
                 </div>
                 
                 {{-- Cabinet Tagline - Elegant Subtitle --}}
-                <div class="hero-text-reveal" style="animation-delay: 0.8s; margin-top: 40px;">
-                    <div style="width: 60px; height: 3px; background-color: #F1C40F; margin-bottom: 15px;"></div>
-                    <p style="font-family: 'Playfair Display', serif; font-style: italic; color: rgba(255, 255, 255, 0.8); font-size: 1.2rem; letter-spacing: 1px; line-height: 1.6;">
+                <div class="hero-text-reveal mt-6 sm:mt-8 md:mt-10" style="animation-delay: 0.8s;">
+                    <div class="w-10 sm:w-12 md:w-16 h-0.5 sm:h-1 mb-2 sm:mb-3 md:mb-4" style="background-color: #F1C40F;"></div>
+                    <p class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl italic leading-relaxed" style="font-family: 'Playfair Display', serif; color: rgba(255, 255, 255, 0.8); letter-spacing: 0.5px;">
                         "Bergerak Berdampak, Melangkah Terarah"
                     </p>
                 </div>
             </div>
-            </div>
+        </div>
     </div>
 </div>
 
-{{-- Modern Animations --}}
 <style>
 /* Ghost Text Scroll Animation - Left to Right */
 @keyframes ghost-scroll {
@@ -109,12 +108,6 @@
 }
 
 /* Badge slide from left animation */
-.badge-slide-right {
-    opacity: 0;
-    transform: translateX(-50px);
-    animation: slideRight 0.8s ease-out forwards;
-}
-
 @keyframes slideRight {
     0% {
         opacity: 0;
@@ -142,31 +135,6 @@
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-/* Button hover animations */
-.cta-btn:hover .cta-bg {
-    opacity: 1 !important;
-}
-
-.cta-btn:hover .cta-btn-inner {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(217, 179, 68, 0.6);
-}
-
-/* Tombol Tentang Kami hover - background putih */
-.cta-btn:first-child:hover .cta-btn-inner {
-    background: #FFFFFF !important;
-    border-color: #FFFFFF !important;
-}
-
-.cta-btn:first-child:hover .cta-text {
-    color: #34547D !important;
-}
-
-/* Tombol Berita Terbaru tetap sama */
-.cta-btn:last-child:hover .cta-text {
-    color: #FACC15 !important;
 }
 </style>
 

@@ -23,28 +23,28 @@
 @push('structured-data')
 <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "NewsArticle",
+        "@@context": "https://schema.org",
+        "@@type": "NewsArticle",
         "headline": "{{ $berita->judul }}",
         "description": "{{ $berita->excerpt }}",
         "image": "{{ $berita->thumbnail_url }}",
         "datePublished": "{{ $berita->tanggal->toIso8601String() }}",
         "dateModified": "{{ $berita->updated_at->toIso8601String() }}",
         "author": {
-            "@type": "Person",
+            "@@type": "Person",
             "name": "{{ $berita->author }}"
         },
         "publisher": {
-            "@type": "Organization",
+            "@@type": "Organization",
             "name": "BEM REMA UPI",
             "logo": {
-                "@type": "ImageObject",
+                "@@type": "ImageObject",
                 "url": "{{ asset('build/assets/image/Logo Suar Sangga.png') }}"
             }
         },
         "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "{{ route('berita.detail', $berita->slug) }}"
+            "@@type": "WebPage",
+            "@@id": "{{ route('berita.detail', $berita->slug) }}"
         },
         "articleSection": "{{ $berita->kategori }}",
         "keywords": "{{ $berita->kategori }}, BEM REMA UPI, Mahasiswa UPI"
@@ -53,22 +53,22 @@
 
 <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
+        "@@context": "https://schema.org",
+        "@@type": "BreadcrumbList",
         "itemListElement": [{
-                "@type": "ListItem",
+                "@@type": "ListItem",
                 "position": 1,
                 "name": "Beranda",
                 "item": "{{ url('/') }}"
             },
             {
-                "@type": "ListItem",
+                "@@type": "ListItem",
                 "position": 2,
                 "name": "Berita",
                 "item": "{{ url('/berita') }}"
             },
             {
-                "@type": "ListItem",
+                "@@type": "ListItem",
                 "position": 3,
                 "name": "{{ $berita->judul }}",
                 "item": "{{ route('berita.detail', $berita->slug) }}"
@@ -307,6 +307,12 @@
         color: #2C3E50 !important;
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(241, 196, 15, 0.3);
+    }
+
+    /* Share Buttons Container Spacing */
+    .mt-16.pt-8 {
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
     }
 
     /* Editorial Body Styling */

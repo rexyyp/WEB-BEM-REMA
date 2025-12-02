@@ -47,3 +47,5 @@ Route::prefix('admin')->name('admin.')->middleware('admin.auth')->group(function
     // Berita CRUD Routes (Resource Controller)
     Route::resource('berita', AdminBeritaController::class);
 });
+
+Route::get('/test', function () { return view('test'); });

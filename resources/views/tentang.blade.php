@@ -30,27 +30,27 @@
 @push('structured-data')
 <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "AboutPage",
+        "@@context": "https://schema.org",
+        "@@type": "AboutPage",
         "name": "Tentang BEM REMA UPI",
         "description": "Informasi lengkap tentang Badan Eksekutif Mahasiswa REMA Universitas Pendidikan Indonesia, termasuk visi, misi, struktur organisasi, dan program kerja.",
         "url": "{{ url('/tentang') }}",
         "mainEntity": {
-            "@type": "Organization",
+            "@@type": "Organization",
             "name": "BEM REMA UPI",
             "alternateName": "Kabinet Suar Sangga",
             "description": "BEM REMA UPI hadir sebagai lembaga eksekutif universitas yang memadukan ketajaman pergerakan dengan kehangatan pelayanan bagi seluruh sivitas akademika."
         },
         "breadcrumb": {
-            "@type": "BreadcrumbList",
+            "@@type": "BreadcrumbList",
             "itemListElement": [{
-                    "@type": "ListItem",
+                    "@@type": "ListItem",
                     "position": 1,
                     "name": "Beranda",
                     "item": "{{ url('/') }}"
                 },
                 {
-                    "@type": "ListItem",
+                    "@@type": "ListItem",
                     "position": 2,
                     "name": "Tentang Kami",
                     "item": "{{ url('/tentang') }}"
@@ -230,12 +230,12 @@
                                     <div class="relative">
                                         {{-- Glow Effect (Suar/Light) --}}
                                         <div class="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-60 transition-all duration-500"
-                                            style="background: linear-gradient(135deg, {{ $index % 2 === 0 ? '#FACC15' : '#37537A' }}, {{ $index % 2 === 0 ? '#37537A' : '#FACC15' }});"></div>
+                                            style="background: linear-gradient(135deg, {{ $index % 2 == 0 ? '#FACC15' : '#37537A' }}, {{ $index % 2 == 0 ? '#37537A' : '#FACC15' }});"></div>
 
                                         {{-- Icon Background --}}
                                         <div class="relative w-12 h-12 rounded-2xl flex items-center justify-center transform group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 shadow-lg"
-                                            style="background: linear-gradient(135deg, {{ $index % 2 === 0 ? '#FACC15' : '#37537A' }}, {{ $index % 2 === 0 ? '#F59E0B' : '#1e40af' }});">
-                                            <svg class="w-6 h-6 {{ $index % 2 === 0 ? 'text-black' : 'text-white' }} transform group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            style="background: linear-gradient(135deg, {{ $index % 2 == 0 ? '#FACC15' : '#37537A' }}, {{ $index % 2 == 0 ? '#F59E0B' : '#1e40af' }});">
+                                            <svg class="w-6 h-6 {{ $index % 2 == 0 ? 'text-black' : 'text-white' }} transform group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $stat['icon'] }}" />
                                             </svg>
                                         </div>
@@ -437,7 +437,7 @@
         z-index: 5;
     }
 
-    /* Responsive: Stack images vertically on mobile */
+    /* Responsive: Show only center image on mobile */
     @media (max-width: 768px) {
         .stacked-gallery-container {
             height: auto;
@@ -445,9 +445,7 @@
             gap: 1rem;
         }
 
-        .stack-center,
-        .stack-left,
-        .stack-right {
+        .stack-center {
             position: relative;
             width: 100%;
             max-width: 400px;
@@ -455,6 +453,12 @@
             transform: rotate(0deg) !important;
             opacity: 1;
             z-index: auto;
+        }
+
+        /* Hide left and right images on mobile */
+        .stack-left,
+        .stack-right {
+            display: none;
         }
     }
 

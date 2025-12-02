@@ -32,9 +32,17 @@
     {{-- Canonical URL --}}
     <link rel="canonical" href="{{ $canonical ?? url()->current() }}">
 
-    {{-- Favicon --}}
-    <link rel="icon" type="image/png" href="{{ asset('build/assets/image/Logo Suar Sangga.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('build/assets/image/Logo Suar Sangga.png') }}">
+    {{-- Favicon - Logo Suar Sangga --}}
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
+    
+    {{-- PWA Meta Tags --}}
+    <meta name="theme-color" content="#37537A">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="BEM REMA UPI">
 
     {{-- Additional meta tags can be added here --}}
     @stack('meta')

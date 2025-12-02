@@ -1,4 +1,4 @@
-<section id="about" class="relative py-20 px-8 md:px-12 overflow-hidden">
+<section id="about" class="relative py-12 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12 overflow-hidden">
     {{-- Compass/Triangle Geometric Accents (from Logo) --}}
     <div class="absolute top-20 right-20 w-40 h-40 opacity-[0.03] pointer-events-none" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Cpolygon points=&quot;50,5 95,85 5,85&quot; fill=&quot;none&quot; stroke=&quot;%2337537A&quot; stroke-width=&quot;2&quot;/%3E%3Cpolygon points=&quot;50,15 80,75 20,75&quot; fill=&quot;none&quot; stroke=&quot;%23FACC15&quot; stroke-width=&quot;1.5&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
     <div class="absolute bottom-32 left-16 w-32 h-32 opacity-[0.03] pointer-events-none" style="background: url('data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;%3E%3Cpolygon points=&quot;20,50 50,20 80,50 50,80&quot; fill=&quot;none&quot; stroke=&quot;%232563eb&quot; stroke-width=&quot;2&quot;/%3E%3C/svg%3E') no-repeat center; background-size: contain;"></div>
@@ -15,7 +15,7 @@
     <div class="absolute top-1/2 left-1/2 w-96 h-96 morph-blob opacity-3" style="background: radial-gradient(circle, rgba(250, 204, 21, 0.1) 0%, transparent 70%); filter: blur(100px); transform: translate(-50%, -50%); z-index: 0;"></div>
     
     <div class="max-w-7xl mx-auto relative z-10">
-        <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-start">
             {{-- Left Content --}}
             <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="transform: translateY(40px);">
                 {{-- Badge --}}
@@ -25,14 +25,14 @@
                     </div>
                 </div>
 
-                <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black mb-6 md:mb-8 leading-tight">
                     <span class="inline-block animate-slide-in-left text-black">Kabinet</span>
                     <span class="inline-block animate-slide-in-left" style="animation-delay: 0.1s; color: #FACC15;">Suar</span>
                     <span class="inline-block animate-slide-in-left" style="animation-delay: 0.2s; color: #37537A;">Sangga</span>
                     <br>
                 </h2>
 
-                <p class="text-base md:text-lg text-gray-600 mb-8 leading-relaxed font-light">
+                <p class="text-sm sm:text-base md:text-lg text-gray-600 mb-6 md:mb-8 leading-relaxed font-light">
                     BEM Rema UPI hadir sebagai lembaga eksekutif universitas yang memadukan ketajaman pergerakan dengan kehangatan pelayanan bagi seluruh sivitas akademika. Melalui Kabinet Suar Sangga, kami berkomitmen menghadirkan transparansi yang mencerahkan sekaligus dukungan kesejahteraan yang menguatkan. Ikuti dinamika kami di Instagram @bem.upi dan mari berkolaborasi langsung demi kemajuan pendidikan dan almamater.
                 </p>
 
@@ -76,7 +76,7 @@
 
             {{-- Right Image --}}
             <div class="animate-on-scroll opacity-0 transition-all duration-1000" style="transform: translateX(40px);">
-                <div class="relative group h-full flex items-stretch">
+                <div class="relative group h-full flex items-stretch min-h-[300px] md:min-h-[400px]">
                     {{-- Animated Border Gradient --}}
                     <div class="absolute -inset-1 bg-gradient-to-r from-yellow-400 via-blue-500 to-yellow-400 rounded-3xl blur-2xl opacity-30 group-hover:opacity-60 transition-all duration-700 animate-gradient-rotate"></div>
                     

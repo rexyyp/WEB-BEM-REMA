@@ -1,10 +1,10 @@
-<section id="news" class="py-20 px-8 md:px-12">
+<section id="news" class="py-12 md:py-20 px-4 sm:px-6 md:px-8 lg:px-12">
     <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-16 relative">
+        <div class="text-center mb-10 md:mb-16 relative">
             {{-- Decorative Elements --}}
             <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-72 h-72 opacity-15 liquid-shape" style="background: radial-gradient(circle, rgba(250, 204, 21, 0.4) 0%, transparent 70%); filter: blur(60px); z-index: -1;"></div>
             
-            <h2 class="animate-on-scroll text-5xl md:text-6xl font-black mb-6 opacity-0 transition-all duration-1000" style="transform: translateY(40px); color: #37537A;">
+            <h2 class="animate-on-scroll text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 opacity-0 transition-all duration-1000" style="transform: translateY(40px); color: #37537A;">
                 Berita & Publikasi
             </h2>
             <div class="flex justify-center mt-6 gap-3">
@@ -87,10 +87,6 @@
                     <p class="text-gray-500 text-lg">Belum ada berita yang dipublikasikan.</p>
                 </div>
             @endforelse
-                      </div>
-                    </div>
-                </div>
-            {{-- @endforeach --}}
         </div>
     </div>
 </section>
