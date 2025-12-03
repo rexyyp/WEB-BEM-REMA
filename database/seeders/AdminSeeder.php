@@ -16,12 +16,12 @@ class AdminSeeder extends Seeder
         User::create([
             'name' => 'Admin BEM REMA',
             'email' => 'admin@bemrema.upi.ac.id',
-            'password' => Hash::make('admin123'),
+            'password' => Hash::make('pagaroren123'),
             'email_verified_at' => now(),
         ]);
 
         $this->command->info('✅ Admin user created successfully!');
         $this->command->info('📧 Email: admin@bemrema.upi.ac.id');
-        $this->command->info('🔑 Password: admin123');
+        $this->command->info('🔑 Password: pagaroren123');
     }
 }

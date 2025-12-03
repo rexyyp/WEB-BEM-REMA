@@ -21,3 +21,48 @@
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# Build files
+/public/build
+/public/css
+/public/js
+/public/mix-manifest.json
+/build
+dist/
+*.css.map
+*.js.map
+
+# Vite build files
+.vite/
+vite.output.log
+
+# Laravel Mix
+/public/hot
+mix-manifest.json
+
+# Cache and temporary files
+/bootstrap/cache/*.php
+!/bootstrap/cache/.gitkeep
+/storage/framework/cache/*
+!/storage/framework/cache/.gitkeep
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitkeep
+/storage/framework/views/*
+!/storage/framework/views/.gitkeep
+/storage/logs/*
+!/storage/logs/.gitkeep
+/storage/app/public/*
+!/storage/app/public/.gitkeep
+
+# PHP CS Fixer
+.php_cs.cache
+.php-cs-fixer.cache
+
+# IDE and OS files
+*.swp
+*.swo
+*~
+.project
+.settings
+.buildpath
+.classpath
