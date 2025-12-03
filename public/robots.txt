@@ -13,5 +13,9 @@ Disallow: /admin/dashboard
 Disallow: /storage/
 Disallow: /vendor/
 
+# Block Laravel files
+Disallow: /*.php$
+Disallow: /*.json$
+
 # Sitemap location
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://bemremaupi.com/sitemap.xml

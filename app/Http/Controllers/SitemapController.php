@@ -4,50 +4,79 @@ namespace App\Http\Controllers;
 
 use App\Models\Berita;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Cache;
 
 class SitemapController extends Controller
 {
     public function index()
     {
+        // Cache sitemap for 1 hour to improve performance
+        $sitemap = Cache::remember('sitemap_xml', 3600, function () {
+            return $this->generateSitemap();
+        });
+
+        return response($sitemap, 200)
+            ->header('Content-Type', 'text/xml; charset=UTF-8')
+            ->header('X-Robots-Tag', 'noindex, follow');
+    }
+
+    private function generateSitemap()
+    {
+        // Get only published/active news articles
         $beritas = Berita::latest('tanggal')->get();
 
-        $sitemap = '<?xml version="1.0" encoding="UTF-8"?>';
-        $sitemap .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+        $xml = new \DOMDocument('1.0', 'UTF-8');
+        $xml->formatOutput = true;
+
+        $urlset = $xml->createElement('urlset');
+        $urlset->setAttribute('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
+        $urlset->setAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance');
+        $urlset->setAttribute('xsi:schemaLocation', 'http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd');
+        $xml->appendChild($urlset);
 
         // Homepage
-        $sitemap .= '<url>';
-        $sitemap .= '<loc>' . url('/') . '</loc>';
-        $sitemap .= '<changefreq>daily</changefreq>';
-        $sitemap .= '<priority>1.0</priority>';
-        $sitemap .= '</url>';
+        $this->addUrl($xml, $urlset, [
+            'loc' => url('/'),
+            'changefreq' => 'daily',
+            'priority' => '1.0'
+        ]);
 
         // Tentang page
-        $sitemap .= '<url>';
-        $sitemap .= '<loc>' . url('/tentang') . '</loc>';
-        $sitemap .= '<changefreq>monthly</changefreq>';
-        $sitemap .= '<priority>0.8</priority>';
-        $sitemap .= '</url>';
+        $this->addUrl($xml, $urlset, [
+            'loc' => url('/tentang'),
+            'changefreq' => 'monthly',
+            'priority' => '0.8'
+        ]);
 
         // Berita index
-        $sitemap .= '<url>';
-        $sitemap .= '<loc>' . url('/berita') . '</loc>';
-        $sitemap .= '<changefreq>daily</changefreq>';
-        $sitemap .= '<priority>0.9</priority>';
-        $sitemap .= '</url>';
+        $this->addUrl($xml, $urlset, [
+            'loc' => url('/berita'),
+            'changefreq' => 'daily',
+            'priority' => '0.9'
+        ]);
 
         // All berita articles
         foreach ($beritas as $berita) {
-            $sitemap .= '<url>';
-            $sitemap .= '<loc>' . route('berita.detail', $berita->slug) . '</loc>';
-            $sitemap .= '<lastmod>' . $berita->updated_at->toAtomString() . '</lastmod>';
-            $sitemap .= '<changefreq>weekly</changefreq>';
-            $sitemap .= '<priority>0.7</priority>';
-            $sitemap .= '</url>';
+            $this->addUrl($xml, $urlset, [
+                'loc' => route('berita.detail', $berita->slug),
+                'lastmod' => $berita->updated_at->toW3cString(),
+                'changefreq' => 'weekly',
+                'priority' => '0.7'
+            ]);
         }
 
-        $sitemap .= '</urlset>';
+        return $xml->saveXML();
+    }
 
-        return response($sitemap, 200)
-            ->header('Content-Type', 'text/xml');
+    private function addUrl($xml, $urlset, $data)
+    {
+        $url = $xml->createElement('url');
+
+        foreach ($data as $key => $value) {
+            $element = $xml->createElement($key, htmlspecialchars($value, ENT_XML1, 'UTF-8'));
+            $url->appendChild($element);
+        }
+
+        $urlset->appendChild($url);
     }
 }
